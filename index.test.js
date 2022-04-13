@@ -11,7 +11,8 @@ const numberToEncodedLetters = [
     [52, 'AZ'],
     [53, 'BA'],
     [78, 'BZ'],
-    [705, 'AAC']
+    [705, 'AAC'],
+    [16384, 'XFD']
 ]
 
 const numberWithDictionaryToEncodedLetters = [
