@@ -4,6 +4,7 @@
   "description": "Encode and decode large numbers as letter representations",
   "main": "index.js",
   "scripts": {
+    "pretest": "npm run lint",
     "test": "jest --coverage",
     "lint": "eslint . --ext .js"
   },
