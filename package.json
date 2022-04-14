@@ -3,6 +3,7 @@
   "version": "1.0.0",
   "description": "Encode and decode large numbers as letter representations",
   "main": "index.js",
+  "sideEffects": false,
   "scripts": {
     "pretest": "npm run lint",
     "test": "jest --coverage",
@@ -13,7 +14,7 @@
     "url": "git+https://github.com/M-Scott-Lassiter/Alphanumeric-Encoder.git"
   },
   "keywords": [
-     "alphanumeric",
+    "alphanumeric",
     "encode",
     "decode",
     "letter to number",
