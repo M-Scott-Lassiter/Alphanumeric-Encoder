@@ -8,7 +8,7 @@
     "docs": "documentation build index.js --format md --output API.md",
     "pretest": "npm run lint",
     "test": "jest --coverage",
-    "lint": "eslint . --ext .js"
+    "lint": "eslint . --ext .js --fix"
   },
   "repository": {
     "type": "git",
