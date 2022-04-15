@@ -28,6 +28,7 @@
             "error",
             "never"
         ],
+        "valid-jsdoc": "error",
         "comma-dangle": ["error", "never"],
         "no-multiple-empty-lines": ["error", {"max": 1, "maxEOF": 0}],
 
