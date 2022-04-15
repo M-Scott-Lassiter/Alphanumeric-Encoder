@@ -1,12 +1,29 @@
+/**
+ * A class for encoding and decoding base 10 integers to a custom alphanumeric base representation.
+ * 
+ */
 class AlphanumericEncoder {
+
     constructor() {
         this._dictionary = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ'     //Default dictionary is the English alphabet, all capitalized, in order
     }
 
+    /**
+         * Returns the current dictionary. Default is the English alphabet in order: 'ABCDEFGHIJKLMNOPQRSTUVWXYZ'
+         * 
+         * @returns {string} The current dictionary in use
+    */
     get dictionary() {
+        
         return this._dictionary
     }
-    set dictionary(newDictionary) {
+    
+    /**
+         * 
+         * @param {string} newDictionary String of unique characters in order for the new dictionary
+    */
+    set dictionary(newDictionary) {    
+
         //Check for empty dictionaries
         if (newDictionary === null || newDictionary === undefined || newDictionary.length === 0) {
             throw new Error('The dictionary cannot be null, undefined, or an empty string.')
@@ -30,9 +47,14 @@ class AlphanumericEncoder {
         this._dictionary = newDictionary
     }
 
+    /**
+         * Takes any number and converts it into a base (dictionary length) letter combo.
+         * It converts any numerical entry into a positive integer.
+         * 
+         * @param {number} number Base 10 number. Must be positive and non-zero. Decimals values are truncated.
+         * @returns {string} Dictionary encoded value
+         */
     encode(number) {
-        //Takes any number and converts it into a base (dictionary length) letter combo.
-        //It converts any numerical entry into a positive integer.
         if (isNaN(number) || number < 0) {return undefined}         //!Number.isInteger(number)
 
         number = Math.abs(Math.floor(number))
