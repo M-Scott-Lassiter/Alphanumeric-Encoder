@@ -1,7 +1,7 @@
 # This workflow will do a clean installation of node dependencies, cache/restore them, build the source code and run tests across different versions of node
 # For more information see: https://help.github.com/actions/language-and-framework-guides/using-nodejs-with-github-actions
 
-name: Node Testing CI
+name: Test and Release CI/CD
 
 on:
   push:
@@ -16,8 +16,11 @@ jobs:
 
     strategy:
       matrix:
-        node-version: [12.x, 14.x, 16.x, 17.x]
-        os: [ubuntu-latest, windows-latest, macos-latest]
+        # Full versions omitted for publish testing
+        # node-version: [12.x, 14.x, 16.x, 17.x]
+        # os: [ubuntu-latest, windows-latest, macos-latest]
+        node-version: [16.x]
+        os: [ubuntu-latest]
         # See supported Node.js release schedule at https://nodejs.org/en/about/releases/
 
     steps:
@@ -39,9 +42,9 @@ jobs:
     - name: Use Node.js 16.x
       uses: actions/setup-node@v3
       with:
-        node-version: 16.x
+        node-version: "16.x"
     - run: npm ci
     - run: npx semantic-release
       env:
-        NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
