@@ -8,8 +8,7 @@
     "docs": "documentation build index.js --format md --output API.md",
     "pretest": "npm run lint",
     "test": "jest --coverage",
-    "lint": "eslint . --ext .js --fix",
-    "semantic-release": "semantic-release"
+    "lint": "eslint . --ext .js --fix"
   },
   "repository": {
     "type": "git",
@@ -34,7 +33,6 @@
     "documentation": "^13.2.5",
     "eslint": "^8.12.0",
     "eslint-plugin-jest": "^26.1.4",
-    "jest": "^27.5.1",
-    "semantic-release": "^19.0.2"
+    "jest": "^27.5.1"
   }
 }
