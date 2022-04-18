@@ -49,6 +49,7 @@ jobs:
     #     GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
     - name: Gnerate Release
       run:
+        gh auth login --with-token < ${{ secrets.GITHUB_TOKEN }}
         gh release list
     - name: Publish
       run: |
