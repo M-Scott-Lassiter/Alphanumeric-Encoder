@@ -47,14 +47,18 @@ jobs:
     #   env:
     #     NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
     #     GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-    - name: Gnerate Release
-      run:
-        gh auth login --with-token < ${{ secrets.GITHUB_TOKEN }}
-        gh release list
-    - name: Publish
-      run: |
-        npm config set //registry.npmjs.org/:_authToken ${NPM_TOKEN}
-        npm ci
-        npm publish
+
+    #THIS WORKS
+    # - name: Publish
+    #   run: |
+    #     npm config set //registry.npmjs.org/:_authToken ${NPM_TOKEN}
+    #     npm ci
+    #     npm publish
+    #   env:
+    #     NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
+
+    - name: Release new version to NPM
       env:
+        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
+      run: npx semantic-release
