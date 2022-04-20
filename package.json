@@ -15,7 +15,24 @@
     "url": "https://github.com/M-Scott-Lassiter/Alphanumeric-Encoder.git"
   },
   "release": {
-    "branches": ["main", "next"]
+    "branches": ["main", "next"],
+    "plugins": [
+      "@semantic-release/commit-analyzer",
+      "@semantic-release/release-notes-generator",
+      [
+        "@semantic-release/changelog",
+        {
+          "changelogFile": "CHANGELOG.md"
+        }
+      ],
+      "@semantic-release/npm",
+      [
+        "@semantic-release/git",
+        {
+          "assets": ["CHANGELOG.md"]
+        }
+      ]
+    ]
   },
   "keywords": [
     "alphanumeric",
@@ -37,6 +54,6 @@
     "eslint": "^8.12.0",
     "eslint-plugin-jest": "^26.1.4",
     "jest": "^27.5.1",
-    "semantic-release": "^17.0.4"
+    "semantic-release": "^19.0.2"
   }
 }
