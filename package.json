@@ -15,7 +15,10 @@
     "url": "https://github.com/M-Scott-Lassiter/Alphanumeric-Encoder.git"
   },
   "release": {
-    "branches": ["main", "next"],
+    "branches": [
+      "main",
+      "next"
+    ],
     "plugins": [
       "@semantic-release/commit-analyzer",
       "@semantic-release/release-notes-generator",
@@ -25,13 +28,31 @@
           "changelogFile": "CHANGELOG.md"
         }
       ],
-      "@semantic-release/npm",
       [
         "@semantic-release/git",
         {
-          "assets": ["CHANGELOG.md"]
+          "assets": [
+            "CHANGELOG.md"
+          ],
+          "message": "${nextRelease.version} CHANGELOG [skip ci]\n\n${nextRelease.notes}"
         }
-      ]
+      ],
+      [
+        "@semantic-release/github",
+        {
+          "assets": [
+            {
+              "path": "index.js",
+              "label": "Alphanumeric-Encoder"
+            },
+            {
+              "path": "API.md",
+              "label": "API"
+            }
+          ]
+        }
+      ],
+      "@semantic-release/npm"
     ]
   },
   "keywords": [
@@ -50,6 +71,8 @@
   },
   "homepage": "https://github.com/M-Scott-Lassiter/Alphanumeric-Encoder#readme",
   "devDependencies": {
+    "@semantic-release/changelog": "^6.0.1",
+    "@semantic-release/git": "^10.0.1",
     "documentation": "^13.2.5",
     "eslint": "^8.12.0",
     "eslint-plugin-jest": "^26.1.4",
