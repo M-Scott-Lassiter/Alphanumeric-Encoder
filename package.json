@@ -15,7 +15,7 @@
     "url": "https://github.com/M-Scott-Lassiter/Alphanumeric-Encoder.git"
   },
   "release": {
-    "branches": ["master", "next"]
+    "branches": ["main", "next"]
   },
   "keywords": [
     "alphanumeric",
