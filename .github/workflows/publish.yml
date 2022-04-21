@@ -27,6 +27,9 @@ jobs:
     #   env:
     #     NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
 
+    
+    - name: Clean Install
+      run: npm ci
     - name: Test
       run: npm test
     - name: Release new version to NPM
