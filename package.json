@@ -4,6 +4,14 @@
   "description": "Encode and decode large numbers as letter representations",
   "main": "index.js",
   "sideEffects": false,
+  "files": [
+    "index.js",
+    "README.md",
+    "API.md",
+    "LICENSE",
+    "package.json",
+    "package-lock.json"
+  ],
   "scripts": {
     "docs": "documentation build index.js --format md --output API.md",
     "pretest": "npm run lint",
