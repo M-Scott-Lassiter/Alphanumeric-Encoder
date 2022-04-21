@@ -6,34 +6,9 @@ name: Test and Release CI/CD
 on:
   push:
     branches: [ main ]
-  pull_request:
-    branches: [ main ]
 
 jobs:
-  test:
-
-    runs-on: ${{ matrix.os }}
-
-    strategy:
-      matrix:
-        # Full versions omitted for publish testing
-        # node-version: [12.x, 14.x, 16.x, 17.x]
-        # os: [ubuntu-latest, windows-latest, macos-latest]
-        node-version: [16.x]
-        os: [ubuntu-latest]
-        # See supported Node.js release schedule at https://nodejs.org/en/about/releases/
-
-    steps:
-    - uses: actions/checkout@v3
-    - name: Use Node.js ${{ matrix.node-version }}
-      uses: actions/setup-node@v3
-      with:
-        node-version: ${{ matrix.node-version }}
-        cache: 'npm'
-    - run: npm ci
-    # - run: npm run build --if-present
-    - run: npm test
-
+  
   publish:
     runs-on: ubuntu-latest
     needs: [test]
@@ -43,10 +18,6 @@ jobs:
       uses: actions/setup-node@v3
       with:
         node-version: "16.x"
-    # - run: npx semantic-release
-    #   env:
-    #     NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
-    #     GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
     #THIS WORKS
     # - name: Publish
@@ -57,6 +28,8 @@ jobs:
     #   env:
     #     NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
 
+    - name: Test
+      run: npm test
     - name: Release new version to NPM
       env:
         GITHUB_TOKEN: ${{ secrets.GH_TOKEN }}
