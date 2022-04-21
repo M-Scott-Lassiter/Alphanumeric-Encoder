@@ -1,4 +1,6 @@
 # Alphanumeric-Encoder
 Convert large numbers to letter representations
 
-![Test](https://github.com/M-Scott-Lassiter/Alphanumeric-Encoder/actions/workflows/test.yml/badge.svg)
+![Tests](https://github.com/M-Scott-Lassiter/Alphanumeric-Encoder/actions/workflows/test.yml/badge.svg)
+![Build](https://github.com/M-Scott-Lassiter/Alphanumeric-Encoder/actions/workflows/publish.yml/badge.svg)
+[![semantic-release: angular](https://img.shields.io/badge/semantic--release-angular-e10079?logo=semantic-release)](https://github.com/semantic-release/semantic-release)
