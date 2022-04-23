@@ -9,7 +9,9 @@
 
 </div>
 
-Thank you for considering a contribution to `alphanumeric-encoder`! Before submitting your contribution, please take a moment to read through this document. This guide documents the standards, tooling, and process that goes into the CI/CD pipeline.
+Thank you for considering a contribution to `alphanumeric-encoder`!
+
+Before submitting your contribution, please take a moment to read through this document. This guide documents the standards, tooling, and process that goes into the CI/CD pipeline.
 
  
 
@@ -40,7 +42,7 @@ Thank you for considering a contribution to `alphanumeric-encoder`! Before submi
 
 ## Continuous Integration/Continuous Deployment
 
-`alphanumeric-encoder` uses [Semantic Versioning](https://semver.org/).
+`alphanumeric-encoder` uses [Semantic Versioning](https://semver.org/) and updates automatically based on specific [versioning triggers](#versioning-triggers).
 
 ## Issue Reporting Guidelines
 
@@ -56,9 +58,11 @@ Thank you for considering a contribution to `alphanumeric-encoder`! Before submi
 
 ### Linting
 
+Linting is done with ESLint.
 
 ### Testing
 
+Tests are run with Jest.
 
 ### Documentation
 
@@ -81,7 +85,7 @@ Commits follow the [Angular Commit Message](https://github.com/angular/angular/b
 
 #### Types
 
-Must be one of the following:
+Required. Must be one of the following:
 
 - `build`: Changes that affect the build system, package scripts, or external dependencies (i.e. adds/removes/modifies/updates any project, peer, or dev dependency)
 - `ci`: Changes to CI configuration files and scripts (e.g. release configs, YAML scripts)
@@ -94,26 +98,26 @@ Must be one of the following:
 
 #### Scopes
 
-If used, the scope must be one of the following supported scopes:
+If applicable, use one of the following supported scopes:
 
 - `api`: Any documentation that helps developers or end users understand how to better employ a tool or feature
-- `readme`: Contributions to the main [README.md](https://github.com/M-Scott-Lassiter/Alphanumeric-Encoder#alphanumeric-encoder)
 - `contributing`: Contributions to this guidance
 - `license`: Changes to terms or copyright status within the [license](/../../blob/main/LICENSE)
-- `security`
-- `package`
+- `readme`: Contributions to the main [README.md](https://github.com/M-Scott-Lassiter/Alphanumeric-Encoder#alphanumeric-encoder)
+- `security`: Changes that address code related security issues or security policies
 
 #### Versioning Triggers
 
-Pushes to the main branch causes [`semantic-release`](https://github.com/semantic-release/semantic-release#commit-message-format) to check all commits since the last version for any triggers that would cause a new version:
+Pushes to the main branch causes `semantic-release` to [check all commits](https://github.com/semantic-release/semantic-release#commit-message-format) since the last version for any triggers that would cause a new version. This project extends the defaults:
 - Patch
   - `build`
   - `fix`
   - `perf`
-  - `(API)`
-  - `(LICENSE)`
-  - `(SECURITY)`
+  - `(api)`
+  - `(license)`
 - Version
   - `feat`
 - Major
   - `BREAKING CHANGE`
+
+Any changes to the `api` and `license` scopes trigger a patch. This keeps documentation as a first-class citizen without patching for any and all changes to the README.
