@@ -1,10 +1,7 @@
 <div align="center">
 
 # Alphanumeric Encoder
-Encodes a number to a letter representation, or decodes it back.
 
-
-    
 [![Tests](https://github.com/M-Scott-Lassiter/Alphanumeric-Encoder/actions/workflows/test.yml/badge.svg)](https://github.com/M-Scott-Lassiter/Alphanumeric-Encoder/actions/workflows/test.yml)
 [![Build](https://github.com/M-Scott-Lassiter/Alphanumeric-Encoder/actions/workflows/publish.yml/badge.svg)](https://github.com/M-Scott-Lassiter/Alphanumeric-Encoder/actions/workflows/publish.yml)
 [![codecov](https://codecov.io/github/M-Scott-Lassiter/Alphanumeric-Encoder/branch/main/graph/badge.svg?token=MLCXIHQJGA)](https://codecov.io/github/M-Scott-Lassiter/Alphanumeric-Encoder)

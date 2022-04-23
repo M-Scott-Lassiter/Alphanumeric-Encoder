@@ -1,7 +1,7 @@
 {
   "name": "alphanumeric-encoder",
   "version": "1.0.1",
-  "description": "Encode and decode large numbers as letter representations",
+  "description": "Encodes a number to a letter representation, or decodes it back",
   "main": "index.js",
   "sideEffects": false,
   "engines": {
