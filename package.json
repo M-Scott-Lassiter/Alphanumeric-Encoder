@@ -4,6 +4,9 @@
   "description": "Encode and decode large numbers as letter representations",
   "main": "index.js",
   "sideEffects": false,
+  "engines": {
+    "node": ">=12"
+  },
   "files": [
     "index.js",
     "README.md",
