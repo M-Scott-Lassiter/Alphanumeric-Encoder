@@ -1,4 +1,3 @@
-
 <div align="center">
 
 # Alphanumeric Encoder
@@ -27,9 +26,21 @@ ____
 <details open="open">
     <summary><b>Table of Contents</b></summary>
 
-  - TOC here
+<!-- toc -->
+
+- [Getting Started](#getting-started)
+  * [Purpose](#purpose)
+  * [Install as an NPM Package](#install-as-an-npm-package)
+  * [Use in Javascript](#use-in-javascript)
+- [:book: API Documentation](#book-api-documentation)
+- [Node and Operating System Support Policy](#node-and-operating-system-support-policy)
+- [:clipboard: License and Development](#clipboard-license-and-development)
+- [Contact](#contact)
+
+<!-- tocstop -->
 
 </details>
+
 
 ***
 
