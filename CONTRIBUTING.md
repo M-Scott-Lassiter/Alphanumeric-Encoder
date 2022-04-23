@@ -99,8 +99,8 @@ Required. Must be one of the following:
 If applicable, use one of the following supported scopes:
 
 - `api`: Any documentation that helps developers or end users understand how to better employ a tool or feature
-- `contributing`: Contributions to this guidance
-- `license`: Changes to terms or copyright status within the [license](/../../blob/main/LICENSE)
+- `contributing`: Contributions to this guidance or the [Code of Conduct](/../../blob/main/CODE_OF_CONDUCT.md)
+- `license`: Changes to terms or copyright status within the [license](/../../blob/main/LICENSE). *NOTE: Any wholesale change in license type MUST include a BREAKING CHANGE.*
 - `readme`: Contributions to the main [README.md](https://github.com/M-Scott-Lassiter/Alphanumeric-Encoder#alphanumeric-encoder)
 - `security`: Changes that address code related security issues or security policies
 
