@@ -27,14 +27,14 @@ ____
 
 <!-- toc -->
 
-- [Getting Started](#getting-started)
-  * [Purpose](#purpose)
-  * [Install as an NPM Package](#install-as-an-npm-package)
-  * [Use in Javascript](#use-in-javascript)
-- [:book: API Documentation](#book-api-documentation)
-- [Node and Operating System Support Policy](#node-and-operating-system-support-policy)
+- [:book: Getting Started](#book-getting-started)
+  * [:question: Purpose](#question-purpose)
+  * [:toolbox: Install as an NPM Package](#toolbox-install-as-an-npm-package)
+  * [:arrow_forward: Use in Javascript](#arrow_forward-use-in-javascript)
+- [:gear: API Documentation](#gear-api-documentation)
+- [:hammer_and_wrench: Node and Operating System Support Policy](#hammer_and_wrench-node-and-operating-system-support-policy)
 - [:clipboard: License and Development](#clipboard-license-and-development)
-- [Contact](#contact)
+- [:envelope: Contact](#envelope-contact)
 
 <!-- tocstop -->
 
@@ -42,9 +42,9 @@ ____
 
 ***
 
-## Getting Started
+## :book: Getting Started
 
-### Purpose
+### :question: Purpose
 
 `alphanumeric-encoder` is a lightweight library with no dependencies. It can encode an integer into a letter representation, and decode the letter back into a number.
 
@@ -53,13 +53,13 @@ This is useful for converting letter indexes (used by people) to numbers (used b
 - Chess boards use letters and numbers to identify the grid
 - Geographic grid reference systems
 
-### Install as an NPM Package
+### :toolbox: Install as an NPM Package
 
 ```javascript
 npm install alphanumeric-encoder
 ```
 
-### Use in Javascript
+### :arrow_forward: Use in Javascript
 
 ```javascript
 const alphanumericEncoder = require("alphanumeric-encoder")
@@ -77,10 +77,10 @@ console.log(encoder.decode('ANE'))  // 1045
 
 ***
 
-## :book: API Documentation
+## :gear: API Documentation
 
 
-## Node and Operating System Support Policy
+## :hammer_and_wrench: Node and Operating System Support Policy
 
 This project supports [Long-Term Support, Current, and Maintenance](https://github.com/nodejs/Release) versions of node. Once a version reaches end of life, the CI scripts will no longer support them. Odd Node versions will only receive support while in a current status.
 
@@ -101,11 +101,11 @@ Older or newer Node versions and operating systems might support the library, bu
 
 Both [contributions](/../../blob/main/CONTRIBUTING.md) and [bug reports](link) welcome.
 
-Leave a :star: if you find this project useful!
+Leave a :star2: if you find this project useful!
 
 </div>
 
-## Contact
+## :envelope: Contact
 
 Maintained by M. Scott Lassiter.
 
