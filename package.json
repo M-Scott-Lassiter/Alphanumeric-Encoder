@@ -19,7 +19,7 @@
   "scripts": {
     "docs": "documentation build index.js --format md --output API.md",
     "pretest": "npm run lint",
-    "tableofcontents": "markdown-toc -i ./README.md",
+    "tableofcontents": "markdown-toc -i ./README.md && markdown-toc -i ./CONTRIBUTING.md",
     "test": "jest --coverage",
     "lint": "eslint . --ext .js --fix"
   },

@@ -12,6 +12,15 @@ Thank you for considering a contribution to `alphanumeric-encoder`! Before submi
 
 <!-- toc -->
 
+- [Issue Reporting Guidelines](#issue-reporting-guidelines)
+- [Pull Request Guidelines](#pull-request-guidelines)
+- [Development Setup](#development-setup)
+  * [Project Structure](#project-structure)
+  * [Linting](#linting)
+  * [Testing](#testing)
+  * [Documentation](#documentation)
+  * [Commits](#commits)
+  * [Continuous Integration/Continuous Deployment](#continuous-integrationcontinuous-deployment)
 
 <!-- tocstop -->
 
