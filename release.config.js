@@ -40,7 +40,7 @@ module.exports = {
                     'package.json',
                     'package-lock.json'
                 ],
-                'message': 'build(release): ${nextRelease.version} [skip ci]\n\n${nextRelease.notes}'
+                'message': 'docs: ${nextRelease.version} [skip ci]\n\n${nextRelease.notes}'
             }
         ]
     ],
