@@ -12,7 +12,25 @@ module.exports = {
                 {'scope': 'license', 'release': 'patch'}
             ]
         }],
-        '@semantic-release/release-notes-generator',
+        [
+            '@semantic-release/release-notes-generator', {
+                'presetConfig': {
+                    'types': [
+                        {'type': 'build', 'section': ':building_construction: Build Changes', 'hidden': false},
+                        {'type': 'ci', 'hidden': true},
+                        {'type': 'docs', 'hidden': true},
+                        {'type': 'feat', 'section': ':gift: Feature Changes', 'hidden': false},
+                        {'type': 'fix', 'section': ':lady_beetle: Bug Fixes', 'hidden': false},
+                        {'type': 'perf', 'section': ':fast_forward: Performance Improvements', 'hidden': false},
+                        {'type': 'refactor', 'hidden': true},
+                        {'type': 'test', 'section': ':dart: Test Changes', 'hidden': false}
+                    ]
+                },
+                'writerOpts': {
+                    'commitsSort': ['subject', 'scope']
+                }
+            }
+        ],
         [
             '@semantic-release/changelog',
             {
