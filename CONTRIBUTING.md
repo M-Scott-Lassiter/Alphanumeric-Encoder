@@ -64,14 +64,14 @@ Type
 
 Must be one of the following:
 
-*       build: Changes that affect the build system or external dependencies (add, remove, modify, or update)
-*       ci: Changes to our CI configuration files and scripts (examples: CircleCi, SauceLabs)
-*       docs: Documentation only changes
-*       feat: Adds a new feature
-*       fix: Fixes a bug in an existing feature
-*       perf: A code change that improves performance
-*       refactor: A code change that neither fixes a bug nor adds a feature
-*       test: Add missing tests or correct existing tests
+- `build`:    Changes that affect the build system or external dependencies (add, remove, modify, or update)
+- `ci`:       Changes to our CI configuration files and scripts (examples: CircleCi, SauceLabs)
+- `docs`:     Documentation only changes
+- `feat`:     Adds a new feature
+- `fix`:      Fixes a bug in an existing feature
+- `perf`:     A code change that improves performance
+- `refactor`: A code change that neither fixes a bug nor adds a feature
+- `test`:     Add missing tests or correct existing tests
 
 
 Scope
@@ -81,10 +81,10 @@ The scope should be the name of the npm package affected (as perceived by the pe
 
 The following is the list of supported scopes:
 
-*       readme
-*       license
-*       security
-*       package
+- `readme`
+- `license`
+- `security`
+- `package`
 
 
 
