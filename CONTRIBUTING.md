@@ -19,6 +19,7 @@ Thank you for considering a contribution to `alphanumeric-encoder`! Before submi
 
 <!-- toc -->
 
+- [Continuous Integration/Continuous Deployment](#continuous-integrationcontinuous-deployment)
 - [Issue Reporting Guidelines](#issue-reporting-guidelines)
 - [Pull Request Guidelines](#pull-request-guidelines)
 - [Development Setup](#development-setup)
@@ -27,72 +28,92 @@ Thank you for considering a contribution to `alphanumeric-encoder`! Before submi
   * [Testing](#testing)
   * [Documentation](#documentation)
   * [Commits](#commits)
-  * [Continuous Integration/Continuous Deployment](#continuous-integrationcontinuous-deployment)
+    + [Types](#types)
+    + [Scopes](#scopes)
+    + [Versioning Triggers](#versioning-triggers)
 
 <!-- tocstop -->
 
 </details>
  
 
+
+## Continuous Integration/Continuous Deployment
+
+`alphanumeric-encoder` uses [Semantic Versioning](https://semver.org/).
+
 ## Issue Reporting Guidelines
 
- 
 
 ## Pull Request Guidelines
 
- 
 
 ## Development Setup
 
- 
 
 ### Project Structure
 
- 
 
 ### Linting
 
- 
 
 ### Testing
 
- 
 
 ### Documentation
 
- 
 
 ### Commits
 
- 
+Commits follow the [Angular Commit Message](https://github.com/angular/angular/blob/master/CONTRIBUTING.md#commit) standard. Refer to their documentation for further guidance. Differences that are specific to this project are detailed below:
 
+    <type>(<scope>): <short summary>
+    │       │             │
+    │       │             └─⫸ Summary in present tense. Not capitalized. No period at the end.
+    │       │
+    │       └─⫸ Commit Scope: animations|bazel|benchpress|common|compiler|compiler-cli|core|
+    │                          elements|forms|http|language-service|localize|platform-browser|
+    │                          platform-browser-dynamic|platform-server|router|service-worker|
+    │                          upgrade|zone.js|packaging|changelog|docs-infra|migrations|ngcc|ve|
+    │                          devtools
+    │
+    └─⫸ Commit Type: build|ci|docs|feat|fix|perf|refactor|test
 
-Type
+#### Types
 
 Must be one of the following:
 
-- `build`:    Changes that affect the build system or external dependencies (add, remove, modify, or update)
-- `ci`:       Changes to our CI configuration files and scripts (examples: CircleCi, SauceLabs)
-- `docs`:     Documentation only changes
-- `feat`:     Adds a new feature
-- `fix`:      Fixes a bug in an existing feature
-- `perf`:     A code change that improves performance
+- `build`: Changes that affect the build system, package scripts, or external dependencies (i.e. adds/removes/modifies/updates any project, peer, or dev dependency)
+- `ci`: Changes to CI configuration files and scripts (e.g. release configs, YAML scripts)
+- `docs`: Documentation only changes
+- `feat`: Adds a new feature
+- `fix`: Fixes a bug in an existing feature
+- `perf`: A code change that improves performance
 - `refactor`: A code change that neither fixes a bug nor adds a feature
-- `test`:     Add missing tests or correct existing tests
+- `test`: Add missing tests or correct existing tests
 
+#### Scopes
 
-Scope
+If used, the scope must be one of the following supported scopes:
 
-
-The scope should be the name of the npm package affected (as perceived by the person reading the changelog generated from commit messages).
-
-The following is the list of supported scopes:
-
-- `readme`
-- `license`
+- `api`: Any documentation that helps developers or end users understand how to better employ a tool or feature
+- `readme`: Contributions to the main [README.md](https://github.com/M-Scott-Lassiter/Alphanumeric-Encoder#alphanumeric-encoder)
+- `contributing`: Contributions to this guidance
+- `license`: Changes to terms or copyright status within the [license](/../../blob/main/LICENSE)
 - `security`
 - `package`
 
+#### Versioning Triggers
 
-
-### Continuous Integration/Continuous Deployment
+Pushes to the main branch causes [`semantic-release`](https://github.com/semantic-release/semantic-release#commit-message-format) to check all commits since the last version for any triggers that would cause a new version:
+- Patch
+  - `build`
+  - `fix`
+  - `perf`
+  - `(API)`
+  - `(LICENSE)`
+  - `(SECURITY)`
+- Version
+  - `feat`
+- Major
+  - `BREAKING CHANGE`
