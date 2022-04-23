@@ -7,11 +7,11 @@
 [![codecov](https://codecov.io/github/M-Scott-Lassiter/Alphanumeric-Encoder/branch/main/graph/badge.svg?token=MLCXIHQJGA)](https://codecov.io/github/M-Scott-Lassiter/Alphanumeric-Encoder)
 ![Dependency status](https://img.shields.io/librariesio/release/npm/alphanumeric-encoder)
 ![Vulnerabilities](https://img.shields.io/snyk/vulnerabilities/npm/alphanumeric-encoder)
- [![Open Issues](https://img.shields.io/github/issues/m-scott-lassiter/alphanumeric-encoder/bug)](https://github.com/M-Scott-Lassiter/Alphanumeric-Encoder/labels/bug)
+[![Open Issues](https://img.shields.io/github/issues/m-scott-lassiter/alphanumeric-encoder/bug)](https://github.com/M-Scott-Lassiter/Alphanumeric-Encoder/labels/bug)
  
 
 ![Maintained](https://img.shields.io/badge/Maintained%3F-yes-brightgreen.svg)
- [![contributions welcome](https://img.shields.io/badge/contributions-welcome-brightgreen.svg?style=flat)](/../../blob/main/CONTRIBUTING.md)
+[![contributions welcome](https://img.shields.io/badge/contributions-welcome-brightgreen.svg?style=flat)](/../../blob/main/CONTRIBUTING.md)
 
 ____
 [![NPM Version](https://img.shields.io/npm/v/alphanumeric-encoder)](https://www.npmjs.com/package/alphanumeric-encoder)
@@ -40,14 +40,18 @@ ____
 
 </details>
 
-
 ***
 
 ## Getting Started
 
 ### Purpose
 
-`alphanumeric-encoder` is a lightweight library with no dependencies.
+`alphanumeric-encoder` is a lightweight library with no dependencies. It can encode an integer into a letter representation, and decode the letter back into a number.
+
+This is useful for converting letter indexes (used by people) to numbers (used by computers). Examples include:
+- Spreadsheet columns (e.g. Microsoft Excel's end column is "XFD" which corresponds to 16384)
+- Chess boards use letters and numbers to identify the grid
+- Geographic grid reference systems
 
 ### Install as an NPM Package
 
