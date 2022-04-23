@@ -2,10 +2,10 @@
 
 <div align="center">
 
-[![semantic-release: angular](https://img.shields.io/badge/semantic--release-angular-e10079?logo=semantic-release)](https://github.com/semantic-release/semantic-release)
-[![Testing: Jest](https://img.shields.io/badge/jest-C21325?logo=jest&logoColor=white)](https://github.com/facebook/jest)
 [![Linting: ESLint](https://img.shields.io/badge/eslint-4B32C3?logo=eslint&logoColor=white)](https://github.com/eslint/eslint)
+[![Testing: Jest](https://img.shields.io/badge/jest-C21325?logo=jest&logoColor=white)](https://github.com/facebook/jest)
 [![Commitizen friendly](https://img.shields.io/badge/commitizen-friendly-brightgreen.svg)](http://commitizen.github.io/cz-cli/)
+[![semantic-release: angular](https://img.shields.io/badge/semantic--release-angular-e10079?logo=semantic-release)](https://github.com/semantic-release/semantic-release)
 
 </div>
 
