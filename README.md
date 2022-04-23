@@ -10,11 +10,11 @@ Encodes a number to a letter representation, or decodes it back.
 [![codecov](https://codecov.io/github/M-Scott-Lassiter/Alphanumeric-Encoder/branch/main/graph/badge.svg?token=MLCXIHQJGA)](https://codecov.io/github/M-Scott-Lassiter/Alphanumeric-Encoder)
 ![Dependency status](https://img.shields.io/librariesio/release/npm/alphanumeric-encoder)
 ![Vulnerabilities](https://img.shields.io/snyk/vulnerabilities/npm/alphanumeric-encoder)
- [![Open Issues](https://img.shields.io/github/issues/m-scott-lassiter/alphanumeric-encoder/bug)](https://github.com/M-Scott-Lassiter/Alphanumeric-Encoder/issues)
+ [![Open Issues](https://img.shields.io/github/issues/m-scott-lassiter/alphanumeric-encoder/bug)](https://github.com/M-Scott-Lassiter/Alphanumeric-Encoder/labels/bug)
  
 
 ![Maintained](https://img.shields.io/badge/Maintained%3F-yes-brightgreen.svg)
- [![contributions welcome](https://img.shields.io/badge/contributions-welcome-brightgreen.svg?style=flat)](https://github.com/M-Scott-Lassiter/Alphanumeric-Encoder/CONTRIBUTING.md)
+ [![contributions welcome](https://img.shields.io/badge/contributions-welcome-brightgreen.svg?style=flat)](/../../blob/main/CONTRIBUTING.md)
 
 ____
 [![NPM Version](https://img.shields.io/npm/v/alphanumeric-encoder)](https://www.npmjs.com/package/alphanumeric-encoder)
@@ -96,7 +96,7 @@ Older or newer Node versions and operating systems might support the library, bu
 
 `alphanumeric-encoder` and all other files in this repository are distributed as free and open-source software under the [MIT License](/../../blob/main/LICENSE), © 2022.
 
-Both [contributions](/../../blob/main/CONTRIBUTIONS.md) and [bug reports](link) welcome.
+Both [contributions](/../../blob/main/CONTRIBUTING.md) and [bug reports](link) welcome.
 
 Leave a :star: if you find this project useful!
 
