@@ -1,6 +1,13 @@
 # Contributing Guide
 
- 
+<div align="center">
+
+[![semantic-release: angular](https://img.shields.io/badge/semantic--release-angular-e10079?logo=semantic-release)](https://github.com/semantic-release/semantic-release)
+[![Testing: Jest](https://img.shields.io/badge/jest-C21325?logo=jest&logoColor=white)](https://github.com/facebook/jest)
+[![Linting: ESLint](https://img.shields.io/badge/eslint-4B32C3?logo=eslint&logoColor=white)](https://github.com/eslint/eslint)
+[![Commitizen friendly](https://img.shields.io/badge/commitizen-friendly-brightgreen.svg)](http://commitizen.github.io/cz-cli/)
+
+</div>
 
 Thank you for considering a contribution to `alphanumeric-encoder`! Before submitting your contribution, please take a moment to read through this document. This guide documents the standards, tooling, and process that goes into the CI/CD pipeline.
 
