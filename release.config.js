@@ -14,6 +14,7 @@ module.exports = {
         }],
         [
             '@semantic-release/release-notes-generator', {
+                'preset': 'conventionalcommits',
                 'presetConfig': {
                     'types': [
                         {'type': 'build', 'section': ':building_construction: Build Changes', 'hidden': false},
