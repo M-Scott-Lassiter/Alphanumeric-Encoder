@@ -28,9 +28,9 @@ ____
 <!-- toc -->
 
 - [:book: Getting Started](#book-getting-started)
-  * [:question: Purpose](#question-purpose)
-  * [:toolbox: Install as an NPM Package](#toolbox-install-as-an-npm-package)
-  * [:arrow_forward: Use in Javascript](#arrow_forward-use-in-javascript)
+  * [Purpose](#purpose)
+  * [Install as an NPM Package](#install-as-an-npm-package)
+  * [Use in Javascript](#use-in-javascript)
 - [:gear: API Documentation](#gear-api-documentation)
 - [:hammer_and_wrench: Node and Operating System Support Policy](#hammer_and_wrench-node-and-operating-system-support-policy)
 - [:clipboard: License and Development](#clipboard-license-and-development)
@@ -44,7 +44,7 @@ ____
 
 ## :book: Getting Started
 
-### :question: Purpose
+### Purpose
 
 `alphanumeric-encoder` is a lightweight library with no dependencies. It can encode an integer into a letter representation, and decode the letter back into a number.
 
@@ -53,13 +53,13 @@ This is useful for converting letter indexes (used by people) to numbers (used b
 - Chess boards use letters and numbers to identify the grid
 - Geographic grid reference systems
 
-### :toolbox: Install as an NPM Package
+### Install as an NPM Package
 
 ```javascript
 npm install alphanumeric-encoder
 ```
 
-### :arrow_forward: Use in Javascript
+### Use in Javascript
 
 ```javascript
 const alphanumericEncoder = require("alphanumeric-encoder")
