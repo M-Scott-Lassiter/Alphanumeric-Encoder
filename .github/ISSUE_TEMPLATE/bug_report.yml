@@ -22,8 +22,7 @@ body:
     attributes:
       label: What happened?
       description: What did you expect to happen?
-      placeholder: What did you see?
-      value: "A bug happened!"
+      placeholder: Describe what you saw
     validations:
       required: true
   - type: input

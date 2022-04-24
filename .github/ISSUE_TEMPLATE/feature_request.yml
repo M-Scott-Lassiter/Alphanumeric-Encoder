@@ -31,8 +31,8 @@ body:
       label: Are you able/willing to make the change? (It's ok if you're not!)
       multiple: true
       options:
-        - No
-        - Yes
+        - "No"
+        - "Yes"
     validations:
       required: true
   - type: checkboxes
