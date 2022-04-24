@@ -17,8 +17,8 @@
     "package-lock.json"
   ],
   "scripts": {
+    "build": "npm run lint && npm run test && npm docs && npm run tableofcontents",
     "docs": "documentation build index.js --format md --output API.md",
-    "pretest": "npm run lint",
     "tableofcontents": "markdown-toc -i ./README.md && markdown-toc -i ./CONTRIBUTING.md",
     "test": "jest --coverage",
     "lint": "eslint . --ext .js --fix"
