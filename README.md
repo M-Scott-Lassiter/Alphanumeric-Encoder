@@ -5,12 +5,12 @@
 [![Tests](https://github.com/M-Scott-Lassiter/Alphanumeric-Encoder/actions/workflows/test.yml/badge.svg)](https://github.com/M-Scott-Lassiter/Alphanumeric-Encoder/actions/workflows/test.yml)
 [![Build](https://github.com/M-Scott-Lassiter/Alphanumeric-Encoder/actions/workflows/publish.yml/badge.svg)](https://github.com/M-Scott-Lassiter/Alphanumeric-Encoder/actions/workflows/publish.yml)
 [![codecov](https://codecov.io/github/M-Scott-Lassiter/Alphanumeric-Encoder/branch/main/graph/badge.svg?token=MLCXIHQJGA)](https://codecov.io/github/M-Scott-Lassiter/Alphanumeric-Encoder)
-![Dependency status](https://img.shields.io/librariesio/release/npm/alphanumeric-encoder)
+[![Dependency status](https://img.shields.io/librariesio/release/npm/alphanumeric-encoder)](https://www.npmjs.com/package/alphanumeric-encoder?activeTab=dependencies)
 ![Vulnerabilities](https://img.shields.io/snyk/vulnerabilities/npm/alphanumeric-encoder)
 [![Open Issues](https://img.shields.io/github/issues/m-scott-lassiter/alphanumeric-encoder/bug)](https://github.com/M-Scott-Lassiter/Alphanumeric-Encoder/labels/bug)
  
 
-![Maintained](https://img.shields.io/badge/Maintained%3F-yes-brightgreen.svg)
+[![Maintained](https://img.shields.io/badge/Maintained%3F-yes-brightgreen.svg)](#envelope-contact)
 [![contributions welcome](https://img.shields.io/badge/contributions-welcome-brightgreen.svg?style=flat)](/../../blob/main/CONTRIBUTING.md)
 
 ____
