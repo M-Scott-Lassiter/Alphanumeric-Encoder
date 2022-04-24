@@ -79,6 +79,7 @@ console.log(encoder.decode('ANE'))  // 1045
 
 ## :gear: API Documentation
 
+See the [API](/../../blob/main/API.md) for more specific use information.
 
 ## :hammer_and_wrench: Node and Operating System Support Policy
 
