@@ -43,6 +43,8 @@ body:
         - Windows
         - Linux
         - Mac OS
+    validations:
+      required: true
   - type: dropdown
     id: node
     attributes:
@@ -53,6 +55,8 @@ body:
         - 14
         - 16
         - 17
+    validations:
+      required: true
   - type: textarea
     id: logs
     attributes:
@@ -63,7 +67,6 @@ body:
     id: terms
     attributes:
       label: Code of Conduct
-      description: By submitting this issue, you agree to follow the [Code of Conduct](https://github.com/M-Scott-Lassiter/Alphanumeric-Encoder/blob/main/CODE_OF_CONDUCT.md)
       options:
-        - label: I agree to follow this project's Code of Conduct
+        - label: I agree to follow this project's [Code of Conduct](https://github.com/M-Scott-Lassiter/Alphanumeric-Encoder/blob/main/CODE_OF_CONDUCT.md)
           required: true
