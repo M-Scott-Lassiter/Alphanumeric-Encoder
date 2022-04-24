@@ -62,6 +62,16 @@ body:
       label: Relevant log output
       description: Please copy and paste any relevant log output. This will be automatically formatted into code, so no need for backticks.
       render: shell
+  - type: dropdown
+    id: contribute
+    attributes:
+      label: Are you able/willing to make the change? (It's ok if you're not!)
+      multiple: false
+      options:
+        - "No"
+        - "Yes"
+    validations:
+      required: true
   - type: checkboxes
     id: terms
     attributes:
