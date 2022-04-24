@@ -36,19 +36,21 @@ Before contributing, please take a moment to read through this document. This gu
 
 </details>
  
+## Code of Conduct
+
+Please help keep this project open and inclusive. Refer to the [Code of Conduct](CODE_OF_CONDUCT.md) before your first contribution.
+
+## How can I Contribute?
+
+### Submit Issues
+
+### Improve Documentation
 
 
-## Continuous Integration/Continuous Deployment
+
+## Continuous Integration/Continuous Deployment Setup
 
 `alphanumeric-encoder` uses [Semantic Versioning](https://semver.org/) and updates automatically based on specific [versioning triggers](#versioning-triggers).
-
-## Issue Reporting Guidelines
-
-
-## Pull Request Guidelines
-
-
-## Development Setup
 
 
 ### Project Structure
@@ -121,7 +123,7 @@ Optional. If used, must be one of the following supported scopes:
 - `readme`: Contributions to the main [README.md](https://github.com/M-Scott-Lassiter/Alphanumeric-Encoder#alphanumeric-encoder)
 - `security`: Changes that address code related security issues or security policies
 
-#### Versioning Triggers
+### Versioning Triggers
 
 Pushes to the main branch causes `semantic-release` to [check all commits]since the last version for any triggers that would cause a new version. This project extends the defaults:
 - Patch
