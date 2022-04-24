@@ -66,9 +66,9 @@ const alphanumericEncoder = require("alphanumeric-encoder")
 
 const encoder = new alphanumericEncoder
 
-console.log(encoder.encode(5))      // ’E’
-console.log(encoder.encode(48))     // ‘AV’
-console.log(encoder.encode(733))    // ‘ABE’
+console.log(encoder.encode(5))      // 'E'
+console.log(encoder.encode(48))     // 'AV'
+console.log(encoder.encode(733))    // 'ABE'
 
 console.log(encoder.decode('A'))    // 1
 console.log(encoder.decode('AC'))   // 29
