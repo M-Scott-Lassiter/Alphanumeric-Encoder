@@ -83,16 +83,16 @@ See the [API](/../../blob/main/API.md) for more specific use information.
 
 ## :hammer_and_wrench: Node and Operating System Support Policy
 
-This project supports [Long-Term Support, Current, and Maintenance](https://github.com/nodejs/Release) versions of node. Once a version reaches end of life, the CI scripts will no longer support them. Odd Node versions will only receive support while in a current status.
-
 The test suite has successfully run on all combinations of:
 
-- Node versions `12.x`, `14.x`, `16.x`, and `17.x`
+- ![Node Versions Supported](https://img.shields.io/node/v/alphanumeric-encoder)
 - ![Windows Supported](https://img.shields.io/badge/Windows-0078D6?style=for-the-badge=flat&logo=windows&logoColor=white)
 ![Mac Supported](https://img.shields.io/badge/Mac-000000?style=for-the-badge=flat&logo=apple&logoColor=white)
 ![Linux Supported](https://img.shields.io/badge/Linux-FCC624?style=for-the-badge=flat&logo=linux&logoColor=black)
 
-Older or newer Node versions and operating systems might support the library, but the tests have not verified other combinations.
+This project supports [Long-Term Support, Current, and Maintenance](https://github.com/nodejs/Release) versions of node. Once a version reaches end of life, the CI scripts will no longer support them. Odd Node versions will only receive support while in a current status.
+
+Other Node versions and operating systems might support the library, but the tests have not verified other combinations.
 
 ***
 
