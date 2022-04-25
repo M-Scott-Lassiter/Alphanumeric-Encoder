@@ -8,8 +8,7 @@ module.exports = {
             'preset': 'angular',
             'releaseRules': [
                 {'type': 'build', 'release': 'patch'},
-                {'scope': 'api', 'release': 'patch'},
-                {'scope': 'license', 'release': 'patch'}
+                {'scope': 'api', 'release': 'patch'}
             ]
         }],
         [
@@ -62,6 +61,7 @@ module.exports = {
                     'README.md',
                     'API.md',
                     'CHANGELOG.md',
+                    'CONTRIBUTING.md',
                     'LICENSE',
                     'package.json',
                     'package-lock.json'
