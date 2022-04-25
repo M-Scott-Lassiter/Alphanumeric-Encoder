@@ -123,13 +123,12 @@ Optional. If used, must be one of the following supported scopes:
 
 #### Versioning Triggers
 
-Pushes to the main branch causes `semantic-release` to [check all commits]since the last version for any triggers that would cause a new version. This project extends the defaults:
+Pushes to the main branch causes `semantic-release` to check all commits since the last version for any triggers that would cause a new version. This project extends the defaults:
 - Patch
   - `build`
   - `fix`
   - `perf`
   - `(api)`
-  - `(license)`
 - Version
   - `feat`
 - Major
@@ -137,4 +136,4 @@ Pushes to the main branch causes `semantic-release` to [check all commits]since 
 
 Extensions from the [semantic-release default](https://github.com/semantic-release/semantic-release#commit-message-format):
 - `build` types trigger a patch to keep users and developers in sync with dependency changes.
-- `api` and `license` scopes (regardless of commit type) trigger a patch. This keeps documentation as a first-class citizen without patching for any and all changes to the README.
+- `api` scope (regardless of commit type) triggers a patch. This keeps documentation as a first-class citizen without patching for any and all changes to the README or other supporting docs.

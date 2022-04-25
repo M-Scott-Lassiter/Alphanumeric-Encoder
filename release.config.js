@@ -8,8 +8,7 @@ module.exports = {
             'preset': 'angular',
             'releaseRules': [
                 {'type': 'build', 'release': 'patch'},
-                {'scope': 'api', 'release': 'patch'},
-                {'scope': 'license', 'release': 'patch'}
+                {'scope': 'api', 'release': 'patch'}
             ]
         }],
         [
