@@ -4,7 +4,7 @@
 
 [![Linting: ESLint](https://img.shields.io/badge/eslint-4B32C3?logo=eslint&logoColor=white)](https://github.com/eslint/eslint)
 [![Testing: Jest](https://img.shields.io/badge/jest-C21325?logo=jest&logoColor=white)](https://github.com/facebook/jest)
-[![Commitizen friendly](https://img.shields.io/badge/commitizen-friendly-brightgreen.svg)](http://commitizen.github.io/cz-cli/)
+<!-- [![Commitizen friendly](https://img.shields.io/badge/commitizen-friendly-brightgreen.svg)](http://commitizen.github.io/cz-cli/) -->
 [![semantic-release: angular](https://img.shields.io/badge/semantic--release-angular-e10079?logo=semantic-release)](https://github.com/semantic-release/semantic-release)
 
 </div>
@@ -36,22 +36,24 @@ Before contributing, please take a moment to read through this document. This gu
 
 </details>
  
+## Code of Conduct
 
+Please help keep this project open and inclusive. Refer to the [Code of Conduct](CODE_OF_CONDUCT.md) before your first contribution.
 
-## Continuous Integration/Continuous Deployment
+## How can I Contribute?
 
-`alphanumeric-encoder` uses [Semantic Versioning](https://semver.org/) and updates automatically based on specific [versioning triggers](#versioning-triggers).
+### Submit Issues
 
-## Issue Reporting Guidelines
+### Improve Documentation
 
 Open a new issue [here](https://github.com/M-Scott-Lassiter/Alphanumeric-Encoder/issues).
 
 For security related issues, see the [security policy](https://github.com/M-Scott-Lassiter/Alphanumeric-Encoder/security/policy).
 
-## Pull Request Guidelines
 
+## Continuous Integration/Continuous Deployment Setup
 
-## Development Setup
+`alphanumeric-encoder` uses [Semantic Versioning](https://semver.org/) and updates automatically based on specific [versioning triggers](#versioning-triggers).
 
 
 ### Project Structure
@@ -127,7 +129,7 @@ Optional. If used, must be one of the following supported scopes:
 - `readme`: Contributions to the main [README.md](https://github.com/M-Scott-Lassiter/Alphanumeric-Encoder#alphanumeric-encoder)
 - `security`: Changes that address code related security issues or security policies
 
-#### Versioning Triggers
+### Versioning Triggers
 
 Pushes to the main branch causes `semantic-release` to check all commits since the last version for any triggers that would cause a new version. This project extends the defaults:
 - Patch
