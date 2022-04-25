@@ -62,6 +62,7 @@ module.exports = {
                     'README.md',
                     'API.md',
                     'CHANGELOG.md',
+                    'CONTRIBUTING.md',
                     'LICENSE',
                     'package.json',
                     'package-lock.json'
