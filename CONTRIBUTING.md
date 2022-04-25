@@ -44,6 +44,9 @@ Before contributing, please take a moment to read through this document. This gu
 
 ## Issue Reporting Guidelines
 
+Open a new issue [here](https://github.com/M-Scott-Lassiter/Alphanumeric-Encoder/issues).
+
+For security related issues, see the [security policy](https://github.com/M-Scott-Lassiter/Alphanumeric-Encoder/security/policy).
 
 ## Pull Request Guidelines
 
@@ -64,6 +67,9 @@ Tests are run with Jest.
 
 ### Documentation
 
+API Documentation is automatically generated from JSDoc comments within the scripts.
+
+The table of contents in this guide and the main README are automatically generated using the [`markdown-toc`](https://github.com/jonschlinkert/markdown-toc) package.
 
 ### Commits
 
