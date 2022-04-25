@@ -20,17 +20,18 @@ Before contributing, please take a moment to read through this document. This gu
 
 <!-- toc -->
 
-- [Continuous Integration/Continuous Deployment](#continuous-integrationcontinuous-deployment)
-- [Issue Reporting Guidelines](#issue-reporting-guidelines)
-- [Pull Request Guidelines](#pull-request-guidelines)
-- [Development Setup](#development-setup)
+- [Code of Conduct](#code-of-conduct)
+- [How can I Contribute?](#how-can-i-contribute)
+  * [Submit Issues](#submit-issues)
+  * [Improve Documentation](#improve-documentation)
+- [Continuous Integration/Continuous Deployment Setup](#continuous-integrationcontinuous-deployment-setup)
   * [Project Structure](#project-structure)
   * [Linting](#linting)
   * [Testing](#testing)
   * [Documentation](#documentation)
   * [Commits](#commits)
     + [Commit Header Format](#commit-header-format)
-    + [Versioning Triggers](#versioning-triggers)
+  * [Versioning Triggers](#versioning-triggers)
 
 <!-- tocstop -->
 
