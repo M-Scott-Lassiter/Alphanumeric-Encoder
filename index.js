@@ -65,7 +65,7 @@ class AlphanumericEncoder {
         
         if (number <= this.dictionary.length) {
             //Number is within single digit bounds of our encoding letter alphabet
-            return numToLetter(number, this.dictionary)
+            return numToLetter(number, this.dictionary,)
         }
 
         //By reaching this point in the code, this number was bigger than our dictionary. Recursively perform this function until complete
@@ -105,4 +105,6 @@ class AlphanumericEncoder {
     }
 }
 
+
 module.exports = AlphanumericEncoder
+

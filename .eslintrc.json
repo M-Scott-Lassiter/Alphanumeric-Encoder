@@ -5,7 +5,7 @@
         "node": true,
         "jest": true
     },
-    "extends": "eslint:recommended",
+    "extends": "airbnb-base",
     "parserOptions": {
         "ecmaVersion": "latest",
         "sourceType": "module"
@@ -16,21 +16,16 @@
             "error",
             4
         ],
+        "no-underscore-dangle": ["error", {"allowAfterThis": true}],
         "linebreak-style": [
             "error",
             "unix"
-        ],
-        "quotes": [
-            "error",
-            "single"
         ],
         "semi": [
             "error",
             "never"
         ],
         "valid-jsdoc": "error",
-        "comma-dangle": ["error", "never"],
-        "no-multiple-empty-lines": ["error", {"max": 1, "maxEOF": 0}],
 
         "jest/no-disabled-tests": "warn",
         "jest/no-focused-tests": "error",
