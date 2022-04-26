@@ -9,9 +9,6 @@
     },
     "files": [
         "index.js",
-        "README.md",
-        "API.md",
-        "CHANGELOG.md",
         "LICENSE",
         "package.json",
         "package-lock.json"
