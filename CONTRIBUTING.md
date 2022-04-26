@@ -2,11 +2,10 @@
 
 <div align="center">
 
-<!-- [![Commitizen friendly](https://img.shields.io/badge/commitizen-friendly-brightgreen.svg)](http://commitizen.github.io/cz-cli/) -->
-
+[![Commitizen friendly](https://img.shields.io/badge/commitizen-friendly-brightgreen.svg)](http://commitizen.github.io/cz-cli/)
 [![Linting: ESLint](https://img.shields.io/badge/eslint-4B32C3?logo=eslint&logoColor=white)](https://github.com/eslint/eslint)
 [![Code format: Prettier](https://img.shields.io/badge/prettier-F7B93E.svg?style=flat-square&logo=prettier&logoColor=black)](https://github.com/prettier/prettier)
-[![Style Guide: Air b n b](https://img.shields.io/badge/code_style-airbnb-FF5A5F?logo=airbnb&logoColor=FF5A5F)](https://github.com/airbnb/javascript)
+[![Style Guide: Airbnb](https://img.shields.io/badge/code_style-airbnb-FF5A5F?logo=airbnb&logoColor=FF5A5F)](https://github.com/airbnb/javascript)
 [![Testing: Jest](https://img.shields.io/badge/jest-C21325?logo=jest&logoColor=white)](https://github.com/facebook/jest)
 [![semantic-release: angular](https://img.shields.io/badge/semantic--release-angular-e10079?logo=semantic-release)](https://github.com/semantic-release/semantic-release)
 
@@ -198,6 +197,7 @@ Required. Must be one of the following:
 -   `fix`: Fixes a bug in an existing feature
 -   `perf`: A code change that improves performance
 -   `refactor`: A code change that neither fixes a bug nor adds a feature
+-   `revert`: Revert to a commit
 -   `test`: Add missing tests or correct existing tests
 
 **Scopes**
