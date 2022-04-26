@@ -17,7 +17,7 @@
         "package-lock.json"
     ],
     "scripts": {
-        "build": "npm run lint && npm run test && npm run docs && npm run tableofcontents",
+        "build": "npm run lint && npm run test && npm run docs && npm run tableofcontents && npm run format",
         "docs": "documentation build index.js --format md --output API.md",
         "format": "npx prettier . --write",
         "tableofcontents": "markdown-toc -i ./README.md && markdown-toc -i ./CONTRIBUTING.md",
