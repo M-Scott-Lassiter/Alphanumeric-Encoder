@@ -1,21 +1,18 @@
 ## [1.1.0](https://github.com/M-Scott-Lassiter/Alphanumeric-Encoder/compare/v1.0.5...v1.1.0) (2022-04-26)
 
-
 ### :building_construction: Build Changes
 
-* add Airbnb style guide to the ESLint configuration ([c30eac9](https://github.com/M-Scott-Lassiter/Alphanumeric-Encoder/commit/c30eac9ce98e3f564343ac5a83a1969e14e82430)), closes [#20](https://github.com/M-Scott-Lassiter/Alphanumeric-Encoder/issues/20)
-* add Prettier for code formatting ([398dc54](https://github.com/M-Scott-Lassiter/Alphanumeric-Encoder/commit/398dc5416133df3b252fa429bf040293295955da)), closes [#21](https://github.com/M-Scott-Lassiter/Alphanumeric-Encoder/issues/21)
-
+-   add Airbnb style guide to the ESLint configuration ([c30eac9](https://github.com/M-Scott-Lassiter/Alphanumeric-Encoder/commit/c30eac9ce98e3f564343ac5a83a1969e14e82430)), closes [#20](https://github.com/M-Scott-Lassiter/Alphanumeric-Encoder/issues/20)
+-   add Prettier for code formatting ([398dc54](https://github.com/M-Scott-Lassiter/Alphanumeric-Encoder/commit/398dc5416133df3b252fa429bf040293295955da)), closes [#21](https://github.com/M-Scott-Lassiter/Alphanumeric-Encoder/issues/21)
 
 ### :lady_beetle: Bug Fixes
 
-* remove unnecessary files from distribution ([a40e6be](https://github.com/M-Scott-Lassiter/Alphanumeric-Encoder/commit/a40e6beab4d9d2bb076acfa7b08e85d2d957ec0a)), closes [#22](https://github.com/M-Scott-Lassiter/Alphanumeric-Encoder/issues/22)
-
+-   remove unnecessary files from distribution ([a40e6be](https://github.com/M-Scott-Lassiter/Alphanumeric-Encoder/commit/a40e6beab4d9d2bb076acfa7b08e85d2d957ec0a)), closes [#22](https://github.com/M-Scott-Lassiter/Alphanumeric-Encoder/issues/22)
 
 ### :gift: Feature Changes
 
-* add engine support for Node v10.x ([a04bd74](https://github.com/M-Scott-Lassiter/Alphanumeric-Encoder/commit/a04bd747b5e54c5c392ee308f9ceeeb4bfe27cc8)), closes [#23](https://github.com/M-Scott-Lassiter/Alphanumeric-Encoder/issues/23)
-* add support for Node v18.x ([6056d72](https://github.com/M-Scott-Lassiter/Alphanumeric-Encoder/commit/6056d72a9d81c1db9bdaee6f4d06eda6af45e75b)), closes [#23](https://github.com/M-Scott-Lassiter/Alphanumeric-Encoder/issues/23)
+-   add engine support for Node v10.x ([a04bd74](https://github.com/M-Scott-Lassiter/Alphanumeric-Encoder/commit/a04bd747b5e54c5c392ee308f9ceeeb4bfe27cc8)), closes [#23](https://github.com/M-Scott-Lassiter/Alphanumeric-Encoder/issues/23)
+-   add support for Node v18.x ([6056d72](https://github.com/M-Scott-Lassiter/Alphanumeric-Encoder/commit/6056d72a9d81c1db9bdaee6f4d06eda6af45e75b)), closes [#23](https://github.com/M-Scott-Lassiter/Alphanumeric-Encoder/issues/23)
 
 ### [1.0.5](https://github.com/M-Scott-Lassiter/Alphanumeric-Encoder/compare/v1.0.4...v1.0.5) (2022-04-24)
 
