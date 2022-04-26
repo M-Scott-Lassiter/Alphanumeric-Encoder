@@ -47,21 +47,7 @@ module.exports = {
             }
         ],
         '@semantic-release/npm',
-        [
-            '@semantic-release/github',
-            {
-                assets: [
-                    {
-                        path: 'index.js',
-                        label: 'Alphanumeric-Encoder'
-                    },
-                    {
-                        path: 'API.md',
-                        label: 'API'
-                    }
-                ]
-            }
-        ],
+        ['@semantic-release/github'],
         [
             '@semantic-release/git',
             {
