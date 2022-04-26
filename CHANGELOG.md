@@ -14,14 +14,14 @@
 -   add engine support for Node v10.x ([a04bd74](https://github.com/M-Scott-Lassiter/Alphanumeric-Encoder/commit/a04bd747b5e54c5c392ee308f9ceeeb4bfe27cc8)), closes [#23](https://github.com/M-Scott-Lassiter/Alphanumeric-Encoder/issues/23)
 -   add support for Node v18.x ([6056d72](https://github.com/M-Scott-Lassiter/Alphanumeric-Encoder/commit/6056d72a9d81c1db9bdaee6f4d06eda6af45e75b)), closes [#23](https://github.com/M-Scott-Lassiter/Alphanumeric-Encoder/issues/23)
 
-### [1.0.5](https://github.com/M-Scott-Lassiter/Alphanumeric-Encoder/compare/v1.0.4...v1.0.5) (2022-04-24)
+## [1.0.5](https://github.com/M-Scott-Lassiter/Alphanumeric-Encoder/compare/v1.0.4...v1.0.5) (2022-04-24)
 
 ### :building_construction: Build Changes
 
 -   add a build script to the package ([51016bf](https://github.com/M-Scott-Lassiter/Alphanumeric-Encoder/commit/51016bf462f7e851635a38d7b2193b9bbfc0b0c2)), closes [#18](https://github.com/M-Scott-Lassiter/Alphanumeric-Encoder/issues/18)
 -   update the CD scripts to run `build` ([15f8d48](https://github.com/M-Scott-Lassiter/Alphanumeric-Encoder/commit/15f8d483f29bf3b5afdd9810b6d03a7f70c98f02)), closes [#18](https://github.com/M-Scott-Lassiter/Alphanumeric-Encoder/issues/18)
 
-### [1.0.4](https://github.com/M-Scott-Lassiter/Alphanumeric-Encoder/compare/v1.0.3...v1.0.4) (2022-04-24)
+## [1.0.4](https://github.com/M-Scott-Lassiter/Alphanumeric-Encoder/compare/v1.0.3...v1.0.4) (2022-04-24)
 
 ### :building_construction: Build Changes
 
