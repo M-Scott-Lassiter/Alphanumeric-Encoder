@@ -2,9 +2,12 @@
 
 <div align="center">
 
-[![Linting: ESLint](https://img.shields.io/badge/eslint-4B32C3?logo=eslint&logoColor=white)](https://github.com/eslint/eslint)
-[![Testing: Jest](https://img.shields.io/badge/jest-C21325?logo=jest&logoColor=white)](https://github.com/facebook/jest)
 <!-- [![Commitizen friendly](https://img.shields.io/badge/commitizen-friendly-brightgreen.svg)](http://commitizen.github.io/cz-cli/) -->
+
+[![Linting: ESLint](https://img.shields.io/badge/eslint-4B32C3?logo=eslint&logoColor=white)](https://github.com/eslint/eslint)
+[![Code format: Prettier](https://img.shields.io/badge/prettier-F7B93E.svg?style=flat-square&logo=prettier&logoColor=black)](https://github.com/prettier/prettier)
+[![Style Guide: Air b n b](https://img.shields.io/badge/code_style-airbnb-FF5A5F?logo=airbnb&logoColor=FF5A5F)](https://github.com/airbnb/javascript)
+[![Testing: Jest](https://img.shields.io/badge/jest-C21325?logo=jest&logoColor=white)](https://github.com/facebook/jest)
 [![semantic-release: angular](https://img.shields.io/badge/semantic--release-angular-e10079?logo=semantic-release)](https://github.com/semantic-release/semantic-release)
 
 </div>
@@ -20,22 +23,26 @@ Before contributing, please take a moment to read through this document. This gu
 
 <!-- toc -->
 
-- [Continuous Integration/Continuous Deployment](#continuous-integrationcontinuous-deployment)
-- [Issue Reporting Guidelines](#issue-reporting-guidelines)
-- [Pull Request Guidelines](#pull-request-guidelines)
-- [Development Setup](#development-setup)
-  * [Project Structure](#project-structure)
-  * [Linting](#linting)
-  * [Testing](#testing)
-  * [Documentation](#documentation)
-  * [Commits](#commits)
-    + [Commit Header Format](#commit-header-format)
-    + [Versioning Triggers](#versioning-triggers)
+-   [Code of Conduct](#code-of-conduct)
+-   [How can I Contribute?](#how-can-i-contribute)
+    -   [Submit Issues](#submit-issues)
+    -   [Improve Documentation](#improve-documentation)
+    -   [Submit a Pull Request](#submit-a-pull-request)
+-   [Continuous Integration/Continuous Deployment Setup](#continuous-integrationcontinuous-deployment-setup)
+    -   [Local Installation](#local-installation)
+    -   [Project Structure](#project-structure)
+    -   [Linting and Formatting](#linting-and-formatting)
+    -   [Testing](#testing)
+    -   [Documentation](#documentation)
+    -   [Commits](#commits)
+        -   [Reverts](#reverts)
+        -   [Commit Header Format](#commit-header-format)
+    -   [Versioning Triggers](#versioning-triggers)
 
 <!-- tocstop -->
 
 </details>
- 
+
 ## Code of Conduct
 
 Please help keep this project open and inclusive. Refer to the [Code of Conduct](CODE_OF_CONDUCT.md) before your first contribution.
@@ -44,38 +51,99 @@ Please help keep this project open and inclusive. Refer to the [Code of Conduct]
 
 ### Submit Issues
 
+**Bug Reports**: Be as detailed as possible, and fill out all information requested in the [bug report template].
+
+_For security related issues, see the [security policy](https://github.com/M-Scott-Lassiter/Alphanumeric-Encoder/security/policy)._
+
+**Feature Request**: These are welcome, just take a moment to consider whether your idea fits within the scope and aims of this project. It is up to you to make your case of why the feature should get included. Be as detailed as possible, and fill out a [feature request].
+
+**Documentation Request**: Is something unclear in the documentation or the API? Submit a [documentation change request]! Be as detailed as possible. If you have the question, chances are someone else will also who isn't willing to speak up. If you want to do it yourself, see the [documentation guidelines](#documentation) first.
+
 ### Improve Documentation
 
 Open a new issue [here](https://github.com/M-Scott-Lassiter/Alphanumeric-Encoder/issues).
 
-For security related issues, see the [security policy](https://github.com/M-Scott-Lassiter/Alphanumeric-Encoder/security/policy).
+### Submit a Pull Request
 
+Good pull requests are outstanding help. They should remain focused in scope and avoid unrelated commits.
+
+**Please [ask]** before embarking on any significant pull request (e.g. implementing features, refactoring code), otherwise you risk wasting time on something that might not fit well with the project.
+
+To submit a pull request,
+
+1. Fork the repository
+1. Create a branch for your edits
+1. Make sure your work follows the Follow the [commits](#commits) guidance
 
 ## Continuous Integration/Continuous Deployment Setup
 
 `alphanumeric-encoder` uses [Semantic Versioning](https://semver.org/) and updates automatically based on specific [versioning triggers](#versioning-triggers).
 
+### Local Installation
+
+```
+git clone https://github.com/M-Scott-Lassiter/Alphanumeric-Encoder.git
+cd alphanumeric-encoder
+npm install # or `yarn install`
+```
 
 ### Project Structure
 
+A single file, `index.js` contains all functionality. `index.test.js` contains the test suite. Before submitting changes, run the build script locally then commit:
 
-### Linting
+```
+npm run build
+```
 
-Linting is done with ESLint.
+This will lint, test, document, and format everything automatically.
+
+### Linting and Formatting
+
+Prettier provides formatting, and ESLint does linting using the Airbnb style guide. To lint, run the following:
+
+```
+npm run lint
+```
+
+To format all files with Prettier, run:
+
+```
+npm run format
+```
 
 ### Testing
 
-Tests are run with Jest.
+This project uses Jest for testing. To run the test suite, run:
+
+```
+npm run test
+```
 
 ### Documentation
 
-API Documentation is automatically generated from JSDoc comments within the scripts.
+API Documentation is automatically generated from [JSDoc comments](https://jsdoc.app/) within the scripts. To generate, run:
 
-The table of contents in this guide and the main README are automatically generated using the [`markdown-toc`](https://github.com/jonschlinkert/markdown-toc) package.
+```
+npm run docs
+```
+
+The table of contents in this guide and the main README are automatically generated using the [`markdown-toc`](https://github.com/jonschlinkert/markdown-toc) package. To generate, run:
+
+```
+npm run tableofcontents
+```
 
 ### Commits
 
-*This specification is inspired by and supersedes the [Angular Commit Message](https://github.com/angular/angular/blob/master/CONTRIBUTING.md#commit).*
+_This specification is inspired by and supersedes the [Angular Commit Message](https://github.com/angular/angular/blob/master/CONTRIBUTING.md#commit)._
+
+If possible, make [atomic commits](https://en.wikipedia.org/wiki/Atomic_commit), which means:
+
+-   a commit should contain exactly one self-contained functional change
+-   a functional change should be contained in exactly one commit
+-   a commit should not create an inconsistent state (such as test errors, linting errors, partial fix, feature with documentation etc...)
+
+A complex feature can be broken down into multiple commits as long as each one maintains a consistent state and consists of a self-contained change.
 
 This project uses very precise rules over how Git commit messages must be formatted. This leads to **easier to read commit history**.
 
@@ -96,13 +164,24 @@ When the body is present it must be at least 20 characters long and must conform
 
 The `footer` is optional. The [Commit Message Footer](#commit-footer) format describes what the footer is used for and the structure it must have.
 
+#### Reverts
+
+If the commit reverts a previous commit, it should begin with `revert: `, followed by the header of the reverted commit.
+In the body it should say: `This reverts commit <hash>.`, where the hash is the SHA of the commit being reverted.
+
 #### Commit Header Format
 
+The header contains succinct description of the change:
+
+-   use the imperative, present tense: "change" not "changed" nor "changes"
+-   don't capitalize first letter
+-   no dot (.) at the end
+
     <type>(<scope>): <short summary>
-    │       │             │
-    │       │             └─⫸ Summary in present tense. Not capitalized. No period at the end.
-    │       │
-    │       └─⫸ Commit Scope: api|contributing|license|readme|security
+    │ │ │
+    │ │ └─⫸ Summary in present tense. Not capitalized. No period at the end.
+    │ │
+    │ └─⫸ Commit Scope: api|contributing|license|readme|security
     │
     └─⫸ Commit Type: build|ci|docs|feat|fix|perf|refactor|test
 
@@ -110,38 +189,40 @@ The `footer` is optional. The [Commit Message Footer](#commit-footer) format des
 
 Required. Must be one of the following:
 
-- `build`: Changes that affect the build system configuration, package scripts, or external dependencies (i.e. adds/removes/modifies/updates any project, peer, or dev dependency)
-- `ci`: Changes to CI configuration files and scripts (e.g. release configs, YAML scripts)
-- `docs`: Documentation only changes
-- `feat`: Adds a new feature
-- `fix`: Fixes a bug in an existing feature
-- `perf`: A code change that improves performance
-- `refactor`: A code change that neither fixes a bug nor adds a feature
-- `test`: Add missing tests or correct existing tests
+-   `build`: Changes that affect the build system configuration, package scripts, or external dependencies (i.e. adds/removes/modifies/updates any project, peer, or dev dependency)
+-   `ci`: Changes to CI configuration files and scripts (e.g. release configs, YAML scripts)
+-   `docs`: Documentation only changes
+-   `feat`: Adds a new feature
+-   `fix`: Fixes a bug in an existing feature
+-   `perf`: A code change that improves performance
+-   `refactor`: A code change that neither fixes a bug nor adds a feature
+-   `test`: Add missing tests or correct existing tests
 
 **Scopes**
 
 Optional. If used, must be one of the following supported scopes:
 
-- `api`: Any documentation that helps developers or end users understand how to better employ a tool or feature
-- `contributing`: Contributions to this guidance or the [Code of Conduct](/../../blob/main/CODE_OF_CONDUCT.md)
-- `license`: Changes to terms or copyright status within the [license](/../../blob/main/LICENSE). *NOTE: Any wholesale change in license type MUST include a BREAKING CHANGE.*
-- `readme`: Contributions to the main [README.md](https://github.com/M-Scott-Lassiter/Alphanumeric-Encoder#alphanumeric-encoder)
-- `security`: Changes that address code related security issues or security policies
+-   `api`: Any documentation that helps developers or end users understand how to better employ a tool or feature
+-   `contributing`: Contributions to this guidance or the [Code of Conduct](/../../blob/main/CODE_OF_CONDUCT.md)
+-   `license`: Changes to terms or copyright status within the [license](/../../blob/main/LICENSE). _NOTE: Any wholesale change in license type MUST include a BREAKING CHANGE._
+-   `readme`: Contributions to the main [README.md](https://github.com/M-Scott-Lassiter/Alphanumeric-Encoder#alphanumeric-encoder)
+-   `security`: Changes that address code related security issues or security policies
 
 ### Versioning Triggers
 
 Pushes to the main branch causes `semantic-release` to check all commits since the last version for any triggers that would cause a new version. This project extends the defaults:
-- Patch
-  - `build`
-  - `fix`
-  - `perf`
-  - `(api)`
-- Version
-  - `feat`
-- Major
-  - `BREAKING CHANGE`
+
+-   Patch
+    -   `build`
+    -   `fix`
+    -   `perf`
+    -   `(api)`
+-   Version
+    -   `feat`
+-   Major
+    -   `BREAKING CHANGE`
 
 Extensions from the [semantic-release default](https://github.com/semantic-release/semantic-release#commit-message-format):
-- `build` types trigger a patch to keep users and developers in sync with dependency changes.
-- `api` scope (regardless of commit type) triggers a patch. This keeps documentation as a first-class citizen without patching for any and all changes to the README or other supporting docs.
+
+-   `build` types trigger a patch to keep users and developers in sync with dependency changes.
+-   `api` scope (regardless of commit type) triggers a patch. This keeps documentation as a first-class citizen without patching for any and all changes to the README or other supporting docs.
