@@ -65,10 +65,5 @@
         "commitizen": {
             "path": "node_modules/cz-customizable"
         }
-    },
-    "husky": {
-        "hooks": {
-            "pre-commit": "npx lint-staged"
-        }
     }
 }
