@@ -177,6 +177,7 @@ The header contains succinct description of the change:
 -   don't capitalize first letter
 -   no dot (.) at the end
 
+```
     <type>(<scope>): <short summary>
     │ │ │
     │ │ └─⫸ Summary in present tense. Not capitalized. No period at the end.
@@ -184,6 +185,7 @@ The header contains succinct description of the change:
     │ └─⫸ Commit Scope: api|contributing|license|readme|security
     │
     └─⫸ Commit Type: build|ci|docs|feat|fix|perf|refactor|test
+```
 
 **Types**
 
