@@ -12,7 +12,7 @@ const numberToEncodedLetters = [
     [53, 'BA'],
     [78, 'BZ'],
     [705, 'AAC'],
-    [16384, 'XFD'],
+    [16384, 'XFD']
 ]
 
 const numberWithDictionaryToEncodedLetters = [
@@ -28,7 +28,7 @@ const numberWithDictionaryToEncodedLetters = [
     ['EDCBA', 7, 'ED'],
     ['EDCBA', 26, 'AE'],
     ['EDCBA', 27, 'AD'],
-    ['EDCBA', 31, 'EEE'],
+    ['EDCBA', 31, 'EEE']
 ]
 
 const expectedValidDictionaryValues = ['ABCD', 'ABcd', 'aBcD', 'ABC123']

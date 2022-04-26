@@ -17,6 +17,7 @@
         "no-underscore-dangle": ["error", { "allowAfterThis": true }],
         "linebreak-style": ["error", "unix"],
         "semi": ["error", "never"],
+        "comma-dangle": ["error", "never"],
         "no-plusplus": ["error", { "allowForLoopAfterthoughts": true }],
         "valid-jsdoc": "error",
 
