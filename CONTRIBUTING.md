@@ -190,11 +190,11 @@ The header contains succinct description of the change:
 
 Required. Must be one of the following:
 
--   `build`: Changes that affect the build system configuration, package scripts, or external dependencies (i.e. adds/removes/modifies/updates any project, peer, or dev dependency)
+-   `build`: Changes that affect the build system configuration, package scripts, or dev dependencies (i.e. adds/remove/modify/update)
 -   `ci`: Changes to CI configuration files and scripts (e.g. release configs, YAML scripts)
 -   `docs`: Documentation only changes
 -   `feat`: Adds a new feature
--   `fix`: Fixes a bug in an existing feature
+-   `fix`: Fixes a bug in an existing feature. Also used for non-dev dependency updates.
 -   `perf`: A code change that improves performance
 -   `refactor`: A code change that neither fixes a bug nor adds a feature
 -   `revert`: Revert to a commit
@@ -215,7 +215,6 @@ Optional. If used, must be one of the following supported scopes:
 Pushes to the main branch causes `semantic-release` to check all commits since the last version for any triggers that would cause a new version. This project extends the defaults:
 
 -   Patch
-    -   `build`
     -   `fix`
     -   `perf`
     -   `(api)`
@@ -226,5 +225,4 @@ Pushes to the main branch causes `semantic-release` to check all commits since t
 
 Extensions from the [semantic-release default](https://github.com/semantic-release/semantic-release#commit-message-format):
 
--   `build` types trigger a patch to keep users and developers in sync with dependency changes.
--   `api` scope (regardless of commit type) triggers a patch. This keeps documentation as a first-class citizen without patching for any and all changes to the README or other supporting docs.
+-   `api` scope (regardless of commit type) triggers a patch. This keeps API documentation for the end user as a first-class citizen without patching for any and all changes to the README or other supporting docs.

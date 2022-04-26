@@ -2,15 +2,18 @@ module.exports = {
     types: [
         {
             value: 'build',
-            name: 'build:    Changes that affect the build system configuration, package scripts, \n            or dependencies (i.e. adds/removes/modifies/updates any project, peer, or dev dependency)'
+            name: 'build:    Changes that affect the build system configuration, package scripts, or dev dependencies (i.e. adds/remove/modify/update)'
         },
         {
             value: 'ci',
-            name: 'ci:       Changes to CI configuration files and scripts\n            (e.g. release configs, YAML scripts)'
+            name: 'ci:       Changes to CI configuration files and scripts (e.g. release configs, YAML scripts)'
         },
         { value: 'docs', name: 'docs:     Documentation only changes' },
         { value: 'feat', name: 'feat:     Adds a new feature' },
-        { value: 'fix', name: 'fix:      Fixes a bug in an existing feature' },
+        {
+            value: 'fix',
+            name: 'fix:      Fixes a bug in an existing feature. Also used for non-dev dependency updates.'
+        },
         {
             value: 'perf',
             name: 'perf:     A code change that improves performance'

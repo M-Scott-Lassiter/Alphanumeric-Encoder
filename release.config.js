@@ -5,10 +5,7 @@ module.exports = {
             '@semantic-release/commit-analyzer',
             {
                 preset: 'angular',
-                releaseRules: [
-                    { type: 'build', release: 'patch' },
-                    { scope: 'api', release: 'patch' }
-                ]
+                releaseRules: [{ scope: 'api', release: 'patch' }]
             }
         ],
         [
