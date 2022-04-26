@@ -1,60 +1,61 @@
 {
-  "name": "alphanumeric-encoder",
-  "version": "1.0.5",
-  "description": "Encodes a number to a letter representation, or decodes it back",
-  "main": "index.js",
-  "sideEffects": false,
-  "engines": {
-    "node": ">=12"
-  },
-  "files": [
-    "index.js",
-    "README.md",
-    "API.md",
-    "CHANGELOG.md",
-    "LICENSE",
-    "package.json",
-    "package-lock.json"
-  ],
-  "scripts": {
-    "build": "npm run lint && npm run test && npm run docs && npm run tableofcontents",
-    "docs": "documentation build index.js --format md --output API.md",
-    "tableofcontents": "markdown-toc -i ./README.md && markdown-toc -i ./CONTRIBUTING.md",
-    "test": "jest --coverage",
-    "lint": "eslint . --ext .js --fix"
-  },
-  "repository": {
-    "type": "git",
-    "url": "https://github.com/M-Scott-Lassiter/Alphanumeric-Encoder.git"
-  },
-  "keywords": [
-    "alphanumeric",
-    "encode",
-    "decode",
-    "letter to number",
-    "number to letter",
-    "string to number",
-    "number to string"
-  ],
-  "author": "M. Scott Lassiter",
-  "license": "MIT",
-  "bugs": {
-    "url": "https://github.com/M-Scott-Lassiter/Alphanumeric-Encoder/issues"
-  },
-  "homepage": "https://github.com/M-Scott-Lassiter/Alphanumeric-Encoder#readme",
-  "devDependencies": {
-    "@semantic-release/changelog": "^6.0.1",
-    "@semantic-release/git": "^10.0.1",
-    "documentation": "^13.2.5",
-    "eslint": "^8.12.0",
-    "eslint-config-airbnb-base": "^15.0.0",
-    "eslint-config-prettier": "^8.5.0",
-    "eslint-plugin-import": "^2.26.0",
-    "eslint-plugin-jest": "^26.1.4",
-    "eslint-plugin-prettier": "^4.0.0",
-    "jest": "^27.5.1",
-    "markdown-toc": "^1.2.0",
-    "prettier": "^2.6.2",
-    "semantic-release": "^19.0.2"
-  }
+    "name": "alphanumeric-encoder",
+    "version": "1.0.5",
+    "description": "Encodes a number to a letter representation, or decodes it back",
+    "main": "index.js",
+    "sideEffects": false,
+    "engines": {
+        "node": ">=12"
+    },
+    "files": [
+        "index.js",
+        "README.md",
+        "API.md",
+        "CHANGELOG.md",
+        "LICENSE",
+        "package.json",
+        "package-lock.json"
+    ],
+    "scripts": {
+        "build": "npm run lint && npm run test && npm run docs && npm run tableofcontents",
+        "docs": "documentation build index.js --format md --output API.md",
+        "format": "npx prettier . --write",
+        "tableofcontents": "markdown-toc -i ./README.md && markdown-toc -i ./CONTRIBUTING.md",
+        "test": "jest --coverage",
+        "lint": "eslint . --ext .js --fix"
+    },
+    "repository": {
+        "type": "git",
+        "url": "https://github.com/M-Scott-Lassiter/Alphanumeric-Encoder.git"
+    },
+    "keywords": [
+        "alphanumeric",
+        "encode",
+        "decode",
+        "letter to number",
+        "number to letter",
+        "string to number",
+        "number to string"
+    ],
+    "author": "M. Scott Lassiter",
+    "license": "MIT",
+    "bugs": {
+        "url": "https://github.com/M-Scott-Lassiter/Alphanumeric-Encoder/issues"
+    },
+    "homepage": "https://github.com/M-Scott-Lassiter/Alphanumeric-Encoder#readme",
+    "devDependencies": {
+        "@semantic-release/changelog": "^6.0.1",
+        "@semantic-release/git": "^10.0.1",
+        "documentation": "^13.2.5",
+        "eslint": "^8.12.0",
+        "eslint-config-airbnb-base": "^15.0.0",
+        "eslint-config-prettier": "^8.5.0",
+        "eslint-plugin-import": "^2.26.0",
+        "eslint-plugin-jest": "^26.1.4",
+        "eslint-plugin-prettier": "^4.0.0",
+        "jest": "^27.5.1",
+        "markdown-toc": "^1.2.0",
+        "prettier": "^2.6.2",
+        "semantic-release": "^19.0.2"
+    }
 }
