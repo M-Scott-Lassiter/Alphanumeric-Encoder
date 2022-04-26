@@ -2,12 +2,12 @@
 
 ### Table of Contents
 
-*   [AlphanumericEncoder][1]
-    *   [dictionary][2]
-    *   [dictionary][3]
-        *   [Parameters][4]
-    *   [encode][5]
-        *   [Parameters][6]
+-   [AlphanumericEncoder][1]
+    -   [dictionary][2]
+    -   [dictionary][3]
+        -   [Parameters][4]
+    -   [encode][5]
+        -   [Parameters][6]
 
 ## AlphanumericEncoder
 
@@ -23,7 +23,7 @@ Returns **[string][7]** The current dictionary in use
 
 #### Parameters
 
-*   `newDictionary` **[string][7]** String of unique characters in order for the new dictionary
+-   `newDictionary` **[string][7]** String of unique characters in order for the new dictionary
 
 ### encode
 
@@ -32,22 +32,15 @@ It converts any numerical entry into a positive integer.
 
 #### Parameters
 
-*   `number` **[number][8]** Base 10 number. Must be positive and non-zero. Decimals values are truncated.
+-   `number` **[number][8]** Base 10 number. Must be positive and non-zero. Decimals values are truncated.
 
 Returns **[string][7]** Dictionary encoded value
 
 [1]: #alphanumericencoder
-
 [2]: #dictionary
-
 [3]: #dictionary-1
-
 [4]: #parameters
-
 [5]: #encode
-
 [6]: #parameters-1
-
 [7]: https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String
-
 [8]: https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Number

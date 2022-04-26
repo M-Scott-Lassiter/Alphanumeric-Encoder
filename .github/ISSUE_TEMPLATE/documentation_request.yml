@@ -1,7 +1,7 @@
 name: Documentation Request
 description: Request additional or clarified documentation
-title: "[Docs Request]: "
-labels: ["documentation"]
+title: '[Docs Request]: '
+labels: ['documentation']
 assignees:
   - m-scott-lassiter
 body:
@@ -39,8 +39,8 @@ body:
       label: Are you able/willing to make the change? (It's ok if you're not!)
       multiple: false
       options:
-        - "No"
-        - "Yes"
+        - 'No'
+        - 'Yes'
     validations:
       required: true
   - type: checkboxes

@@ -5,9 +5,9 @@ name: CI Tests
 
 on:
   push:
-    branches: [ main ]
+    branches: [main]
   pull_request:
-    branches: [ main ]
+    branches: [main]
 
 jobs:
   test:
@@ -19,15 +19,15 @@ jobs:
         # See supported Node.js release schedule at https://nodejs.org/en/about/releases/
 
     steps:
-    - uses: actions/checkout@v3
-    - name: Use Node.js ${{ matrix.node-version }}
-      uses: actions/setup-node@v3
-      with:
-        node-version: ${{ matrix.node-version }}
-        cache: 'npm'
-    - name: Clean Install
-      run: npm ci
-    - name: Test
-      run: npm run test
-    - name: Upload Coverage to Codecov
-      uses: codecov/codecov-action@v2
+      - uses: actions/checkout@v3
+      - name: Use Node.js ${{ matrix.node-version }}
+        uses: actions/setup-node@v3
+        with:
+          node-version: ${{ matrix.node-version }}
+          cache: 'npm'
+      - name: Clean Install
+        run: npm ci
+      - name: Test
+        run: npm run test
+      - name: Upload Coverage to Codecov
+        uses: codecov/codecov-action@v2

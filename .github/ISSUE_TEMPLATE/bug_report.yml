@@ -1,7 +1,7 @@
 name: Bug Report
 description: File a bug report
-title: "[Bug]: "
-labels: ["bug"]
+title: '[Bug]: '
+labels: ['bug']
 assignees:
   - m-scott-lassiter
 body:
@@ -68,8 +68,8 @@ body:
       label: Are you able/willing to make the change? (It's ok if you're not!)
       multiple: false
       options:
-        - "No"
-        - "Yes"
+        - 'No'
+        - 'Yes'
     validations:
       required: true
   - type: checkboxes

@@ -4,7 +4,9 @@
 
 [![Linting: ESLint](https://img.shields.io/badge/eslint-4B32C3?logo=eslint&logoColor=white)](https://github.com/eslint/eslint)
 [![Testing: Jest](https://img.shields.io/badge/jest-C21325?logo=jest&logoColor=white)](https://github.com/facebook/jest)
+
 <!-- [![Commitizen friendly](https://img.shields.io/badge/commitizen-friendly-brightgreen.svg)](http://commitizen.github.io/cz-cli/) -->
+
 [![semantic-release: angular](https://img.shields.io/badge/semantic--release-angular-e10079?logo=semantic-release)](https://github.com/semantic-release/semantic-release)
 
 </div>
@@ -20,18 +22,18 @@ Before contributing, please take a moment to read through this document. This gu
 
 <!-- toc -->
 
-- [Code of Conduct](#code-of-conduct)
-- [How can I Contribute?](#how-can-i-contribute)
-  * [Submit Issues](#submit-issues)
-  * [Improve Documentation](#improve-documentation)
-- [Continuous Integration/Continuous Deployment Setup](#continuous-integrationcontinuous-deployment-setup)
-  * [Project Structure](#project-structure)
-  * [Linting](#linting)
-  * [Testing](#testing)
-  * [Documentation](#documentation)
-  * [Commits](#commits)
-    + [Commit Header Format](#commit-header-format)
-  * [Versioning Triggers](#versioning-triggers)
+-   [Code of Conduct](#code-of-conduct)
+-   [How can I Contribute?](#how-can-i-contribute)
+    -   [Submit Issues](#submit-issues)
+    -   [Improve Documentation](#improve-documentation)
+-   [Continuous Integration/Continuous Deployment Setup](#continuous-integrationcontinuous-deployment-setup)
+    -   [Project Structure](#project-structure)
+    -   [Linting](#linting)
+    -   [Testing](#testing)
+    -   [Documentation](#documentation)
+    -   [Commits](#commits)
+        -   [Commit Header Format](#commit-header-format)
+    -   [Versioning Triggers](#versioning-triggers)
 
 <!-- tocstop -->
 
@@ -51,14 +53,11 @@ Open a new issue [here](https://github.com/M-Scott-Lassiter/Alphanumeric-Encoder
 
 For security related issues, see the [security policy](https://github.com/M-Scott-Lassiter/Alphanumeric-Encoder/security/policy).
 
-
 ## Continuous Integration/Continuous Deployment Setup
 
 `alphanumeric-encoder` uses [Semantic Versioning](https://semver.org/) and updates automatically based on specific [versioning triggers](#versioning-triggers).
 
-
 ### Project Structure
-
 
 ### Linting
 
@@ -76,7 +75,7 @@ The table of contents in this guide and the main README are automatically genera
 
 ### Commits
 
-*This specification is inspired by and supersedes the [Angular Commit Message](https://github.com/angular/angular/blob/master/CONTRIBUTING.md#commit).*
+_This specification is inspired by and supersedes the [Angular Commit Message](https://github.com/angular/angular/blob/master/CONTRIBUTING.md#commit)._
 
 This project uses very precise rules over how Git commit messages must be formatted. This leads to **easier to read commit history**.
 
@@ -111,38 +110,40 @@ The `footer` is optional. The [Commit Message Footer](#commit-footer) format des
 
 Required. Must be one of the following:
 
-- `build`: Changes that affect the build system configuration, package scripts, or external dependencies (i.e. adds/removes/modifies/updates any project, peer, or dev dependency)
-- `ci`: Changes to CI configuration files and scripts (e.g. release configs, YAML scripts)
-- `docs`: Documentation only changes
-- `feat`: Adds a new feature
-- `fix`: Fixes a bug in an existing feature
-- `perf`: A code change that improves performance
-- `refactor`: A code change that neither fixes a bug nor adds a feature
-- `test`: Add missing tests or correct existing tests
+-   `build`: Changes that affect the build system configuration, package scripts, or external dependencies (i.e. adds/removes/modifies/updates any project, peer, or dev dependency)
+-   `ci`: Changes to CI configuration files and scripts (e.g. release configs, YAML scripts)
+-   `docs`: Documentation only changes
+-   `feat`: Adds a new feature
+-   `fix`: Fixes a bug in an existing feature
+-   `perf`: A code change that improves performance
+-   `refactor`: A code change that neither fixes a bug nor adds a feature
+-   `test`: Add missing tests or correct existing tests
 
 **Scopes**
 
 Optional. If used, must be one of the following supported scopes:
 
-- `api`: Any documentation that helps developers or end users understand how to better employ a tool or feature
-- `contributing`: Contributions to this guidance or the [Code of Conduct](/../../blob/main/CODE_OF_CONDUCT.md)
-- `license`: Changes to terms or copyright status within the [license](/../../blob/main/LICENSE). *NOTE: Any wholesale change in license type MUST include a BREAKING CHANGE.*
-- `readme`: Contributions to the main [README.md](https://github.com/M-Scott-Lassiter/Alphanumeric-Encoder#alphanumeric-encoder)
-- `security`: Changes that address code related security issues or security policies
+-   `api`: Any documentation that helps developers or end users understand how to better employ a tool or feature
+-   `contributing`: Contributions to this guidance or the [Code of Conduct](/../../blob/main/CODE_OF_CONDUCT.md)
+-   `license`: Changes to terms or copyright status within the [license](/../../blob/main/LICENSE). _NOTE: Any wholesale change in license type MUST include a BREAKING CHANGE._
+-   `readme`: Contributions to the main [README.md](https://github.com/M-Scott-Lassiter/Alphanumeric-Encoder#alphanumeric-encoder)
+-   `security`: Changes that address code related security issues or security policies
 
 ### Versioning Triggers
 
 Pushes to the main branch causes `semantic-release` to check all commits since the last version for any triggers that would cause a new version. This project extends the defaults:
-- Patch
-  - `build`
-  - `fix`
-  - `perf`
-  - `(api)`
-- Version
-  - `feat`
-- Major
-  - `BREAKING CHANGE`
+
+-   Patch
+    -   `build`
+    -   `fix`
+    -   `perf`
+    -   `(api)`
+-   Version
+    -   `feat`
+-   Major
+    -   `BREAKING CHANGE`
 
 Extensions from the [semantic-release default](https://github.com/semantic-release/semantic-release#commit-message-format):
-- `build` types trigger a patch to keep users and developers in sync with dependency changes.
-- `api` scope (regardless of commit type) triggers a patch. This keeps documentation as a first-class citizen without patching for any and all changes to the README or other supporting docs.
+
+-   `build` types trigger a patch to keep users and developers in sync with dependency changes.
+-   `api` scope (regardless of commit type) triggers a patch. This keeps documentation as a first-class citizen without patching for any and all changes to the README or other supporting docs.
