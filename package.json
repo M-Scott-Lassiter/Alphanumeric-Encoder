@@ -1,6 +1,6 @@
 {
     "name": "alphanumeric-encoder",
-    "version": "1.0.5",
+    "version": "1.1.0",
     "description": "Encodes a number to a letter representation, or decodes it back",
     "main": "index.js",
     "sideEffects": false,
