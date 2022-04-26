@@ -101,7 +101,7 @@ Other Node versions and operating systems might support the library, but the tes
 
 `alphanumeric-encoder` and all other files in this repository are distributed as free and open-source software under the [MIT License](/../../blob/main/LICENSE), © 2022.
 
-Both [contributions](/../../blob/main/CONTRIBUTING.md) and [bug reports](link) welcome.
+Both [contributions](/../../blob/main/CONTRIBUTING.md) and [bug reports](https://github.com/M-Scott-Lassiter/Alphanumeric-Encoder/issues/new/choose) welcome.
 
 Leave a :star2: if you find this project useful!
 
