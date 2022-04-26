@@ -47,7 +47,7 @@ class AlphanumericEncoder {
         }
 
         // Validation is complete. Update the internal property.
-        this._dictionary = newDictionary
+        this._dictionary = uppercaseDictionary
     }
 
     /**
