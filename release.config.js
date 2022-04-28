@@ -5,10 +5,7 @@ module.exports = {
             '@semantic-release/commit-analyzer',
             {
                 preset: 'angular',
-                releaseRules: [
-                    { type: 'build', release: 'patch' },
-                    { scope: 'api', release: 'patch' }
-                ]
+                releaseRules: [{ scope: 'api', release: 'patch' }]
             }
         ],
         [
@@ -47,21 +44,7 @@ module.exports = {
             }
         ],
         '@semantic-release/npm',
-        [
-            '@semantic-release/github',
-            {
-                assets: [
-                    {
-                        path: 'index.js',
-                        label: 'Alphanumeric-Encoder'
-                    },
-                    {
-                        path: 'API.md',
-                        label: 'API'
-                    }
-                ]
-            }
-        ],
+        ['@semantic-release/github'],
         [
             '@semantic-release/git',
             {

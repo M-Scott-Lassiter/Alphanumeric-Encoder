@@ -24,4 +24,4 @@ This information will help me triage your report more quickly.
 
 ## Response
 
-Once the issue has been fixed, the [CI/CD process](https://github.com/M-Scott-Lassiter/Alphanumeric-Encoder/blob/main/CONTRIBUTING.md) will trigger a new build. Once that build releases, I will make a [security advisory](https://github.com/M-Scott-Lassiter/Alphanumeric-Encoder/security/advisories).
+Once the issue has been fixed, the [CI/CD process](https://github.com/M-Scott-Lassiter/Alphanumeric-Encoder/blob/main/CONTRIBUTING.md#continuous-integrationcontinuous-deployment-setup) will trigger a new build. Once that build releases, I will make a [security advisory](https://github.com/M-Scott-Lassiter/Alphanumeric-Encoder/security/advisories).

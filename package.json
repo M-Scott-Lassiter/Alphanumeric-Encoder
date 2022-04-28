@@ -2,29 +2,6 @@
     "name": "alphanumeric-encoder",
     "version": "1.1.0",
     "description": "Encodes a number to a letter representation, or decodes it back",
-    "main": "index.js",
-    "sideEffects": false,
-    "engines": {
-        "node": ">=10"
-    },
-    "files": [
-        "index.js",
-        "LICENSE",
-        "package.json",
-        "package-lock.json"
-    ],
-    "scripts": {
-        "build": "npm run lint && npm run test && npm run docs && npm run tableofcontents && npm run format",
-        "docs": "documentation build index.js --format md --output API.md",
-        "format": "npx prettier . --write",
-        "tableofcontents": "markdown-toc -i ./README.md && markdown-toc -i ./CONTRIBUTING.md",
-        "test": "jest --coverage",
-        "lint": "eslint . --ext .js --fix"
-    },
-    "repository": {
-        "type": "git",
-        "url": "https://github.com/M-Scott-Lassiter/Alphanumeric-Encoder.git"
-    },
     "keywords": [
         "alphanumeric",
         "encode",
@@ -34,15 +11,44 @@
         "string to number",
         "number to string"
     ],
-    "author": "M. Scott Lassiter",
-    "license": "MIT",
+    "homepage": "https://github.com/M-Scott-Lassiter/Alphanumeric-Encoder#readme",
     "bugs": {
         "url": "https://github.com/M-Scott-Lassiter/Alphanumeric-Encoder/issues"
     },
-    "homepage": "https://github.com/M-Scott-Lassiter/Alphanumeric-Encoder#readme",
+    "license": "MIT",
+    "author": "M. Scott Lassiter",
+    "files": [
+        "index.js",
+        "LICENSE",
+        "package.json",
+        "package-lock.json"
+    ],
+    "main": "index.js",
+    "repository": {
+        "type": "git",
+        "url": "https://github.com/M-Scott-Lassiter/Alphanumeric-Encoder.git"
+    },
+    "scripts": {
+        "build": "npm run lint && npm run test && npm run docs && npm run tableofcontents && npm run format",
+        "cz": "cz",
+        "docs": "documentation build index.js --format md --output API.md",
+        "format": "npx prettier . --write",
+        "tableofcontents": "markdown-toc -i ./README.md && markdown-toc -i ./CONTRIBUTING.md",
+        "test": "jest --coverage",
+        "lint": "eslint . --ext .js --fix",
+        "prepare": "husky install"
+    },
+    "sideEffects": false,
+    "config": {
+        "commitizen": {
+            "path": "node_modules/cz-customizable"
+        }
+    },
     "devDependencies": {
         "@semantic-release/changelog": "^6.0.1",
         "@semantic-release/git": "^10.0.1",
+        "commitizen": "^4.2.4",
+        "cz-customizable": "^6.3.0",
         "documentation": "^13.2.5",
         "eslint": "^8.12.0",
         "eslint-config-airbnb-base": "^15.0.0",
@@ -50,9 +56,14 @@
         "eslint-plugin-import": "^2.26.0",
         "eslint-plugin-jest": "^26.1.4",
         "eslint-plugin-prettier": "^4.0.0",
+        "husky": "^7.0.4",
         "jest": "^27.5.1",
+        "lint-staged": "^12.4.1",
         "markdown-toc": "^1.2.0",
         "prettier": "^2.6.2",
         "semantic-release": "^19.0.2"
+    },
+    "engines": {
+        "node": ">=10"
     }
 }

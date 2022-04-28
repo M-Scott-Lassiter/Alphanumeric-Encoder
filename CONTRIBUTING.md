@@ -2,11 +2,10 @@
 
 <div align="center">
 
-<!-- [![Commitizen friendly](https://img.shields.io/badge/commitizen-friendly-brightgreen.svg)](http://commitizen.github.io/cz-cli/) -->
-
+[![Commitizen friendly](https://img.shields.io/badge/commitizen-friendly-brightgreen.svg)](http://commitizen.github.io/cz-cli/)
 [![Linting: ESLint](https://img.shields.io/badge/eslint-4B32C3?logo=eslint&logoColor=white)](https://github.com/eslint/eslint)
 [![Code format: Prettier](https://img.shields.io/badge/prettier-F7B93E.svg?style=flat-square&logo=prettier&logoColor=black)](https://github.com/prettier/prettier)
-[![Style Guide: Air b n b](https://img.shields.io/badge/code_style-airbnb-FF5A5F?logo=airbnb&logoColor=FF5A5F)](https://github.com/airbnb/javascript)
+[![Style Guide: Airbnb](https://img.shields.io/badge/code_style-airbnb-FF5A5F?logo=airbnb&logoColor=FF5A5F)](https://github.com/airbnb/javascript)
 [![Testing: Jest](https://img.shields.io/badge/jest-C21325?logo=jest&logoColor=white)](https://github.com/facebook/jest)
 [![semantic-release: angular](https://img.shields.io/badge/semantic--release-angular-e10079?logo=semantic-release)](https://github.com/semantic-release/semantic-release)
 
@@ -35,8 +34,9 @@ Before contributing, please take a moment to read through this document. This gu
     -   [Testing](#testing)
     -   [Documentation](#documentation)
     -   [Commits](#commits)
-        -   [Reverts](#reverts)
         -   [Commit Header Format](#commit-header-format)
+        -   [Commit Body Format](#commit-body-format)
+        -   [Commit Footer Format](#commit-footer-format)
     -   [Versioning Triggers](#versioning-triggers)
 
 <!-- tocstop -->
@@ -61,7 +61,7 @@ _For security related issues, see the [security policy](https://github.com/M-Sco
 
 ### Improve Documentation
 
-Open a new issue [here](https://github.com/M-Scott-Lassiter/Alphanumeric-Encoder/issues).
+Open a new issue [here](https://github.com/M-Scott-Lassiter/Alphanumeric-Encoder/issues/new/choose).
 
 ### Submit a Pull Request
 
@@ -89,7 +89,7 @@ npm install # or `yarn install`
 
 ### Project Structure
 
-A single file, `index.js` contains all functionality. `index.test.js` contains the test suite. Before submitting changes, run the build script locally then commit:
+A single file, `index.js` contains all functionality. Before submitting changes, run the build script locally then commit:
 
 ```
 npm run build
@@ -113,7 +113,7 @@ npm run format
 
 ### Testing
 
-This project uses Jest for testing. To run the test suite, run:
+This project uses Jest for testing. `index.test.js` contains the test suite. To execute it, run:
 
 ```
 npm run test
@@ -157,17 +157,12 @@ Each commit message consists of a **header**, a **body**, and a **footer**.
 <footer>
 ```
 
-The `header` is mandatory and must conform to the [Commit Message Header](#commit-header) format.
+The `header` is mandatory and must conform to the [Commit Message Header](#commit-header-format) format.
 
 The `body` is mandatory for all commits except for those of type "docs".
-When the body is present it must be at least 20 characters long and must conform to the [Commit Message Body](#commit-body) format.
+When the body is present it must be at least 20 characters long and must conform to the [Commit Message Body](#commit-body-format) format.
 
-The `footer` is optional. The [Commit Message Footer](#commit-footer) format describes what the footer is used for and the structure it must have.
-
-#### Reverts
-
-If the commit reverts a previous commit, it should begin with `revert: `, followed by the header of the reverted commit.
-In the body it should say: `This reverts commit <hash>.`, where the hash is the SHA of the commit being reverted.
+The `footer` is optional unless resolving issues. The [Commit Message Footer](#commit-footer-format) format describes what the footer is used for and the structure it must have.
 
 #### Commit Header Format
 
@@ -176,26 +171,30 @@ The header contains succinct description of the change:
 -   use the imperative, present tense: "change" not "changed" nor "changes"
 -   don't capitalize first letter
 -   no dot (.) at the end
+-   if the commit is of type `revert`, include `reverts commit <hash>`, where the hash is the SHA of the commit being reverted
 
-    <type>(<scope>): <short summary>
-    │ │ │
-    │ │ └─⫸ Summary in present tense. Not capitalized. No period at the end.
-    │ │
-    │ └─⫸ Commit Scope: api|contributing|license|readme|security
-    │
-    └─⫸ Commit Type: build|ci|docs|feat|fix|perf|refactor|test
+```
+<type>(<scope>): <short summary>
+│ │ │
+│ │ └─⫸ Summary in present tense. Not capitalized. No period at the end.
+│ │
+│ └─⫸ Commit Scope: api|contributing|license|readme|security
+│
+└─⫸ Commit Type: build|ci|docs|feat|fix|perf|refactor|revert|test
+```
 
 **Types**
 
 Required. Must be one of the following:
 
--   `build`: Changes that affect the build system configuration, package scripts, or external dependencies (i.e. adds/removes/modifies/updates any project, peer, or dev dependency)
+-   `build`: Changes that affect the build system configuration, package scripts, or dev dependencies (i.e. adds/remove/modify/update)
 -   `ci`: Changes to CI configuration files and scripts (e.g. release configs, YAML scripts)
 -   `docs`: Documentation only changes
 -   `feat`: Adds a new feature
--   `fix`: Fixes a bug in an existing feature
+-   `fix`: Fixes a bug in an existing feature. Also used for non-dev dependency updates.
 -   `perf`: A code change that improves performance
 -   `refactor`: A code change that neither fixes a bug nor adds a feature
+-   `revert`: Revert to a commit
 -   `test`: Add missing tests or correct existing tests
 
 **Scopes**
@@ -208,12 +207,21 @@ Optional. If used, must be one of the following supported scopes:
 -   `readme`: Contributions to the main [README.md](https://github.com/M-Scott-Lassiter/Alphanumeric-Encoder#alphanumeric-encoder)
 -   `security`: Changes that address code related security issues or security policies
 
+#### Commit Body Format
+
+Provide a plain text description of _why_ you made this change. This is the place for you to explain your thought process, developer to developer. If helpful, include a comparison of the previous behavior with the new behavior to illustrate the change's impact.
+
+If there are breaking changes, start the body with `BREAKING CHANGE: <breaking change summary>.`
+
+#### Commit Footer Format
+
+The footer identifies which issues this commit fixes. If none, leave it blank. Otherwise, use the format `Resolves #<issue number>`. If more than one issue is resolved, separate them with a comma.
+
 ### Versioning Triggers
 
 Pushes to the main branch causes `semantic-release` to check all commits since the last version for any triggers that would cause a new version. This project extends the defaults:
 
 -   Patch
-    -   `build`
     -   `fix`
     -   `perf`
     -   `(api)`
@@ -224,5 +232,4 @@ Pushes to the main branch causes `semantic-release` to check all commits since t
 
 Extensions from the [semantic-release default](https://github.com/semantic-release/semantic-release#commit-message-format):
 
--   `build` types trigger a patch to keep users and developers in sync with dependency changes.
--   `api` scope (regardless of commit type) triggers a patch. This keeps documentation as a first-class citizen without patching for any and all changes to the README or other supporting docs.
+-   `api` scope (regardless of commit type) triggers a patch. This keeps API documentation for the end user as a first-class citizen without patching for any and all changes to the README or other supporting docs.
