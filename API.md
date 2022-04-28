@@ -4,10 +4,14 @@
 
 -   [AlphanumericEncoder][1]
     -   [dictionary][2]
-    -   [dictionary][3]
-        -   [Parameters][4]
+        -   [Parameters][3]
+        -   [Examples][4]
     -   [encode][5]
         -   [Parameters][6]
+        -   [Examples][7]
+    -   [decode][8]
+        -   [Parameters][9]
+        -   [Examples][10]
 
 ## AlphanumericEncoder
 
@@ -15,32 +19,116 @@ A class for encoding and decoding base 10 integers to a custom alphanumeric base
 
 ### dictionary
 
-Returns the current dictionary. Default is the English alphabet in order: 'ABCDEFGHIJKLMNOPQRSTUVWXYZ'
+Set or get the current dictionary.
 
-Returns **[string][7]** The current dictionary in use
-
-### dictionary
+Default is the English alphabet in order: `ABCDEFGHIJKLMNOPQRSTUVWXYZ`
 
 #### Parameters
 
--   `newDictionary` **[string][7]** String of unique characters in order for the new dictionary
+-   `newDictionary` **[string][11]** (If setting) String of unique letters and numbers, in order, for the new dictionary
+
+#### Examples
+
+```javascript
+console.log(AlphanumericEncoder.dictionary) // 'ABCDEFGHIJKLMNOPQRSTUVWXYZ'
+
+AlphanumericEncoder.dictionary = 'ABCD'
+console.log(AlphanumericEncoder.dictionary) // 'ABCD'
+
+AlphanumericEncoder.dictionary = 'ABCDA' // Throws error because the letter 'A' is repeated
+```
+
+Returns **[string][11]** (If used as getter) The current dictionary in use
 
 ### encode
 
 Takes any number and converts it into a base (dictionary length) letter combo.
-It converts any numerical entry into a positive integer.
 
 #### Parameters
 
--   `number` **[number][8]** Base 10 number. Must be positive and non-zero. Decimals values are truncated.
+-   `integerToEncode` **[number][12]** Base 10 integer. If passed a non-integer number, decimal values are truncated.
+    Passing zero, negative numbers, or non-numbers will return `undefined`.
 
-Returns **[string][7]** Dictionary encoded value
+#### Examples
+
+```javascript
+const encoder = new AlphanumericEncoder()
+console.log(encoder.encode(5)) // 'E'
+console.log(encoder.encode(48)) // 'AV'
+console.log(encoder.encode(733)) // 'ABE'
+```
+
+```javascript
+const encoder = new AlphanumericEncoder()
+encoder.dictionary = 'ABCD'
+console.log(encoder.encode(5)) // 'AA'
+console.log(encoder.encode(48)) // 'BCD'
+console.log(encoder.encode(733)) // 'BCACA'
+```
+
+```javascript
+const encoder = new AlphanumericEncoder()
+encoder.dictionary = 'DCBA'
+console.log(encoder.encode(5)) // 'DD'
+console.log(encoder.encode(48)) // 'CBA'
+console.log(encoder.encode(733)) // 'CBDBD'
+```
+
+```javascript
+const encoder = new AlphanumericEncoder()
+encoder.dictionary = 'ABC123'
+console.log(encoder.encode(5)) // '2'
+console.log(encoder.encode(48)) // 'AA3'
+console.log(encoder.encode(733)) // 'CBBA'
+```
+
+Returns **[string][11]** Dictionary encoded value
+
+### decode
+
+Takes any string and converts it into a base 10 integer based on the defined dictionary.
+
+#### Parameters
+
+-   `stringToDecode` **[string][11]** If passed a non-integer number, decimal values are truncated.
+    Passing an empty string, `null`, or `undefined` will return `undefined`.
+
+#### Examples
+
+```javascript
+const encoder = new AlphanumericEncoder()
+console.log(encoder.decode('A')) // 1
+console.log(encoder.decode('AC')) // 29
+console.log(encoder.decode('ANE')) // 1045
+```
+
+```javascript
+const encoder = new AlphanumericEncoder()
+console.log(encoder.decode('a')) // undefined
+console.log(encoder.decode(123)) // undefined
+console.log(encoder.decode('A?')) // undefined
+```
+
+```javascript
+const encoder = new AlphanumericEncoder()
+encoder.dictionary = 'ABCD'
+console.log(encoder.decode('A')) // 1
+console.log(encoder.decode('AC')) // 7
+console.log(encoder.decode('ADBAC')) // 551
+console.log(encoder.decode('ANE')) // undefined
+```
+
+Returns **[number][12]** Positive integer representation. If one of the characters is not present in the dictionary, it will return `undefined`.
 
 [1]: #alphanumericencoder
 [2]: #dictionary
-[3]: #dictionary-1
-[4]: #parameters
+[3]: #parameters
+[4]: #examples
 [5]: #encode
 [6]: #parameters-1
-[7]: https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String
-[8]: https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Number
+[7]: #examples-1
+[8]: #decode
+[9]: #parameters-2
+[10]: #examples-2
+[11]: https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String
+[12]: https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Number

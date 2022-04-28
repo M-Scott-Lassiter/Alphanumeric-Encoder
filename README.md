@@ -63,9 +63,9 @@ npm install alphanumeric-encoder
 ### Use in Javascript
 
 ```javascript
-const alphanumericEncoder = require('alphanumeric-encoder')
+const AlphanumericEncoder = require('alphanumeric-encoder')
 
-const encoder = new alphanumericEncoder()
+const encoder = new AlphanumericEncoder()
 
 console.log(encoder.encode(5)) // 'E'
 console.log(encoder.encode(48)) // 'AV'
@@ -80,7 +80,7 @@ console.log(encoder.decode('ANE')) // 1045
 
 ## :gear: API Documentation
 
-See the [API](/../../blob/main/API.md) for more specific use information.
+See the [API](/../../blob/main/API.md) for more specific information on how to use the class.
 
 ## :hammer_and_wrench: Node and Operating System Support Policy
 
