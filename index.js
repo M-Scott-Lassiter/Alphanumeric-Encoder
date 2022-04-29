@@ -1,30 +1,37 @@
+// @ts-check
+
 /**
  * A class for encoding and decoding base 10 integers to a custom alphanumeric base representation.
+ * @example
+ * // Import into a project
+ * const AlphanumericEncoder = require('alphanumeric-encoder')
+ * const encoder = new AlphanumericEncoder()
  */
 class AlphanumericEncoder {
     constructor() {
         /**
          * @private
-         * @type {string}
+         * @type {string} Internal property holding the dictionary in use
          */
         this._dictionary = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ' // Default dictionary is the English alphabet, all capitalized, in order
     }
 
     /**
-     * Set or get the current dictionary.
-     *
-     * Default is the English alphabet in order: `ABCDEFGHIJKLMNOPQRSTUVWXYZ`
+     * Returns or sets the current dictionary.
      *
      * @param {string} newDictionary (If setting) String of unique letters and numbers, in order, for the new dictionary
      * @returns {string} (If used as getter) The current dictionary in use
+     * @default `ABCDEFGHIJKLMNOPQRSTUVWXYZ`
      *
      * @example
-     * console.log(AlphanumericEncoder.dictionary)  // 'ABCDEFGHIJKLMNOPQRSTUVWXYZ'
+     * const encoder = new AlphanumericEncoder()
      *
-     * AlphanumericEncoder.dictionary = 'ABCD'
-     * console.log(AlphanumericEncoder.dictionary)  // 'ABCD'
+     * console.log(encoder.dictionary)  // 'ABCDEFGHIJKLMNOPQRSTUVWXYZ'
      *
-     * AlphanumericEncoder.dictionary = 'ABCDA' // Throws error because the letter 'A' is repeated
+     * encoder.dictionary = 'ABCD'
+     * console.log(encoder.dictionary)  // 'ABCD'
+     *
+     * encoder.dictionary = 'ABCDA' // Throws error because the letter 'A' is repeated
      */
     set dictionary(newDictionary) {
         // Check for empty dictionaries
@@ -74,30 +81,33 @@ class AlphanumericEncoder {
      * console.log(encoder.encode(733)) // 'ABE'
      *
      * @example
-     * const encoder = new AlphanumericEncoder()
      * encoder.dictionary = 'ABCD'
      * console.log(encoder.encode(5)) // 'AA'
      * console.log(encoder.encode(48)) // 'BCD'
      * console.log(encoder.encode(733)) // 'BCACA'
      *
      * @example
-     * const encoder = new AlphanumericEncoder()
      * encoder.dictionary = 'DCBA'
      * console.log(encoder.encode(5)) // 'DD'
      * console.log(encoder.encode(48)) // 'CBA'
      * console.log(encoder.encode(733)) // 'CBDBD'
      *
      * @example
-     * const encoder = new AlphanumericEncoder()
      * encoder.dictionary = 'ABC123'
      * console.log(encoder.encode(5)) // '2'
      * console.log(encoder.encode(48)) // 'AA3'
      * console.log(encoder.encode(733)) // 'CBBA'
+     *
+     * @example
+     * const encoder = new AlphanumericEncoder()
+     * console.log(encoder.encode('A')) // undefined
+     * console.log(encoder.encode(null)) // undefined
+     * console.log(encoder.encode(undefined)) // undefined
      */
     encode(integerToEncode) {
         if (Number.isNaN(integerToEncode) || integerToEncode < 0) {
             return undefined
-        } //! Number.isInteger(number)
+        }
 
         function numToLetter(num, dictionary) {
             // Takes a letter between 0 and max letter length and returns the corresponding letter
@@ -143,13 +153,13 @@ class AlphanumericEncoder {
      * console.log(encoder.decode('ANE')) // 1045
      *
      * @example
-     * const encoder = new AlphanumericEncoder()
      * console.log(encoder.decode('a')) // undefined
      * console.log(encoder.decode(123)) // undefined
      * console.log(encoder.decode('A?')) // undefined
+     * console.log(encoder.decode(null)) // undefined
+     * console.log(encoder.decode(undefined)) // undefined
      *
      * @example
-     * const encoder = new AlphanumericEncoder()
      * encoder.dictionary = 'ABCD'
      * console.log(encoder.decode('A')) // 1
      * console.log(encoder.decode('AC')) // 7
