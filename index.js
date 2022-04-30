@@ -72,6 +72,7 @@ class AlphanumericEncoder {
      *
      * @param {number} integerToEncode Base 10 integer. If passed a non-integer number, decimal values are truncated.
      * Passing zero, negative numbers, or non-numbers will return `undefined`.
+     * Throws an error if `integerToEncode` exceeds the maximum safe integer for Javascript (`2^53 - 1 = 9007199254740991`).
      * @returns {string} Dictionary encoded value
      *
      * @example
@@ -107,6 +108,11 @@ class AlphanumericEncoder {
     encode(integerToEncode) {
         if (Number.isNaN(integerToEncode) || integerToEncode < 0) {
             return undefined
+        }
+        if (integerToEncode > Number.MAX_SAFE_INTEGER) {
+            throw new Error(
+                'The encoding value is greater than the maximum safe integer for Javascript.'
+            )
         }
 
         function numToLetter(num, dictionary) {
@@ -145,6 +151,7 @@ class AlphanumericEncoder {
      *
      * @param {string} stringToDecode If passed a non-integer number, decimal values are truncated.
      * Passing an empty string, `null`, or `undefined` will return `undefined`.
+     * Throws an error if the decoded integer exceeds the maximum safe integer for Javascript (`2^53 - 1 = 9007199254740991`).
      * @returns {number} Positive integer representation. If one of the characters is not present in the dictionary, it will return `undefined`.
      * @example
      * const encoder = new AlphanumericEncoder()
@@ -184,6 +191,12 @@ class AlphanumericEncoder {
                 return undefined
             } // Attempted to find a letter that wasn't encoded in the dictionary
             result += index * this.dictionary.length ** (safeEncoded.length - i)
+        }
+
+        if (result > Number.MAX_SAFE_INTEGER) {
+            throw new Error(
+                'The decoded value is greater than the maximum safe integer for Javascript.'
+            )
         }
 
         return result
