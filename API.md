@@ -47,9 +47,9 @@ console.log(encoder.dictionary) // 'ABCD'
 encoder.dictionary = 'ABCDA' // Throws error because the letter 'A' is repeated
 ```
 
--   Throws **[Error][13]** if setting dictionary to `null`, `undefined` or empty string (i.e. `''`)
--   Throws **[Error][13]** if `newDictionary` contains a non-alphanumeric character
--   Throws **[Error][13]** if `newDictionary` has a repeating character
+-   Throws **[RangeError][13]** if setting dictionary to `null`, `undefined` or empty string (i.e. `''`)
+-   Throws **[RangeError][13]** if `newDictionary` contains a non-alphanumeric character
+-   Throws **[RangeError][13]** if `newDictionary` has a repeating character
 
 Returns **[string][12]** (If used as getter) The current dictionary in use
 
@@ -99,7 +99,7 @@ console.log(encoder.encode(null)) // undefined
 console.log(encoder.encode(undefined)) // undefined
 ```
 
--   Throws **[Error][13]** if `integerToEncode` exceeds the maximum safe integer for Javascript (`2^53 - 1 = 9007199254740991`).
+-   Throws **[RangeError][13]** if `integerToEncode` exceeds the maximum safe integer for Javascript (`2^53 - 1 = 9007199254740991`).
 
 Returns **[string][12]** Dictionary encoded value
 
@@ -137,7 +137,7 @@ console.log(encoder.decode('ADBAC')) // 551
 console.log(encoder.decode('ANE')) // undefined
 ```
 
--   Throws **[Error][13]** if the decoded integer exceeds the maximum safe integer for Javascript (`2^53 - 1 = 9007199254740991`).
+-   Throws **[RangeError][13]** if the decoded integer exceeds the maximum safe integer for Javascript (`2^53 - 1 = 9007199254740991`).
 
 Returns **[number][14]** Positive integer representation. If one of the characters is not present in the dictionary, it will return `undefined`.
 
@@ -153,5 +153,5 @@ Returns **[number][14]** Positive integer representation. If one of the characte
 [10]: #parameters-2
 [11]: #examples-3
 [12]: https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String
-[13]: https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Error
+[13]: https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/RangeError
 [14]: https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Number

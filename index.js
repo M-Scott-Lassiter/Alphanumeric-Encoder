@@ -20,9 +20,9 @@ class AlphanumericEncoder {
      * Returns or sets the current dictionary.
      *
      * @param {string} newDictionary (If setting) String of unique letters and numbers, in order, for the new dictionary
-     * @throws {Error} if setting dictionary to `null`, `undefined` or empty string (i.e. `''`)
-     * @throws {Error} if `newDictionary` contains a non-alphanumeric character
-     * @throws {Error} if `newDictionary` has a repeating character
+     * @throws {RangeError} if setting dictionary to `null`, `undefined` or empty string (i.e. `''`)
+     * @throws {RangeError} if `newDictionary` contains a non-alphanumeric character
+     * @throws {RangeError} if `newDictionary` has a repeating character
      * @returns {string} (If used as getter) The current dictionary in use
      * @default `ABCDEFGHIJKLMNOPQRSTUVWXYZ`
      *
@@ -39,13 +39,13 @@ class AlphanumericEncoder {
     set dictionary(newDictionary) {
         // Check for empty dictionaries
         if (newDictionary === null || newDictionary === undefined || newDictionary.length === 0) {
-            throw new Error('The dictionary cannot be null, undefined, or an empty string.')
+            throw new RangeError('The dictionary cannot be null, undefined, or an empty string.')
         }
 
         // Check for invalid characters. Using a regular expression, make sure only letters and numbers are allowed.
         const regExPattern = /^[a-z0-9]+$/i
         if (!regExPattern.test(newDictionary)) {
-            throw new Error('All characters in the dictionary must be alphanumeric.')
+            throw new RangeError('All characters in the dictionary must be alphanumeric.')
         }
 
         // Convert to upper case only. Verify each character is only used one time within the dictionary.
@@ -56,7 +56,7 @@ class AlphanumericEncoder {
                 uppercaseDictionary.indexOf(uppercaseDictionary[i]) !==
                 uppercaseDictionary.lastIndexOf(uppercaseDictionary[i])
             ) {
-                throw new Error(
+                throw new RangeError(
                     `The dictionary in use has at least one repeating symbol: ${uppercaseDictionary[i]}`
                 )
             }
@@ -75,7 +75,7 @@ class AlphanumericEncoder {
      *
      * @param {number} integerToEncode Base 10 integer. If passed a non-integer number, decimal values are truncated.
      * Passing zero, negative numbers, or non-numbers will return `undefined`.
-     * @throws {Error} if `integerToEncode` exceeds the maximum safe integer for Javascript (`2^53 - 1 = 9007199254740991`).
+     * @throws {RangeError} if `integerToEncode` exceeds the maximum safe integer for Javascript (`2^53 - 1 = 9007199254740991`).
      * @returns {string} Dictionary encoded value
      *
      * @example
@@ -113,7 +113,7 @@ class AlphanumericEncoder {
             return undefined
         }
         if (integerToEncode > Number.MAX_SAFE_INTEGER) {
-            throw new Error(
+            throw new RangeError(
                 'The encoding value is greater than the maximum safe integer for Javascript.'
             )
         }
@@ -154,7 +154,7 @@ class AlphanumericEncoder {
      *
      * @param {string} stringToDecode If passed a non-integer number, decimal values are truncated.
      * Passing an empty string, `null`, or `undefined` will return `undefined`.
-     * @throws {Error} if the decoded integer exceeds the maximum safe integer for Javascript (`2^53 - 1 = 9007199254740991`).
+     * @throws {RangeError} if the decoded integer exceeds the maximum safe integer for Javascript (`2^53 - 1 = 9007199254740991`).
      * @returns {number} Positive integer representation. If one of the characters is not present in the dictionary, it will return `undefined`.
      * @example
      * const encoder = new AlphanumericEncoder()
@@ -197,7 +197,7 @@ class AlphanumericEncoder {
         }
 
         if (result > Number.MAX_SAFE_INTEGER) {
-            throw new Error(
+            throw new RangeError(
                 'The decoded value is greater than the maximum safe integer for Javascript.'
             )
         }
