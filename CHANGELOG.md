@@ -1,3 +1,26 @@
+## [1.2.0](https://github.com/M-Scott-Lassiter/Alphanumeric-Encoder/compare/v1.1.1...v1.2.0) (2022-04-30)
+
+
+### :lady_beetle: Bug Fixes
+
+* add error handling for excessively large integers ([bc725f1](https://github.com/M-Scott-Lassiter/Alphanumeric-Encoder/commit/bc725f17e423910a0d64a20e56f2fa4c5064bce9)), closes [#28](https://github.com/M-Scott-Lassiter/Alphanumeric-Encoder/issues/28)
+
+
+### :building_construction: Build Changes
+
+* update dev-dependency subdependencies (routine update) ([d918311](https://github.com/M-Scott-Lassiter/Alphanumeric-Encoder/commit/d9183113ef2512895bfdf2a9c5d22fbcde5547d8)), closes [#28](https://github.com/M-Scott-Lassiter/Alphanumeric-Encoder/issues/28)
+
+
+### :gift: Feature Changes
+
+* add the `resetDefaultDictionary` method ([9166bd8](https://github.com/M-Scott-Lassiter/Alphanumeric-Encoder/commit/9166bd87ae07874b5bef3b60764e93984c326e1d)), closes [#29](https://github.com/M-Scott-Lassiter/Alphanumeric-Encoder/issues/29)
+
+
+### :dart: Test Changes
+
+* add applicable test for the `resetDefaultDictionary` method ([a67ef00](https://github.com/M-Scott-Lassiter/Alphanumeric-Encoder/commit/a67ef002b45d98fc9a6fb85b492f5e1eb0459517)), closes [#29](https://github.com/M-Scott-Lassiter/Alphanumeric-Encoder/issues/29)
+* add tests to verify errors thrown for excessively large integers ([a9f39d6](https://github.com/M-Scott-Lassiter/Alphanumeric-Encoder/commit/a9f39d64bb21c5a44a572eb6c449f3acd21a37c6)), closes [#28](https://github.com/M-Scott-Lassiter/Alphanumeric-Encoder/issues/28)
+
 ### [1.1.1](https://github.com/M-Scott-Lassiter/Alphanumeric-Encoder/compare/v1.1.0...v1.1.1) (2022-04-28)
 
 ### :building_construction: Build Changes
