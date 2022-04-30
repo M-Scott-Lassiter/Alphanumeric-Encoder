@@ -9,11 +9,12 @@
  */
 class AlphanumericEncoder {
     constructor() {
-        /**
-         * @private
-         * @type {string} Internal property holding the dictionary in use
-         */
-        this._dictionary = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ' // Default dictionary is the English alphabet, all capitalized, in order
+        /** @private */
+        this._defaultDictionary = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ' // Default dictionary is the English alphabet, all capitalized, in order
+        /** @private */
+        this._dictionaryInUse = ''
+        /** @private */
+        this.resetDefaultDictionary()
     }
 
     /**
@@ -63,11 +64,27 @@ class AlphanumericEncoder {
         }
 
         // Validation is complete. Update the internal property.
-        this._dictionary = uppercaseDictionary
+        this._dictionaryInUse = uppercaseDictionary
     }
 
     get dictionary() {
-        return this._dictionary
+        return this._dictionaryInUse
+    }
+
+    /**
+     * Reset the dictionary in use to the default.
+     * @default `ABCDEFGHIJKLMNOPQRSTUVWXYZ`
+     * @returns {void}
+     * @example
+     * const encoder = new AlphanumericEncoder()
+     * console.log(encoder.dictionary) // 'ABCDEFGHIJKLMNOPQRSTUVWXYZ'
+     * encoder.dictionary = 'ABCD'
+     * console.log(encoder.dictionary) // 'ABCD'
+     * encoder.resetDefaultDictionary()
+     * console.log(encoder.dictionary) // 'ABCDEFGHIJKLMNOPQRSTUVWXYZ'
+     */
+    resetDefaultDictionary() {
+        this._dictionaryInUse = this._defaultDictionary
     }
 
     /**
@@ -103,7 +120,6 @@ class AlphanumericEncoder {
      * console.log(encoder.encode(733)) // 'CBBA'
      *
      * @example
-     * const encoder = new AlphanumericEncoder()
      * console.log(encoder.encode('A')) // undefined
      * console.log(encoder.encode(null)) // undefined
      * console.log(encoder.encode(undefined)) // undefined
