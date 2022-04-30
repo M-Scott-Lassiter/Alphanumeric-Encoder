@@ -53,6 +53,12 @@ describe('Dictionary Validation', () => {
         expect(encoder.dictionary).toBe('ABCDEFGHIJKLMNOPQRSTUVWXYZ')
     })
 
+    test('Resetting the dictionary after changing it should be capital alphabet again', () => {
+        encoder.dictionary = 'ABCD'
+        encoder.resetDefaultDictionary()
+        expect(encoder.dictionary).toBe('ABCDEFGHIJKLMNOPQRSTUVWXYZ')
+    })
+
     test('Dictionary cannot be an empty string', () => {
         expect(() => {
             encoder.dictionary = ''
