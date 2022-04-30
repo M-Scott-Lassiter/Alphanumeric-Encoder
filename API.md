@@ -47,6 +47,10 @@ console.log(encoder.dictionary) // 'ABCD'
 encoder.dictionary = 'ABCDA' // Throws error because the letter 'A' is repeated
 ```
 
+-   Throws **any** Error if setting dictionary to `null`, `undefined` or empty string (i.e. `''`)
+-   Throws **any** Error if `newDictionary` contains a non-alphanumeric character
+-   Throws **any** Error if `newDictionary` has a repeating character
+
 Returns **[string][12]** (If used as getter) The current dictionary in use
 
 ### encode
@@ -57,7 +61,6 @@ Takes any number and converts it into a base (dictionary length) letter combo.
 
 -   `integerToEncode` **[number][13]** Base 10 integer. If passed a non-integer number, decimal values are truncated.
     Passing zero, negative numbers, or non-numbers will return `undefined`.
-    Throws an error if `integerToEncode` exceeds the maximum safe integer for Javascript (`2^53 - 1 = 9007199254740991`).
 
 #### Examples
 
@@ -96,6 +99,8 @@ console.log(encoder.encode(null)) // undefined
 console.log(encoder.encode(undefined)) // undefined
 ```
 
+-   Throws **any** Error if `integerToEncode` exceeds the maximum safe integer for Javascript (`2^53 - 1 = 9007199254740991`).
+
 Returns **[string][12]** Dictionary encoded value
 
 ### decode
@@ -106,7 +111,6 @@ Takes any string and converts it into a base 10 integer based on the defined dic
 
 -   `stringToDecode` **[string][12]** If passed a non-integer number, decimal values are truncated.
     Passing an empty string, `null`, or `undefined` will return `undefined`.
-    Throws an error if the decoded integer exceeds the maximum safe integer for Javascript (`2^53 - 1 = 9007199254740991`).
 
 #### Examples
 
@@ -132,6 +136,8 @@ console.log(encoder.decode('AC')) // 7
 console.log(encoder.decode('ADBAC')) // 551
 console.log(encoder.decode('ANE')) // undefined
 ```
+
+-   Throws **any** Error if the decoded integer exceeds the maximum safe integer for Javascript (`2^53 - 1 = 9007199254740991`).
 
 Returns **[number][13]** Positive integer representation. If one of the characters is not present in the dictionary, it will return `undefined`.
 
