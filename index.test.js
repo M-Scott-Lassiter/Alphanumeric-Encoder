@@ -53,6 +53,12 @@ describe('Dictionary Validation', () => {
         expect(encoder.dictionary).toBe('ABCDEFGHIJKLMNOPQRSTUVWXYZ')
     })
 
+    test('Resetting the dictionary after changing it should be capital alphabet again', () => {
+        encoder.dictionary = 'ABCD'
+        encoder.resetDefaultDictionary()
+        expect(encoder.dictionary).toBe('ABCDEFGHIJKLMNOPQRSTUVWXYZ')
+    })
+
     test('Dictionary cannot be an empty string', () => {
         expect(() => {
             encoder.dictionary = ''
@@ -122,6 +128,12 @@ describe('Test Encoding', () => {
         expect(encoder.encode(-1)).toBeUndefined()
     })
 
+    test('Expect encoding numbers greater than Number.MAX_SAFE_INTEGER throws an error', () => {
+        expect(() => {
+            encoder.encode(Number.MAX_SAFE_INTEGER + 1)
+        }).toThrow(/maximum safe integer/)
+    })
+
     test('Expect non-integers to return value of floor: e.g. 1.5 = "B", 3.1 = "C", 4.9 = "D"', () => {
         expect(encoder.encode(2.5)).toBe('B')
         expect(encoder.encode(3.1)).toBe('C')
@@ -153,6 +165,12 @@ describe('Test Decoding', () => {
 
     test.each(['', undefined, null])('Trying to decode %p should return "undefined"', (letter) => {
         expect(encoder.decode(letter)).toBeUndefined()
+    })
+
+    test('Expect decoding strings to integers greater than Number.MAX_SAFE_INTEGER throws an error', () => {
+        expect(() => {
+            encoder.decode('BKTXHSOGHKKF')
+        }).toThrow(/maximum safe integer/)
     })
 
     describe('Invalid Decode Values Using Default Dictionary', () => {

@@ -3,42 +3,74 @@
 ### Table of Contents
 
 -   [AlphanumericEncoder][1]
-    -   [dictionary][2]
-        -   [Parameters][3]
-        -   [Examples][4]
-    -   [encode][5]
-        -   [Parameters][6]
+    -   [Examples][2]
+    -   [dictionary][3]
+        -   [Parameters][4]
+        -   [Examples][5]
+    -   [resetDefaultDictionary][6]
         -   [Examples][7]
-    -   [decode][8]
+    -   [encode][8]
         -   [Parameters][9]
         -   [Examples][10]
+    -   [decode][11]
+        -   [Parameters][12]
+        -   [Examples][13]
 
 ## AlphanumericEncoder
 
 A class for encoding and decoding base 10 integers to a custom alphanumeric base representation.
 
+### Examples
+
+```javascript
+// Import into a project
+const AlphanumericEncoder = require('alphanumeric-encoder')
+const encoder = new AlphanumericEncoder()
+```
+
 ### dictionary
 
-Set or get the current dictionary.
-
-Default is the English alphabet in order: `ABCDEFGHIJKLMNOPQRSTUVWXYZ`
+Returns or sets the current dictionary.
 
 #### Parameters
 
--   `newDictionary` **[string][11]** (If setting) String of unique letters and numbers, in order, for the new dictionary
+-   `newDictionary` **[string][14]** (If setting) String of unique letters and numbers, in order, for the new dictionary
 
 #### Examples
 
 ```javascript
-console.log(AlphanumericEncoder.dictionary) // 'ABCDEFGHIJKLMNOPQRSTUVWXYZ'
+const encoder = new AlphanumericEncoder()
 
-AlphanumericEncoder.dictionary = 'ABCD'
-console.log(AlphanumericEncoder.dictionary) // 'ABCD'
+console.log(encoder.dictionary) // 'ABCDEFGHIJKLMNOPQRSTUVWXYZ'
 
-AlphanumericEncoder.dictionary = 'ABCDA' // Throws error because the letter 'A' is repeated
+encoder.dictionary = 'ABCD'
+console.log(encoder.dictionary) // 'ABCD'
+
+encoder.dictionary = 'ABCDA' // Throws error because the letter 'A' is repeated
 ```
 
-Returns **[string][11]** (If used as getter) The current dictionary in use
+-   Throws **[RangeError][15]** if setting dictionary to `null`, `undefined` or empty string (i.e. `''`)
+-   Throws **[RangeError][15]** if `newDictionary` contains a non-alphanumeric character
+-   Throws **[RangeError][15]** if `newDictionary` has a repeating character
+
+Returns **[string][14]** (If used as getter) The current dictionary in use
+
+### resetDefaultDictionary
+
+Reset the dictionary in use to the default.
+
+#### Examples
+
+```javascript
+const encoder = new AlphanumericEncoder()
+console.log(encoder.dictionary) // 'ABCDEFGHIJKLMNOPQRSTUVWXYZ'
+encoder.dictionary = 'ABCD'
+console.log(encoder.dictionary) // 'ABCD'
+encoder.resetDefaultDictionary()
+console.log(encoder.dictionary) // 'ABCDEFGHIJKLMNOPQRSTUVWXYZ'
+```
+
+Returns **void**
 
 ### encode
 
@@ -46,7 +78,7 @@ Takes any number and converts it into a base (dictionary length) letter combo.
 
 #### Parameters
 
--   `integerToEncode` **[number][12]** Base 10 integer. If passed a non-integer number, decimal values are truncated.
+-   `integerToEncode` **[number][16]** Base 10 integer. If passed a non-integer number, decimal values are truncated.
     Passing zero, negative numbers, or non-numbers will return `undefined`.
 
 #### Examples
@@ -59,7 +91,6 @@ console.log(encoder.encode(733)) // 'ABE'
 ```
 
 ```javascript
-const encoder = new AlphanumericEncoder()
 encoder.dictionary = 'ABCD'
 console.log(encoder.encode(5)) // 'AA'
 console.log(encoder.encode(48)) // 'BCD'
@@ -67,7 +98,6 @@ console.log(encoder.encode(733)) // 'BCACA'
 ```
 
 ```javascript
-const encoder = new AlphanumericEncoder()
 encoder.dictionary = 'DCBA'
 console.log(encoder.encode(5)) // 'DD'
 console.log(encoder.encode(48)) // 'CBA'
@@ -75,14 +105,21 @@ console.log(encoder.encode(733)) // 'CBDBD'
 ```
 
 ```javascript
-const encoder = new AlphanumericEncoder()
 encoder.dictionary = 'ABC123'
 console.log(encoder.encode(5)) // '2'
 console.log(encoder.encode(48)) // 'AA3'
 console.log(encoder.encode(733)) // 'CBBA'
 ```
 
-Returns **[string][11]** Dictionary encoded value
+```javascript
+console.log(encoder.encode('A')) // undefined
+console.log(encoder.encode(null)) // undefined
+console.log(encoder.encode(undefined)) // undefined
+```
+
+-   Throws **[RangeError][15]** if `integerToEncode` exceeds the maximum safe integer for Javascript (`2^53 - 1 = 9007199254740991`).
+
+Returns **[string][14]** Dictionary encoded value
 
 ### decode
 
@@ -90,7 +127,7 @@ Takes any string and converts it into a base 10 integer based on the defined dic
 
 #### Parameters
 
--   `stringToDecode` **[string][11]** If passed a non-integer number, decimal values are truncated.
+-   `stringToDecode` **[string][14]** If passed a non-integer number, decimal values are truncated.
     Passing an empty string, `null`, or `undefined` will return `undefined`.
 
 #### Examples
@@ -103,14 +140,14 @@ console.log(encoder.decode('ANE')) // 1045
 ```
 
 ```javascript
-const encoder = new AlphanumericEncoder()
 console.log(encoder.decode('a')) // undefined
 console.log(encoder.decode(123)) // undefined
 console.log(encoder.decode('A?')) // undefined
+console.log(encoder.decode(null)) // undefined
+console.log(encoder.decode(undefined)) // undefined
 ```
 
 ```javascript
-const encoder = new AlphanumericEncoder()
 encoder.dictionary = 'ABCD'
 console.log(encoder.decode('A')) // 1
 console.log(encoder.decode('AC')) // 7
@@ -118,17 +155,23 @@ console.log(encoder.decode('ADBAC')) // 551
 console.log(encoder.decode('ANE')) // undefined
 ```
 
-Returns **[number][12]** Positive integer representation. If one of the characters is not present in the dictionary, it will return `undefined`.
+-   Throws **[RangeError][15]** if the decoded integer exceeds the maximum safe integer for Javascript (`2^53 - 1 = 9007199254740991`).
+
+Returns **[number][16]** Positive integer representation. If one of the characters is not present in the dictionary, it will return `undefined`.
 
 [1]: #alphanumericencoder
-[2]: #dictionary
-[3]: #parameters
-[4]: #examples
-[5]: #encode
-[6]: #parameters-1
-[7]: #examples-1
-[8]: #decode
-[9]: #parameters-2
-[10]: #examples-2
-[11]: https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String
-[12]: https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Number
+[2]: #examples
+[3]: #dictionary
+[4]: #parameters
+[5]: #examples-1
+[6]: #resetdefaultdictionary
+[7]: #examples-2
+[8]: #encode
+[9]: #parameters-1
+[10]: #examples-3
+[11]: #decode
+[12]: #parameters-2
+[13]: #examples-4
+[14]: https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String
+[15]: https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/RangeError
+[16]: https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Number
