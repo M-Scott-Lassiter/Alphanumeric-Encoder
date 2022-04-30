@@ -1,3 +1,14 @@
+### [1.1.1](https://github.com/M-Scott-Lassiter/Alphanumeric-Encoder/compare/v1.1.0...v1.1.1) (2022-04-28)
+
+
+### :building_construction: Build Changes
+
+* add Commitizen and Husky support ([c96bb37](https://github.com/M-Scott-Lassiter/Alphanumeric-Encoder/commit/c96bb37621e06ccd86f027e46737738715a998c8)), closes [#25](https://github.com/M-Scott-Lassiter/Alphanumeric-Encoder/issues/25) [#26](https://github.com/M-Scott-Lassiter/Alphanumeric-Encoder/issues/26)
+* add commitizen support for developers ([cfa7276](https://github.com/M-Scott-Lassiter/Alphanumeric-Encoder/commit/cfa7276e43a9727f5f4bd1e09bab798a1ba908db)), closes [#25](https://github.com/M-Scott-Lassiter/Alphanumeric-Encoder/issues/25)
+* configure lint-staged and pre-commit hook ([00b362a](https://github.com/M-Scott-Lassiter/Alphanumeric-Encoder/commit/00b362ab60ead4588d99d141978679b615922fc0)), closes [#26](https://github.com/M-Scott-Lassiter/Alphanumeric-Encoder/issues/26)
+* remove 'build' as a patch trigger for semantic-release ([4624ddb](https://github.com/M-Scott-Lassiter/Alphanumeric-Encoder/commit/4624ddba36beca2156a51d7e6334fadaf0471ed8))
+* remove extra Github release files from semantic-release config ([fcc1942](https://github.com/M-Scott-Lassiter/Alphanumeric-Encoder/commit/fcc19426ef2766390721a962caf0717dc2c96917))
+
 ## [1.1.0](https://github.com/M-Scott-Lassiter/Alphanumeric-Encoder/compare/v1.0.5...v1.1.0) (2022-04-26)
 
 ### :building_construction: Build Changes
