@@ -1,6 +1,6 @@
 <div align="center">
 
-![Alphanumeric Encoder](logo.gif)
+[![Alphanumeric Encoder](logo.gif)](https://www.npmjs.com/package/alphanumeric-encoder)
 
 [![NPM Version](https://img.shields.io/npm/v/alphanumeric-encoder)](https://www.npmjs.com/package/alphanumeric-encoder)
 [![NPM Package Size](https://img.shields.io/bundlephobia/min/alphanumeric-encoder)](https://www.npmjs.com/package/alphanumeric-encoder)
