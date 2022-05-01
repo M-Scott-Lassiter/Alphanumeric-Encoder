@@ -1,6 +1,12 @@
 <div align="center">
 
-# Alphanumeric Encoder
+![Alphanumeric Encoder](logo.gif)
+
+[![NPM Version](https://img.shields.io/npm/v/alphanumeric-encoder)](https://www.npmjs.com/package/alphanumeric-encoder)
+[![NPM Package Size](https://img.shields.io/bundlephobia/min/alphanumeric-encoder)](https://www.npmjs.com/package/alphanumeric-encoder)
+[![License](https://img.shields.io/github/license/M-Scott-Lassiter/Alphanumeric-Encoder?color=blue)](https://github.com/M-Scott-Lassiter/Alphanumeric-Encoder/blob/main/LICENSE)
+
+---
 
 [![Tests](https://github.com/M-Scott-Lassiter/Alphanumeric-Encoder/actions/workflows/test.yml/badge.svg)](https://github.com/M-Scott-Lassiter/Alphanumeric-Encoder/actions/workflows/test.yml)
 [![Build](https://github.com/M-Scott-Lassiter/Alphanumeric-Encoder/actions/workflows/publish.yml/badge.svg)](https://github.com/M-Scott-Lassiter/Alphanumeric-Encoder/actions/workflows/publish.yml)
@@ -13,10 +19,6 @@
 [![contributions welcome](https://img.shields.io/badge/contributions-welcome-brightgreen.svg?style=flat)](/../../blob/main/CONTRIBUTING.md)
 
 ---
-
-[![NPM Version](https://img.shields.io/npm/v/alphanumeric-encoder)](https://www.npmjs.com/package/alphanumeric-encoder)
-![NPM Package Size](https://img.shields.io/bundlephobia/min/alphanumeric-encoder)
-[![License](https://img.shields.io/github/license/M-Scott-Lassiter/Alphanumeric-Encoder)](https://github.com/M-Scott-Lassiter/Alphanumeric-Encoder/blob/main/LICENSE)
 
 </div>
 
@@ -80,13 +82,13 @@ console.log(encoder.decode('ANE')) // 1045
 
 ## :gear: API Documentation
 
-See the [API](/../../blob/main/API.md) for more specific information on how to use the class.
+See the [API](/../../blob/main/API.md) for more detailed information on how to use the class.
 
 ## :hammer_and_wrench: Node and Operating System Support Policy
 
 The test suite has successfully run on all combinations of:
 
--   ![Node Versions Supported](https://img.shields.io/node/v/alphanumeric-encoder)
+-   [![Node Versions Supported](https://img.shields.io/node/v/alphanumeric-encoder)](https://github.com/nodejs/Release)
 -   ![Windows Supported](https://img.shields.io/badge/Windows-0078D6?style=for-the-badge=flat&logo=windows&logoColor=white)
     ![Mac Supported](https://img.shields.io/badge/Mac-000000?style=for-the-badge=flat&logo=apple&logoColor=white)
     ![Linux Supported](https://img.shields.io/badge/Linux-FCC624?style=for-the-badge=flat&logo=linux&logoColor=black)
