@@ -66,16 +66,18 @@ describe('Allow Lower Case Dictionaries', () => {
 
     test.each([true, 1, [123], { value: 1 }])(
         'allowLowerCaseDictionary with truthy value %p',
-        (truthyValue) => {
-            encoder.allowLowerCaseDictionary = truthyValue
+        (truthyTestValue) => {
+            // @ts-ignore
+            encoder.allowLowerCaseDictionary = truthyTestValue
             expect(encoder.allowLowerCaseDictionary).toBeTruthy()
         }
     )
 
     test.each([false, 0, null, undefined])(
         'allowLowerCaseDictionary with falsy value %p',
-        (truthyValue) => {
-            encoder.allowLowerCaseDictionary = truthyValue
+        (truthyTestValue) => {
+            // @ts-ignore
+            encoder.allowLowerCaseDictionary = truthyTestValue
             expect(encoder.allowLowerCaseDictionary).toBeFalsy()
         }
     )
@@ -198,6 +200,7 @@ describe('Test Encoding', () => {
         test.each(numberToEncodedLetters)(
             'Under default dictionary, expect %p to encode to %p',
             (number, letter) => {
+                // @ts-ignore
                 expect(encoder.encode(number)).toBe(letter)
             }
         )
@@ -207,7 +210,9 @@ describe('Test Encoding', () => {
         test.each(numberWithDictionaryToEncodedLetters)(
             'Under dictionary %p, expect %p to encode to %p',
             (dictionary, number, letter) => {
+                // @ts-ignore
                 encoder.dictionary = dictionary
+                // @ts-ignore
                 expect(encoder.encode(number)).toBe(letter)
             }
         )
@@ -218,7 +223,9 @@ describe('Test Encoding', () => {
             'Under dictionary %p, expect %p to encode to %p',
             (dictionary, number, letter) => {
                 encoder.allowLowerCaseDictionary = true
+                // @ts-ignore
                 encoder.dictionary = dictionary
+                // @ts-ignore
                 expect(encoder.encode(number)).toBe(letter)
             }
         )
@@ -243,6 +250,7 @@ describe('Test Decoding', () => {
         test.each(encodedWithNonexistentCharacter)(
             'Under default dictionary, trying to decode %p will return "undefined" due to character not existing in dictionary',
             (letter) => {
+                // @ts-ignore
                 expect(encoder.decode(letter)).toBeUndefined()
             }
         )
@@ -252,6 +260,7 @@ describe('Test Decoding', () => {
         test.each(numberToEncodedLetters)(
             'Under default dictionary, expect %p to be decoded from %p',
             (number, letter) => {
+                // @ts-ignore
                 expect(encoder.decode(letter)).toBe(number)
             }
         )
@@ -261,7 +270,9 @@ describe('Test Decoding', () => {
         test.each(numberWithDictionaryToEncodedLetters)(
             'Under dictionary %p, expect %p to be decoded from %p',
             (dictionary, number, letter) => {
+                // @ts-ignore
                 encoder.dictionary = dictionary
+                // @ts-ignore
                 expect(encoder.decode(letter)).toBe(number)
             }
         )
@@ -272,7 +283,9 @@ describe('Test Decoding', () => {
             'Under dictionary %p, expect %p to be decoded from %p',
             (dictionary, number, letter) => {
                 encoder.allowLowerCaseDictionary = true
+                // @ts-ignore
                 encoder.dictionary = dictionary
+                // @ts-ignore
                 expect(encoder.decode(letter)).toBe(number)
             }
         )
