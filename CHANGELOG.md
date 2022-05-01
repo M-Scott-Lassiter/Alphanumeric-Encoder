@@ -1,14 +1,12 @@
 ## [1.3.0](https://github.com/M-Scott-Lassiter/Alphanumeric-Encoder/compare/v1.2.0...v1.3.0) (2022-05-01)
 
-
 ### :gift: Feature Changes
 
-* add ability to use lower case letters in the dictionary ([a1b7066](https://github.com/M-Scott-Lassiter/Alphanumeric-Encoder/commit/a1b7066be92af91ed82cb2f9a1e37dbd19914659)), closes [#31](https://github.com/M-Scott-Lassiter/Alphanumeric-Encoder/issues/31)
-
+-   add ability to use lower case letters in the dictionary ([a1b7066](https://github.com/M-Scott-Lassiter/Alphanumeric-Encoder/commit/a1b7066be92af91ed82cb2f9a1e37dbd19914659)), closes [#31](https://github.com/M-Scott-Lassiter/Alphanumeric-Encoder/issues/31)
 
 ### :building_construction: Build Changes
 
-* add @types/jest for type checking support in the testing suite ([56ff52d](https://github.com/M-Scott-Lassiter/Alphanumeric-Encoder/commit/56ff52d01e1ef018e68f89615f1e074c7a06248a))
+-   add @types/jest for type checking support in the testing suite ([56ff52d](https://github.com/M-Scott-Lassiter/Alphanumeric-Encoder/commit/56ff52d01e1ef018e68f89615f1e074c7a06248a))
 
 ## [1.2.0](https://github.com/M-Scott-Lassiter/Alphanumeric-Encoder/compare/v1.1.1...v1.2.0) (2022-04-30)
 
@@ -55,24 +53,24 @@
 -   add engine support for Node v10.x ([a04bd74](https://github.com/M-Scott-Lassiter/Alphanumeric-Encoder/commit/a04bd747b5e54c5c392ee308f9ceeeb4bfe27cc8)), closes [#23](https://github.com/M-Scott-Lassiter/Alphanumeric-Encoder/issues/23)
 -   add support for Node v18.x ([6056d72](https://github.com/M-Scott-Lassiter/Alphanumeric-Encoder/commit/6056d72a9d81c1db9bdaee6f4d06eda6af45e75b)), closes [#23](https://github.com/M-Scott-Lassiter/Alphanumeric-Encoder/issues/23)
 
-## [1.0.5](https://github.com/M-Scott-Lassiter/Alphanumeric-Encoder/compare/v1.0.4...v1.0.5) (2022-04-24)
+### [1.0.5](https://github.com/M-Scott-Lassiter/Alphanumeric-Encoder/compare/v1.0.4...v1.0.5) (2022-04-24)
 
 ### :building_construction: Build Changes
 
 -   add a build script to the package ([51016bf](https://github.com/M-Scott-Lassiter/Alphanumeric-Encoder/commit/51016bf462f7e851635a38d7b2193b9bbfc0b0c2)), closes [#18](https://github.com/M-Scott-Lassiter/Alphanumeric-Encoder/issues/18)
 -   update the CD scripts to run `build` ([15f8d48](https://github.com/M-Scott-Lassiter/Alphanumeric-Encoder/commit/15f8d483f29bf3b5afdd9810b6d03a7f70c98f02)), closes [#18](https://github.com/M-Scott-Lassiter/Alphanumeric-Encoder/issues/18)
 
-## [1.0.4](https://github.com/M-Scott-Lassiter/Alphanumeric-Encoder/compare/v1.0.3...v1.0.4) (2022-04-24)
+### [1.0.4](https://github.com/M-Scott-Lassiter/Alphanumeric-Encoder/compare/v1.0.3...v1.0.4) (2022-04-24)
 
 ### :building_construction: Build Changes
 
 -   add conventionalcommits preset to release-notes-generator ([12e499d](https://github.com/M-Scott-Lassiter/Alphanumeric-Encoder/commit/12e499d1260c7d1d8a3d2f0c5388c71f70bba985)), closes [#4](https://github.com/M-Scott-Lassiter/Alphanumeric-Encoder/issues/4)
 
-## [1.0.3](https://github.com/M-Scott-Lassiter/Alphanumeric-Encoder/compare/v1.0.2...v1.0.3) (2022-04-23)
+### [1.0.3](https://github.com/M-Scott-Lassiter/Alphanumeric-Encoder/compare/v1.0.2...v1.0.3) (2022-04-23)
 
-## [1.0.2](https://github.com/M-Scott-Lassiter/Alphanumeric-Encoder/compare/v1.0.1...v1.0.2) (2022-04-23)
+### [1.0.2](https://github.com/M-Scott-Lassiter/Alphanumeric-Encoder/compare/v1.0.1...v1.0.2) (2022-04-23)
 
-## [1.0.1](https://github.com/M-Scott-Lassiter/Alphanumeric-Encoder/compare/v1.0.0...v1.0.1) (2022-04-21)
+### [1.0.1](https://github.com/M-Scott-Lassiter/Alphanumeric-Encoder/compare/v1.0.0...v1.0.1) (2022-04-21)
 
 ### Bug Fixes
 

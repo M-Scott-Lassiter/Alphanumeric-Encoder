@@ -1,0 +1,115 @@
+<!-- This is a helper file used to generate the animated logo. 
+    Included in the repository for either future updates or for others to learn from -->
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Document</title>
+        <style>
+            * {
+                margin: 0px;
+                padding: 0px;
+                box-sizing: border-box;
+            }
+
+            body {
+                background-color: #1f1e1e;
+                display: flex;
+                margin: 40px;
+            }
+
+            .logo,
+            .projectName {
+                margin: 0px;
+                padding: 10px;
+                border: 1px solid #1f1e1e;
+                background-color: rgb(35, 152, 35);
+                color: rgb(255, 255, 255);
+                font-family: 'Poppins', sans-serif;
+                display: grid;
+                grid-template-rows: auto;
+                font-size: 35px;
+                text-shadow: 3px 3px 3px #1f1e1e;
+            }
+
+            .logo {
+                width: 128px;
+                overflow: hidden;
+            }
+
+            .projectName {
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                padding: 30px;
+                font-size: 50px;
+            }
+
+            .element {
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                padding: 0px;
+                transition: margin 1.5s ease, opacity 0.8s ease;
+            }
+
+            .moveOffScreenRight {
+                margin-right: -350px;
+                opacity: 0;
+            }
+
+            .moveOffScreenLeft {
+                margin-left: -350px;
+                opacity: 0;
+            }
+        </style>
+        <link rel="preconnect" href="https://fonts.googleapis.com" />
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+        <link
+            href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;600&display=swap"
+            rel="stylesheet"
+        />
+        <!-- Font courtesy of Poppins: https://fonts.google.com/specimen/Poppins -->
+        <script src="https://unpkg.com/alphanumeric-encoder"></script>
+    </head>
+    <body>
+        <div class="logo">
+            <strong>
+                <div id="logoLetter" class="element">A</div>
+                <div id="logoNumber" class="element">1</div>
+            </strong>
+        </div>
+        <div class="projectName">Alphanumeric Encoder</div>
+
+        <script>
+            const encoder = new AlphanumericEncoder()
+
+            const logoLetter = document.getElementById('logoLetter')
+            const logoNumber = document.getElementById('logoNumber')
+            const logo = document.querySelector('body')
+
+            const letterArray = ['A', 'B', 'C', 'AA', 'AB', 'AC', 'ANA', 'ANB', 'ANC', 'AND', 'ANE']
+
+            let i = 0
+
+            setInterval(() => {
+                logoLetter.classList.toggle('moveOffScreenLeft')
+                logoNumber.classList.toggle('moveOffScreenRight')
+
+                setTimeout(() => {
+                    logoLetter.innerText = letterArray[i]
+                    logoNumber.innerText = encoder.decode(letterArray[i])
+                    logoLetter.classList.toggle('moveOffScreenLeft')
+                    logoNumber.classList.toggle('moveOffScreenRight')
+                }, 600)
+
+                i += 1
+                if (i > letterArray.length - 1) {
+                    i = 0
+                }
+            }, 3500)
+        </script>
+    </body>
+</html>
