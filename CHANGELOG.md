@@ -1,3 +1,15 @@
+## [1.3.0](https://github.com/M-Scott-Lassiter/Alphanumeric-Encoder/compare/v1.2.0...v1.3.0) (2022-05-01)
+
+
+### :gift: Feature Changes
+
+* add ability to use lower case letters in the dictionary ([a1b7066](https://github.com/M-Scott-Lassiter/Alphanumeric-Encoder/commit/a1b7066be92af91ed82cb2f9a1e37dbd19914659)), closes [#31](https://github.com/M-Scott-Lassiter/Alphanumeric-Encoder/issues/31)
+
+
+### :building_construction: Build Changes
+
+* add @types/jest for type checking support in the testing suite ([56ff52d](https://github.com/M-Scott-Lassiter/Alphanumeric-Encoder/commit/56ff52d01e1ef018e68f89615f1e074c7a06248a))
+
 ## [1.2.0](https://github.com/M-Scott-Lassiter/Alphanumeric-Encoder/compare/v1.1.1...v1.2.0) (2022-04-30)
 
 ### :lady_beetle: Bug Fixes
