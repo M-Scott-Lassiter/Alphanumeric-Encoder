@@ -1,3 +1,5 @@
+// @ts-check
+
 const AlphanumericEncoder = require('./index')
 
 let encoder = new AlphanumericEncoder()
@@ -31,6 +33,14 @@ const numberWithDictionaryToEncodedLetters = [
     ['EDCBA', 31, 'EEE']
 ]
 
+const numberWithLowerCaseDictionaryToEncodedLetters = [
+    ['ABCDabcd', 4, 'D'],
+    ['ABCDabcd', 6, 'b'],
+    ['ABCDabcd', 9, 'AA'],
+    ['ABCDabcd', 15, 'Ac'],
+    ['ABCDabcd', 2984, 'abDd']
+]
+
 const expectedValidDictionaryValues = ['ABCD', 'ABcd', 'aBcD', 'ABC123']
 
 const expectedInvalidDictionaryValuesWithRepeatingSymbols = ['ABCDA', 'ABCDa', 'ABCD1231']
@@ -46,6 +56,30 @@ function setupNewEncoderForTesting() {
         encoder = null
     })
 }
+
+describe('Allow Lower Case Dictionaries', () => {
+    setupNewEncoderForTesting()
+
+    test('Default should not allow lower case dictionaries', () => {
+        expect(encoder.allowLowerCaseDictionary).toBeFalsy()
+    })
+
+    test.each([true, 1, [123], { value: 1 }])(
+        'allowLowerCaseDictionary with truthy value %p',
+        (truthyValue) => {
+            encoder.allowLowerCaseDictionary = truthyValue
+            expect(encoder.allowLowerCaseDictionary).toBeTruthy()
+        }
+    )
+
+    test.each([false, 0, null, undefined])(
+        'allowLowerCaseDictionary with falsy value %p',
+        (truthyValue) => {
+            encoder.allowLowerCaseDictionary = truthyValue
+            expect(encoder.allowLowerCaseDictionary).toBeFalsy()
+        }
+    )
+})
 
 describe('Dictionary Validation', () => {
     setupNewEncoderForTesting()
@@ -77,7 +111,7 @@ describe('Dictionary Validation', () => {
         }).toThrow(/undefined/)
     })
 
-    describe('Valid Dictionaries', () => {
+    describe('Valid Dictionaries (no lower case)', () => {
         setupNewEncoderForTesting()
 
         test.each(expectedValidDictionaryValues)(
@@ -91,6 +125,26 @@ describe('Dictionary Validation', () => {
         test('Dictionaries should be converted to uppercase', () => {
             encoder.dictionary = 'abcd'
             expect(encoder.dictionary).toBe('ABCD')
+        })
+    })
+
+    describe('Valid Dictionaries (allow lower case)', () => {
+        setupNewEncoderForTesting()
+
+        test.each(expectedValidDictionaryValues)(
+            'Expect %p to be a valid dictionary',
+            (validDictionaryString) => {
+                encoder.allowLowerCaseDictionary = true
+                encoder.dictionary = validDictionaryString
+                expect(encoder.dictionary).toBe(validDictionaryString)
+            }
+        )
+
+        const complexDictionary = 'ABCD123abcd'
+        test(`Expect ${complexDictionary} to be a valid dictionary`, () => {
+            encoder.allowLowerCaseDictionary = true
+            encoder.dictionary = complexDictionary
+            expect(encoder.dictionary).toBe('ABCD123abcd')
         })
     })
 
@@ -149,10 +203,21 @@ describe('Test Encoding', () => {
         )
     })
 
-    describe('Encode with Custom Dictionary', () => {
+    describe('Encode with Custom Upper Case Dictionary', () => {
         test.each(numberWithDictionaryToEncodedLetters)(
             'Under dictionary %p, expect %p to encode to %p',
             (dictionary, number, letter) => {
+                encoder.dictionary = dictionary
+                expect(encoder.encode(number)).toBe(letter)
+            }
+        )
+    })
+
+    describe('Encode with Custom Lower Case Dictionary', () => {
+        test.each(numberWithLowerCaseDictionaryToEncodedLetters)(
+            'Under dictionary %p, expect %p to encode to %p',
+            (dictionary, number, letter) => {
+                encoder.allowLowerCaseDictionary = true
                 encoder.dictionary = dictionary
                 expect(encoder.encode(number)).toBe(letter)
             }
@@ -192,10 +257,21 @@ describe('Test Decoding', () => {
         )
     })
 
-    describe('Decode with Custom Dictionary', () => {
+    describe('Decode with Custom Upper Case Dictionary', () => {
         test.each(numberWithDictionaryToEncodedLetters)(
             'Under dictionary %p, expect %p to be decoded from %p',
             (dictionary, number, letter) => {
+                encoder.dictionary = dictionary
+                expect(encoder.decode(letter)).toBe(number)
+            }
+        )
+    })
+
+    describe('Decode with Custom Lower Case Dictionary', () => {
+        test.each(numberWithLowerCaseDictionaryToEncodedLetters)(
+            'Under dictionary %p, expect %p to be decoded from %p',
+            (dictionary, number, letter) => {
+                encoder.allowLowerCaseDictionary = true
                 encoder.dictionary = dictionary
                 expect(encoder.decode(letter)).toBe(number)
             }

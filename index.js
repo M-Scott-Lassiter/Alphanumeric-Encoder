@@ -9,11 +9,23 @@
  */
 class AlphanumericEncoder {
     constructor() {
-        /** @private */
-        this._defaultDictionary = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ' // Default dictionary is the English alphabet, all capitalized, in order
-        /** @private */
+        /**
+         * @private
+         * @type {string} Internal value used to initialize and reset the dictionary
+         * @default The English alphabet, all capitalized, in order
+         * */
+        this._defaultDictionary = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ'
+        /**
+         * @private
+         * @type {string} Internal value of the dictionary to encode/decode against
+         */
         this._dictionaryInUse = ''
-        /** @private */
+        /**
+         * @private
+         * @type {boolean} Internal value that tracks whether or not the dictionary setter should allow lower case letters or not
+         * */
+        this._allowLowerCaseDictionary = false
+
         this.resetDefaultDictionary()
     }
 
@@ -49,26 +61,55 @@ class AlphanumericEncoder {
             throw new RangeError('All characters in the dictionary must be alphanumeric.')
         }
 
-        // Convert to upper case only. Verify each character is only used one time within the dictionary.
-        const uppercaseDictionary = newDictionary.toUpperCase()
+        // Convert to upper case only unless allowing for lower case letters
+        let formattedDictionary = newDictionary
+        if (!this._allowLowerCaseDictionary) {
+            formattedDictionary = newDictionary.toUpperCase()
+        }
 
-        for (let i = 0; i < uppercaseDictionary.length; i++) {
+        // Verify each character is only used one time within the dictionary.
+        for (let i = 0; i < formattedDictionary.length; i++) {
             if (
-                uppercaseDictionary.indexOf(uppercaseDictionary[i]) !==
-                uppercaseDictionary.lastIndexOf(uppercaseDictionary[i])
+                formattedDictionary.indexOf(formattedDictionary[i]) !==
+                formattedDictionary.lastIndexOf(formattedDictionary[i])
             ) {
                 throw new RangeError(
-                    `The dictionary in use has at least one repeating symbol: ${uppercaseDictionary[i]}`
+                    `The dictionary in use has at least one repeating symbol: ${formattedDictionary[i]}`
                 )
             }
         }
 
         // Validation is complete. Update the internal property.
-        this._dictionaryInUse = uppercaseDictionary
+        this._dictionaryInUse = formattedDictionary
     }
 
     get dictionary() {
         return this._dictionaryInUse
+    }
+
+    /**
+     * Returns or sets a boolean value that determines whether the dictionary will allow lower case letters or not.
+     *
+     * @param {boolean} isAllowed (If setting). Accept truthy or falsy statements.
+     * @returns {boolean} (If used as getter)
+     * @default false
+     * @example
+     * const encoder = new AlphanumericEncoder()
+     * encoder.dictionary = 'abcdefg' // Default for `allowLowerCaseDictionary` is false
+     * console.log(encoder.dictionary) // 'ABCDEFG'
+     *
+     * @example
+     * const encoder = new AlphanumericEncoder()
+     * encoder.allowLowerCaseDictionary = true
+     * encoder.dictionary = 'ABCDefg'
+     * console.log(encoder.dictionary) // 'ABCDefg'
+     */
+    set allowLowerCaseDictionary(isAllowed) {
+        this._allowLowerCaseDictionary = !!isAllowed // The double !! converts truthy or falsy values to true or false, respectively
+    }
+
+    get allowLowerCaseDictionary() {
+        return this._allowLowerCaseDictionary
     }
 
     /**

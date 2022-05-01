@@ -7,14 +7,17 @@
     -   [dictionary][3]
         -   [Parameters][4]
         -   [Examples][5]
-    -   [resetDefaultDictionary][6]
-        -   [Examples][7]
-    -   [encode][8]
-        -   [Parameters][9]
+    -   [allowLowerCaseDictionary][6]
+        -   [Parameters][7]
+        -   [Examples][8]
+    -   [resetDefaultDictionary][9]
         -   [Examples][10]
-    -   [decode][11]
+    -   [encode][11]
         -   [Parameters][12]
         -   [Examples][13]
+    -   [decode][14]
+        -   [Parameters][15]
+        -   [Examples][16]
 
 ## AlphanumericEncoder
 
@@ -34,7 +37,7 @@ Returns or sets the current dictionary.
 
 #### Parameters
 
--   `newDictionary` **[string][14]** (If setting) String of unique letters and numbers, in order, for the new dictionary
+-   `newDictionary` **[string][17]** (If setting) String of unique letters and numbers, in order, for the new dictionary
 
 #### Examples
 
@@ -49,11 +52,36 @@ console.log(encoder.dictionary) // 'ABCD'
 encoder.dictionary = 'ABCDA' // Throws error because the letter 'A' is repeated
 ```
 
--   Throws **[RangeError][15]** if setting dictionary to `null`, `undefined` or empty string (i.e. `''`)
--   Throws **[RangeError][15]** if `newDictionary` contains a non-alphanumeric character
--   Throws **[RangeError][15]** if `newDictionary` has a repeating character
+-   Throws **[RangeError][18]** if setting dictionary to `null`, `undefined` or empty string (i.e. `''`)
+-   Throws **[RangeError][18]** if `newDictionary` contains a non-alphanumeric character
+-   Throws **[RangeError][18]** if `newDictionary` has a repeating character
 
-Returns **[string][14]** (If used as getter) The current dictionary in use
+Returns **[string][17]** (If used as getter) The current dictionary in use
+
+### allowLowerCaseDictionary
+
+Returns or sets a boolean value that determines whether the dictionary will allow lower case letters or not.
+
+#### Parameters
+
+-   `isAllowed` **[boolean][19]** (If setting). Accept truthy or falsy statements.
+
+#### Examples
+
+```javascript
+const encoder = new AlphanumericEncoder()
+encoder.dictionary = 'abcdefg' // Default for `allowLowerCaseDictionary` is false
+console.log(encoder.dictionary) // 'ABCDEFG'
+```
+
+```javascript
+const encoder = new AlphanumericEncoder()
+encoder.allowLowerCaseDictionary = true
+encoder.dictionary = 'ABCDefg'
+console.log(encoder.dictionary) // 'ABCDefg'
+```
+
+Returns **[boolean][19]** (If used as getter)
 
 ### resetDefaultDictionary
 
@@ -78,7 +106,7 @@ Takes any number and converts it into a base (dictionary length) letter combo.
 
 #### Parameters
 
--   `integerToEncode` **[number][16]** Base 10 integer. If passed a non-integer number, decimal values are truncated.
+-   `integerToEncode` **[number][20]** Base 10 integer. If passed a non-integer number, decimal values are truncated.
     Passing zero, negative numbers, or non-numbers will return `undefined`.
 
 #### Examples
@@ -117,9 +145,9 @@ console.log(encoder.encode(null)) // undefined
 console.log(encoder.encode(undefined)) // undefined
 ```
 
--   Throws **[RangeError][15]** if `integerToEncode` exceeds the maximum safe integer for Javascript (`2^53 - 1 = 9007199254740991`).
+-   Throws **[RangeError][18]** if `integerToEncode` exceeds the maximum safe integer for Javascript (`2^53 - 1 = 9007199254740991`).
 
-Returns **[string][14]** Dictionary encoded value
+Returns **[string][17]** Dictionary encoded value
 
 ### decode
 
@@ -127,7 +155,7 @@ Takes any string and converts it into a base 10 integer based on the defined dic
 
 #### Parameters
 
--   `stringToDecode` **[string][14]** If passed a non-integer number, decimal values are truncated.
+-   `stringToDecode` **[string][17]** If passed a non-integer number, decimal values are truncated.
     Passing an empty string, `null`, or `undefined` will return `undefined`.
 
 #### Examples
@@ -155,23 +183,27 @@ console.log(encoder.decode('ADBAC')) // 551
 console.log(encoder.decode('ANE')) // undefined
 ```
 
--   Throws **[RangeError][15]** if the decoded integer exceeds the maximum safe integer for Javascript (`2^53 - 1 = 9007199254740991`).
+-   Throws **[RangeError][18]** if the decoded integer exceeds the maximum safe integer for Javascript (`2^53 - 1 = 9007199254740991`).
 
-Returns **[number][16]** Positive integer representation. If one of the characters is not present in the dictionary, it will return `undefined`.
+Returns **[number][20]** Positive integer representation. If one of the characters is not present in the dictionary, it will return `undefined`.
 
 [1]: #alphanumericencoder
 [2]: #examples
 [3]: #dictionary
 [4]: #parameters
 [5]: #examples-1
-[6]: #resetdefaultdictionary
-[7]: #examples-2
-[8]: #encode
-[9]: #parameters-1
+[6]: #allowlowercasedictionary
+[7]: #parameters-1
+[8]: #examples-2
+[9]: #resetdefaultdictionary
 [10]: #examples-3
-[11]: #decode
+[11]: #encode
 [12]: #parameters-2
 [13]: #examples-4
-[14]: https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String
-[15]: https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/RangeError
-[16]: https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Number
+[14]: #decode
+[15]: #parameters-3
+[16]: #examples-5
+[17]: https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String
+[18]: https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/RangeError
+[19]: https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Boolean
+[20]: https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Number
