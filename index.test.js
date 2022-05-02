@@ -81,6 +81,11 @@ describe('Allow Lower Case Dictionaries', () => {
             expect(encoder.allowLowerCaseDictionary).toBeFalsy()
         }
     )
+
+    test('Allow lower case dictionaries by using a config object', () => {
+        encoder = new AlphanumericEncoder({ allowLowerCaseDictionary: true })
+        expect(encoder.allowLowerCaseDictionary).toBeTruthy()
+    })
 })
 
 describe('Dictionary Validation', () => {
@@ -128,6 +133,11 @@ describe('Dictionary Validation', () => {
             encoder.dictionary = 'abcd'
             expect(encoder.dictionary).toBe('ABCD')
         })
+
+        test('Allow setting dictionaries by using a config object', () => {
+            encoder = new AlphanumericEncoder({ dictionary: 'abcd' })
+            expect(encoder.dictionary).toBe('ABCD')
+        })
     })
 
     describe('Valid Dictionaries (allow lower case)', () => {
@@ -147,6 +157,20 @@ describe('Dictionary Validation', () => {
             encoder.allowLowerCaseDictionary = true
             encoder.dictionary = complexDictionary
             expect(encoder.dictionary).toBe('ABCD123abcd')
+        })
+
+        test('Allow setting lower case dictionaries by using a config object', () => {
+            encoder = new AlphanumericEncoder({
+                allowLowerCaseDictionary: true,
+                dictionary: 'abcd'
+            })
+            expect(encoder.dictionary).toBe('abcd')
+        })
+
+        test('Class should be configurable using externally defined object', () => {
+            const configOptions = { allowLowerCaseDictionary: true, dictionary: 'abcd' }
+            encoder = new AlphanumericEncoder(configOptions)
+            expect(encoder.dictionary).toBe('abcd')
         })
     })
 
@@ -170,6 +194,12 @@ describe('Dictionary Validation', () => {
                 }).toThrow(/must be alphanumeric/)
             }
         )
+
+        test('Passing invalid dictionary in options should throw error', () => {
+            expect(() => {
+                encoder = new AlphanumericEncoder({ dictionary: 'ABC@#$' })
+            }).toThrow(/must be alphanumeric/)
+        })
     })
 })
 
