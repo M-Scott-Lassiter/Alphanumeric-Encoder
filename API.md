@@ -3,32 +3,56 @@
 ### Table of Contents
 
 -   [AlphanumericEncoder][1]
-    -   [Examples][2]
-    -   [dictionary][3]
-        -   [Parameters][4]
-        -   [Examples][5]
-    -   [allowLowerCaseDictionary][6]
-        -   [Parameters][7]
-        -   [Examples][8]
-    -   [resetDefaultDictionary][9]
-        -   [Examples][10]
-    -   [encode][11]
-        -   [Parameters][12]
-        -   [Examples][13]
-    -   [decode][14]
-        -   [Parameters][15]
-        -   [Examples][16]
+    -   [Parameters][2]
+    -   [Examples][3]
+    -   [dictionary][4]
+        -   [Parameters][5]
+        -   [Examples][6]
+    -   [allowLowerCaseDictionary][7]
+        -   [Parameters][8]
+        -   [Examples][9]
+    -   [resetDefaultDictionary][10]
+        -   [Examples][11]
+    -   [encode][12]
+        -   [Parameters][13]
+        -   [Examples][14]
+    -   [decode][15]
+        -   [Parameters][16]
+        -   [Examples][17]
 
 ## AlphanumericEncoder
 
 A class for encoding and decoding base 10 integers to a custom alphanumeric base representation.
+
+### Parameters
+
+-   `configOptions` **[object][18]?** Optional object defining initial settings for the class (optional, default `{}`)
+
+    -   `configOptions.allowLowerCaseDictionary` **[boolean][19]?** Whether or not to allow lower case letters in the dictionary
+    -   `configOptions.dictionary` **[string][20]?** Starting dictionary to use
 
 ### Examples
 
 ```javascript
 // Import into a project
 const AlphanumericEncoder = require('alphanumeric-encoder')
+
 const encoder = new AlphanumericEncoder()
+```
+
+```javascript
+// Import into a project
+const AlphanumericEncoder = require('alphanumeric-encoder')
+
+const encoder = new AlphanumericEncoder({ allowLowerCaseDictionary: true, dictionary: 'abcdEFGH' })
+```
+
+```javascript
+// Import into a project
+const AlphanumericEncoder = require('alphanumeric-encoder')
+
+const configOptions = { allowLowerCaseDictionary: true, dictionary: 'abcdEFGH' }
+const encoder = new AlphanumericEncoder(configOptions)
 ```
 
 ### dictionary
@@ -37,7 +61,7 @@ Returns or sets the current dictionary.
 
 #### Parameters
 
--   `newDictionary` **[string][17]** (If setting) String of unique letters and numbers, in order, for the new dictionary
+-   `newDictionary` **[string][20]** (If setting) String of unique letters and numbers, in order, for the new dictionary
 
 #### Examples
 
@@ -52,11 +76,11 @@ console.log(encoder.dictionary) // 'ABCD'
 encoder.dictionary = 'ABCDA' // Throws error because the letter 'A' is repeated
 ```
 
--   Throws **[RangeError][18]** if setting dictionary to `null`, `undefined` or empty string (i.e. `''`)
--   Throws **[RangeError][18]** if `newDictionary` contains a non-alphanumeric character
--   Throws **[RangeError][18]** if `newDictionary` has a repeating character
+-   Throws **[RangeError][21]** if setting dictionary to `null`, `undefined` or empty string (i.e. `''`)
+-   Throws **[RangeError][21]** if `newDictionary` contains a non-alphanumeric character
+-   Throws **[RangeError][21]** if `newDictionary` has a repeating character
 
-Returns **[string][17]** (If used as getter) The current dictionary in use
+Returns **[string][20]** (If used as getter) The current dictionary in use
 
 ### allowLowerCaseDictionary
 
@@ -106,7 +130,7 @@ Takes any number and converts it into a base (dictionary length) letter combo.
 
 #### Parameters
 
--   `integerToEncode` **[number][20]** Base 10 integer. If passed a non-integer number, decimal values are truncated.
+-   `integerToEncode` **[number][22]** Base 10 integer. If passed a non-integer number, decimal values are truncated.
     Passing zero, negative numbers, or non-numbers will return `undefined`.
 
 #### Examples
@@ -145,9 +169,9 @@ console.log(encoder.encode(null)) // undefined
 console.log(encoder.encode(undefined)) // undefined
 ```
 
--   Throws **[RangeError][18]** if `integerToEncode` exceeds the maximum safe integer for Javascript (`2^53 - 1 = 9007199254740991`).
+-   Throws **[RangeError][21]** if `integerToEncode` exceeds the maximum safe integer for Javascript (`2^53 - 1 = 9007199254740991`).
 
-Returns **[string][17]** Dictionary encoded value
+Returns **[string][20]** Dictionary encoded value
 
 ### decode
 
@@ -155,7 +179,7 @@ Takes any string and converts it into a base 10 integer based on the defined dic
 
 #### Parameters
 
--   `stringToDecode` **[string][17]** If passed a non-integer number, decimal values are truncated.
+-   `stringToDecode` **[string][20]** If passed a non-integer number, decimal values are truncated.
     Passing an empty string, `null`, or `undefined` will return `undefined`.
 
 #### Examples
@@ -183,27 +207,29 @@ console.log(encoder.decode('ADBAC')) // 551
 console.log(encoder.decode('ANE')) // undefined
 ```
 
--   Throws **[RangeError][18]** if the decoded integer exceeds the maximum safe integer for Javascript (`2^53 - 1 = 9007199254740991`).
+-   Throws **[RangeError][21]** if the decoded integer exceeds the maximum safe integer for Javascript (`2^53 - 1 = 9007199254740991`).
 
-Returns **[number][20]** Positive integer representation. If one of the characters is not present in the dictionary, it will return `undefined`.
+Returns **[number][22]** Positive integer representation. If one of the characters is not present in the dictionary, it will return `undefined`.
 
 [1]: #alphanumericencoder
-[2]: #examples
-[3]: #dictionary
-[4]: #parameters
-[5]: #examples-1
-[6]: #allowlowercasedictionary
-[7]: #parameters-1
-[8]: #examples-2
-[9]: #resetdefaultdictionary
-[10]: #examples-3
-[11]: #encode
-[12]: #parameters-2
-[13]: #examples-4
-[14]: #decode
-[15]: #parameters-3
-[16]: #examples-5
-[17]: https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String
-[18]: https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/RangeError
+[2]: #parameters
+[3]: #examples
+[4]: #dictionary
+[5]: #parameters-1
+[6]: #examples-1
+[7]: #allowlowercasedictionary
+[8]: #parameters-2
+[9]: #examples-2
+[10]: #resetdefaultdictionary
+[11]: #examples-3
+[12]: #encode
+[13]: #parameters-3
+[14]: #examples-4
+[15]: #decode
+[16]: #parameters-4
+[17]: #examples-5
+[18]: https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Object
 [19]: https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Boolean
-[20]: https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Number
+[20]: https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String
+[21]: https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/RangeError
+[22]: https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Number

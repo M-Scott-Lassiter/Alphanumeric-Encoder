@@ -1,6 +1,6 @@
 <div align="center">
 
-![Alphanumeric Encoder](logo.gif)
+[![Alphanumeric Encoder](logo.gif)](https://www.npmjs.com/package/alphanumeric-encoder)
 
 [![NPM Version](https://img.shields.io/npm/v/alphanumeric-encoder)](https://www.npmjs.com/package/alphanumeric-encoder)
 [![NPM Package Size](https://img.shields.io/bundlephobia/min/alphanumeric-encoder)](https://www.npmjs.com/package/alphanumeric-encoder)
@@ -53,7 +53,7 @@
 This is useful for converting letter indexes (used by people) to numbers (used by computers). Examples include:
 
 -   Spreadsheet columns (e.g. Microsoft Excel's end column is "XFD" which corresponds to 16384)
--   Chess boards use letters and numbers to identify the grid
+-   Game boards (e.g. Chess, Battleship) use letters and numbers to identify the grid
 -   Geographic grid reference systems
 
 ### Install as an NPM Package

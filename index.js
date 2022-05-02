@@ -2,13 +2,30 @@
 
 /**
  * A class for encoding and decoding base 10 integers to a custom alphanumeric base representation.
+ * @param {object} [configOptions] Optional object defining initial settings for the class
+ * @param {boolean} [configOptions.allowLowerCaseDictionary] Whether or not to allow lower case letters in the dictionary
+ * @param {string} [configOptions.dictionary] Starting dictionary to use
  * @example
  * // Import into a project
  * const AlphanumericEncoder = require('alphanumeric-encoder')
+ *
  * const encoder = new AlphanumericEncoder()
+ *
+ * @example
+ * // Import into a project
+ * const AlphanumericEncoder = require('alphanumeric-encoder')
+ *
+ * const encoder = new AlphanumericEncoder({allowLowerCaseDictionary: true, dictionary: "abcdEFGH"})
+ *
+ * @example
+ * // Import into a project
+ * const AlphanumericEncoder = require('alphanumeric-encoder')
+ *
+ * const configOptions = {allowLowerCaseDictionary: true, dictionary: "abcdEFGH"}
+ * const encoder = new AlphanumericEncoder(configOptions)
  */
 class AlphanumericEncoder {
-    constructor() {
+    constructor(configOptions = {}) {
         /**
          * @private
          * @type {string} Internal value used to initialize and reset the dictionary
@@ -27,6 +44,15 @@ class AlphanumericEncoder {
         this._allowLowerCaseDictionary = false
 
         this.resetDefaultDictionary()
+
+        // Process the options. If the user included any, then the if statements will evaluate truthy and try to
+        //  set the appropriate values.
+        if (configOptions.allowLowerCaseDictionary) {
+            this.allowLowerCaseDictionary = configOptions.allowLowerCaseDictionary
+        }
+        if (configOptions.dictionary) {
+            this.dictionary = configOptions.dictionary
+        }
     }
 
     /**
