@@ -1,3 +1,15 @@
+## [1.4.0](https://github.com/M-Scott-Lassiter/Alphanumeric-Encoder/compare/v1.3.0...v1.4.0) (2022-05-02)
+
+
+### :gift: Feature Changes
+
+* add ability to instantiate the class using an optional config object in the constructor ([8dc230b](https://github.com/M-Scott-Lassiter/Alphanumeric-Encoder/commit/8dc230b164a2689b49d6a7f8b00f51348da8c3f8)), closes [#35](https://github.com/M-Scott-Lassiter/Alphanumeric-Encoder/issues/35)
+
+
+### :dart: Test Changes
+
+* add tests verifying the optional config object works as expected ([f7f7de6](https://github.com/M-Scott-Lassiter/Alphanumeric-Encoder/commit/f7f7de6681c4bb3ec1083f346d691d4d36795af3)), closes [#35](https://github.com/M-Scott-Lassiter/Alphanumeric-Encoder/issues/35)
+
 ## [1.3.0](https://github.com/M-Scott-Lassiter/Alphanumeric-Encoder/compare/v1.2.0...v1.3.0) (2022-05-01)
 
 ### :gift: Feature Changes
