@@ -19,6 +19,9 @@
     -   [decode][15]
         -   [Parameters][16]
         -   [Examples][17]
+    -   [deconstruct][18]
+        -   [Parameters][19]
+        -   [Examples][20]
 
 ## AlphanumericEncoder
 
@@ -26,10 +29,10 @@ A class for encoding and decoding base 10 integers to a custom alphanumeric base
 
 ### Parameters
 
--   `configOptions` **[object][18]?** Optional object defining initial settings for the class (optional, default `{}`)
+-   `configOptions` **[object][21]?** Optional object defining initial settings for the class (optional, default `{}`)
 
-    -   `configOptions.allowLowerCaseDictionary` **[boolean][19]?** Whether or not to allow lower case letters in the dictionary
-    -   `configOptions.dictionary` **[string][20]?** Starting dictionary to use
+    -   `configOptions.allowLowerCaseDictionary` **[boolean][22]?** Whether or not to allow lower case letters in the dictionary
+    -   `configOptions.dictionary` **[string][23]?** Starting dictionary to use
 
 ### Examples
 
@@ -61,7 +64,7 @@ Returns or sets the current dictionary.
 
 #### Parameters
 
--   `newDictionary` **[string][20]** (If setting) String of unique letters and numbers, in order, for the new dictionary
+-   `newDictionary` **[string][23]** (If setting) String of unique letters and numbers, in order, for the new dictionary
 
 #### Examples
 
@@ -76,11 +79,11 @@ console.log(encoder.dictionary) // 'ABCD'
 encoder.dictionary = 'ABCDA' // Throws error because the letter 'A' is repeated
 ```
 
--   Throws **[RangeError][21]** if setting dictionary to `null`, `undefined` or empty string (i.e. `''`)
--   Throws **[RangeError][21]** if `newDictionary` contains a non-alphanumeric character
--   Throws **[RangeError][21]** if `newDictionary` has a repeating character
+-   Throws **[RangeError][24]** if setting dictionary to `null`, `undefined` or empty string (i.e. `''`)
+-   Throws **[RangeError][24]** if `newDictionary` contains a non-alphanumeric character
+-   Throws **[RangeError][24]** if `newDictionary` has a repeating character
 
-Returns **[string][20]** (If used as getter) The current dictionary in use
+Returns **[string][23]** (If used as getter) The current dictionary in use
 
 ### allowLowerCaseDictionary
 
@@ -88,7 +91,7 @@ Returns or sets a boolean value that determines whether the dictionary will allo
 
 #### Parameters
 
--   `isAllowed` **[boolean][19]** (If setting). Accept truthy or falsy statements.
+-   `isAllowed` **[boolean][22]** (If setting). Accept truthy or falsy statements.
 
 #### Examples
 
@@ -105,7 +108,7 @@ encoder.dictionary = 'ABCDefg'
 console.log(encoder.dictionary) // 'ABCDefg'
 ```
 
-Returns **[boolean][19]** (If used as getter)
+Returns **[boolean][22]** (If used as getter)
 
 ### resetDefaultDictionary
 
@@ -130,7 +133,7 @@ Takes any number and converts it into a base (dictionary length) letter combo.
 
 #### Parameters
 
--   `integerToEncode` **[number][22]** Base 10 integer. If passed a non-integer number, decimal values are truncated.
+-   `integerToEncode` **[number][25]** Base 10 integer. If passed a non-integer number, decimal values are truncated.
     Passing zero, negative numbers, or non-numbers will return `undefined`.
 
 #### Examples
@@ -169,9 +172,9 @@ console.log(encoder.encode(null)) // undefined
 console.log(encoder.encode(undefined)) // undefined
 ```
 
--   Throws **[RangeError][21]** if `integerToEncode` exceeds the maximum safe integer for Javascript (`2^53 - 1 = 9007199254740991`).
+-   Throws **[RangeError][24]** if `integerToEncode` exceeds the maximum safe integer for Javascript (`2^53 - 1 = 9007199254740991`).
 
-Returns **[string][20]** Dictionary encoded value
+Returns **[string][23]** Dictionary encoded value
 
 ### decode
 
@@ -179,7 +182,7 @@ Takes any string and converts it into a base 10 integer based on the defined dic
 
 #### Parameters
 
--   `stringToDecode` **[string][20]** If passed a non-integer number, decimal values are truncated.
+-   `stringToDecode` **[string][23]** If passed a non-integer number, decimal values are truncated.
     Passing an empty string, `null`, or `undefined` will return `undefined`.
 
 #### Examples
@@ -207,9 +210,34 @@ console.log(encoder.decode('ADBAC')) // 551
 console.log(encoder.decode('ANE')) // undefined
 ```
 
--   Throws **[RangeError][21]** if the decoded integer exceeds the maximum safe integer for Javascript (`2^53 - 1 = 9007199254740991`).
+-   Throws **[RangeError][24]** if the decoded integer exceeds the maximum safe integer for Javascript (`2^53 - 1 = 9007199254740991`).
 
-Returns **[number][22]** Positive integer representation. If one of the characters is not present in the dictionary, it will return `undefined`.
+Returns **[number][25]** Positive integer representation. If one of the characters is not present in the dictionary, it will return `undefined`.
+
+### deconstruct
+
+Takes any string of letters and numbers and deconstructs it into an array of base 10 integers based on the defined dictionary.
+
+#### Parameters
+
+-   `stringToDeconstruct` **([string][23] | [number][25])** A string of letters and numbers (e.g. `'A7'`, `'AC22'`, `'7C10F'`)
+
+#### Examples
+
+```javascript
+const encoder = new AlphanumericEncoder()
+console.log(encoder.deconstruct('A')) // [1]
+console.log(encoder.deconstruct('AC22')) // [29, 22]
+console.log(encoder.deconstruct('C3ABC123EFGH456')) // [3, 3, 731, 123, 92126, 456]
+console.log(encoder.deconstruct('A1aB2B')) // [1, 1, undefined, 2, 2]
+console.log(encoder.deconstruct('7AC!23A1%')) // [7, undefined, 23, 1, 1, undefined]
+console.log(encoder.deconstruct('')) // undefined
+```
+
+-   Throws **[Error][26]** if the dictionary contains a number as this function would be unable to differentiate between where a number and dictionary value.
+
+Returns **[Array][27]<[number][25]>** An array of numbers. Characters not present in the dictionary are treated as letters and return `undefined` for that array value.
+Passing an empty string (`''`), `null`, or `undefined` will return `undefined` for the whole function.
 
 [1]: #alphanumericencoder
 [2]: #parameters
@@ -228,8 +256,13 @@ Returns **[number][22]** Positive integer representation. If one of the characte
 [15]: #decode
 [16]: #parameters-4
 [17]: #examples-5
-[18]: https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Object
-[19]: https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Boolean
-[20]: https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String
-[21]: https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/RangeError
-[22]: https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Number
+[18]: #deconstruct
+[19]: #parameters-5
+[20]: #examples-6
+[21]: https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Object
+[22]: https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Boolean
+[23]: https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String
+[24]: https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/RangeError
+[25]: https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Number
+[26]: https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Error
+[27]: https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Array

@@ -287,6 +287,76 @@ class AlphanumericEncoder {
 
         return result
     }
+
+    /**
+     * Takes any string of letters and numbers and deconstructs it into an array of base 10 integers based on the defined dictionary.
+     *
+     * @param {string|number} stringToDeconstruct A string of letters and numbers (e.g. `'A7'`, `'AC22'`, `'7C10F'`)
+     * @throws {Error} if the dictionary contains a number as this function would be unable to differentiate between where a number and dictionary value.
+     * @returns {number[]} An array of numbers. Characters not present in the dictionary are treated as letters and return `undefined` for that array value.
+     * Passing an empty string (`''`), `null`, or `undefined` will return `undefined` for the whole function.
+     * @example
+     * const encoder = new AlphanumericEncoder()
+     * console.log(encoder.deconstruct('A')) // [1]
+     * console.log(encoder.deconstruct('AC22')) // [29, 22]
+     * console.log(encoder.deconstruct('C3ABC123EFGH456')) // [3, 3, 731, 123, 92126, 456]
+     * console.log(encoder.deconstruct('A1aB2B')) // [1, 1, undefined, 2, 2]
+     * console.log(encoder.deconstruct('7AC!23A1%')) // [7, undefined, 23, 1, 1, undefined]
+     * console.log(encoder.deconstruct('')) // undefined
+     *
+     */
+    deconstruct(stringToDeconstruct) {
+        // The dictionary cannot contain numbers, or else the deconstruct function cannot distinguish where
+        //  one code begins and another ends.
+        if (this.dictionary.match(/[0-9]/)) {
+            throw new Error('Cannot deconstruct if the dictionary contains numbers.')
+        }
+
+        // Passing falsy values should return undefined
+        if (
+            stringToDeconstruct === null ||
+            stringToDeconstruct === undefined ||
+            String(stringToDeconstruct).length === 0
+        ) {
+            return undefined
+        }
+
+        const safeString = String(stringToDeconstruct) // Force argument to string to process number arguments and prevent slice from throwing an error
+        const deconstructedArray = []
+        let character = ''
+        let componentPart = safeString.slice(0, 1) // Initialize with the first character (which has been guranteed present by above guard functions)
+
+        // A helper function to push the final component into the array that gets returned. Numbers get added as is, strings get decoded.
+        const addDecodedElement = (componentString) => {
+            if (componentString.match(/[0-9]/)) {
+                deconstructedArray.push(Number.parseInt(componentString, 10)) // Numbers
+            } else {
+                deconstructedArray.push(this.decode(componentString)) // Letters
+            }
+        }
+
+        // If more than one character in safeString, loop through each subsequent character. Once the next character is not
+        // the same type as the previous group (i.e. flips from letter to number, or vice versa), add the character group to
+        // deconstructedArray, reset, and move to the next.
+        for (let i = 2; i <= safeString.length; i++) {
+            character = safeString.slice(i - 1, i)
+
+            // Parse using a RegExp looking for numbers. The !! converts this to either true/false.
+            if (!!character.match(/[0-9]/) === !!componentPart.match(/[0-9]/)) {
+                // Same type, concatenate and keep going
+                componentPart += character
+            } else {
+                // Flipped types, add to array and reset
+                addDecodedElement(componentPart)
+                componentPart = character
+            }
+        }
+
+        // Add the final component part (for single character stringToDeconstruct, this will be the only part)
+        addDecodedElement(componentPart)
+
+        return deconstructedArray
+    }
 }
 
 module.exports = AlphanumericEncoder
