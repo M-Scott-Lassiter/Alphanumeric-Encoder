@@ -48,13 +48,13 @@
 
 ### Purpose
 
-`alphanumeric-encoder` is a lightweight library with no dependencies. It can encode an integer into a letter representation, and decode the letter back into a number.
+`alphanumeric-encoder` is a lightweight library with no dependencies. It can [encode](/../../blob/main/API.md#encode) an integer into a letter representation, [decode](/../../blob/main/API.md#decode) the letter back into a number, and [deconstruct](/../../blob/main/API.md#deconstruct) combined strings of letters and numbers into an array of decoded numbers.
 
 This is useful for converting letter indexes (used by people) to numbers (used by computers). Examples include:
 
 -   Spreadsheet columns (e.g. Microsoft Excel's end column is "XFD" which corresponds to 16384)
 -   Game boards (e.g. Chess, Battleship) use letters and numbers to identify the grid
--   Geographic grid reference systems
+-   Geodesy grid reference systems (e.g. the [United States National Grid](https://en.wikipedia.org/wiki/United_States_National_Grid))
 
 ### Install as an NPM Package
 
@@ -76,6 +76,10 @@ console.log(encoder.encode(733)) // 'ABE'
 console.log(encoder.decode('A')) // 1
 console.log(encoder.decode('AC')) // 29
 console.log(encoder.decode('ANE')) // 1045
+
+console.log(encoder.deconstruct('C7')) // [3, 7]
+console.log(encoder.deconstruct('AC22')) // [29, 22]
+console.log(encoder.deconstruct('C3ABC123EFGH456')) // [3, 3, 731, 123, 92126, 456]
 ```
 
 ---
@@ -103,7 +107,7 @@ Other Node versions and operating systems might support the library, but the tes
 
 `alphanumeric-encoder` and all other files in this repository are distributed as free and open-source software under the [MIT License](/../../blob/main/LICENSE), © 2022.
 
-Both [contributions](/../../blob/main/CONTRIBUTING.md) and [bug reports](https://github.com/M-Scott-Lassiter/Alphanumeric-Encoder/issues/new/choose) welcome.
+Both [contributions](/../../blob/main/CONTRIBUTING.md) and [bug reports](https://github.com/M-Scott-Lassiter/Alphanumeric-Encoder/issues/new/choose) welcome. See the [change log](/../../blob/main/CHANGELOG.md) for specific details of each release.
 
 Leave a :star2: if you find this project useful!
 

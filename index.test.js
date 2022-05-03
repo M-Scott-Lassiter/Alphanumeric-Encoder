@@ -321,3 +321,48 @@ describe('Test Decoding', () => {
         )
     })
 })
+
+describe('Test Deconstruction', () => {
+    setupNewEncoderForTesting()
+
+    test.each(['', undefined, null])(
+        'Trying to deconstruct %p should return "undefined"',
+        (badArgument) => {
+            expect(encoder.deconstruct(badArgument)).toBeUndefined()
+        }
+    )
+
+    test('Expect dictionaries containing numbers to throw an error', () => {
+        expect(() => {
+            encoder.dictionary = 'ABC123'
+            encoder.deconstruct('C3')
+        }).toThrow(/dictionary contains numbers/)
+    })
+
+    const deconstructionTestValues = [
+        ['A', [1]],
+        ['A1', [1, 1]],
+        ['C7', [3, 7]],
+        ['7C', [7, 3]],
+        ['AE18', [31, 18]],
+        ['18AE', [18, 31]],
+        ['1', [1]],
+        [1, [1]],
+        [733, [733]],
+        [[733], [733]],
+        [['7C'], [7, 3]],
+        ['7C82AA', [7, 3, 82, 27]],
+        ['C3ABC123EFGH456', [3, 3, 731, 123, 92126, 456]],
+        ['A1aB2B', [1, 1, undefined, 2, 2]],
+        ['7AC!23A1%', [7, undefined, 23, 1, 1, undefined]],
+        ['&', [undefined]]
+    ]
+    test.each(deconstructionTestValues)(
+        'Under default dictionary, deconstructing %p should return array %p',
+        // @ts-ignored
+        (deconstructArgument, resultArray) => {
+            // @ts-ignore
+            expect(encoder.deconstruct(deconstructArgument)).toEqual(resultArray)
+        }
+    )
+})
