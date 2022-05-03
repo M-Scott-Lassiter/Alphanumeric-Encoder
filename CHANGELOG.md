@@ -1,3 +1,15 @@
+## [1.5.0](https://github.com/M-Scott-Lassiter/Alphanumeric-Encoder/compare/v1.4.0...v1.5.0) (2022-05-03)
+
+
+### :gift: Feature Changes
+
+* add the `deconstruct` function to the class ([5df23ec](https://github.com/M-Scott-Lassiter/Alphanumeric-Encoder/commit/5df23ec35290a2cbf7d4c95038af359fd0bf55b5)), closes [#37](https://github.com/M-Scott-Lassiter/Alphanumeric-Encoder/issues/37)
+
+
+### :dart: Test Changes
+
+* add test cases for the `deconstruct` function ([1eafa19](https://github.com/M-Scott-Lassiter/Alphanumeric-Encoder/commit/1eafa19b487e7db8697e18fda6847194028eab48)), closes [#37](https://github.com/M-Scott-Lassiter/Alphanumeric-Encoder/issues/37)
+
 ## [1.4.0](https://github.com/M-Scott-Lassiter/Alphanumeric-Encoder/compare/v1.3.0...v1.4.0) (2022-05-02)
 
 ### :gift: Feature Changes
