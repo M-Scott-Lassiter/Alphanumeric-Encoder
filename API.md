@@ -32,7 +32,8 @@ A class for encoding and decoding base 10 integers to a custom alphanumeric base
 -   `configOptions` **[object][21]?** Optional object defining initial settings for the class (optional, default `{}`)
 
     -   `configOptions.allowLowerCaseDictionary` **[boolean][22]?** Whether or not to allow lower case letters in the dictionary
-    -   `configOptions.dictionary` **[string][23]?** Starting dictionary to use
+    -   `configOptions.dictionary` **[string][23]?** Starting dictionary to use. Must contain only letters or numbers. Characters cannot be repeated.
+        If `allowLowerCaseDictionary = true`, then lower case letters are not considered the same as upper case. (e.g. 'ABCabc' has 6 unique characters.)
 
 ### Examples
 

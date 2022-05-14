@@ -4,7 +4,8 @@
  * A class for encoding and decoding base 10 integers to a custom alphanumeric base representation.
  * @param {object} [configOptions] Optional object defining initial settings for the class
  * @param {boolean} [configOptions.allowLowerCaseDictionary] Whether or not to allow lower case letters in the dictionary
- * @param {string} [configOptions.dictionary] Starting dictionary to use
+ * @param {string} [configOptions.dictionary] Starting dictionary to use. Must contain only letters or numbers. Characters cannot be repeated.
+ * If `allowLowerCaseDictionary = true`, then lower case letters are not considered the same as upper case. (e.g. 'ABCabc' has 6 unique characters.)
  * @example
  * // Import into a project
  * const AlphanumericEncoder = require('alphanumeric-encoder')
@@ -47,10 +48,10 @@ class AlphanumericEncoder {
 
         // Process the options. If the user included any, then the if statements will evaluate truthy and try to
         //  set the appropriate values.
-        if (configOptions.allowLowerCaseDictionary) {
+        if ('allowLowerCaseDictionary' in configOptions) {
             this.allowLowerCaseDictionary = configOptions.allowLowerCaseDictionary
         }
-        if (configOptions.dictionary) {
+        if ('dictionary' in configOptions) {
             this.dictionary = configOptions.dictionary
         }
     }
@@ -76,7 +77,7 @@ class AlphanumericEncoder {
      * encoder.dictionary = 'ABCDA' // Throws error because the letter 'A' is repeated
      */
     set dictionary(newDictionary) {
-        // Check for empty dictionaries
+        // Check for empty or wrong type dictionaries
         if (
             typeof newDictionary !== 'string' ||
             newDictionary.length === 0 ||

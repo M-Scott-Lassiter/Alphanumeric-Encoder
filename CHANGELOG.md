@@ -1,9 +1,8 @@
 ### [1.5.1](https://github.com/M-Scott-Lassiter/Alphanumeric-Encoder/compare/v1.5.0...v1.5.1) (2022-05-14)
 
-
 ### :lady_beetle: Bug Fixes
 
-* improve dictionary type checking ([3f37616](https://github.com/M-Scott-Lassiter/Alphanumeric-Encoder/commit/3f37616376682edeaeed59dfe66a606a61797de4)), closes [#39](https://github.com/M-Scott-Lassiter/Alphanumeric-Encoder/issues/39)
+-   improve dictionary type checking ([3f37616](https://github.com/M-Scott-Lassiter/Alphanumeric-Encoder/commit/3f37616376682edeaeed59dfe66a606a61797de4)), closes [#39](https://github.com/M-Scott-Lassiter/Alphanumeric-Encoder/issues/39)
 
 ## [1.5.0](https://github.com/M-Scott-Lassiter/Alphanumeric-Encoder/compare/v1.4.0...v1.5.0) (2022-05-03)
 

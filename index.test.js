@@ -73,12 +73,32 @@ describe('Allow Lower Case Dictionaries', () => {
         }
     )
 
+    test.each([true, 1, [123], { value: 1 }])(
+        'allowLowerCaseDictionary with truthy value in setup: new AlphanumericEncoder({ allowLowerCaseDictionary: %p })',
+        (truthyTestValue) => {
+            const setupEncoder = new AlphanumericEncoder({
+                allowLowerCaseDictionary: truthyTestValue
+            })
+            expect(setupEncoder.allowLowerCaseDictionary).toBeTruthy()
+        }
+    )
+
     test.each([false, 0, null, undefined])(
         'allowLowerCaseDictionary with falsy value %p',
         (truthyTestValue) => {
             // @ts-ignore
             encoder.allowLowerCaseDictionary = truthyTestValue
             expect(encoder.allowLowerCaseDictionary).toBeFalsy()
+        }
+    )
+
+    test.each([false, 0, null, undefined])(
+        'allowLowerCaseDictionary with falsy value in setup: new AlphanumericEncoder({ allowLowerCaseDictionary: %p })',
+        (truthyTestValue) => {
+            const setupEncoder = new AlphanumericEncoder({
+                allowLowerCaseDictionary: truthyTestValue
+            })
+            expect(setupEncoder.allowLowerCaseDictionary).toBeFalsy()
         }
     )
 
@@ -120,15 +140,29 @@ describe('Dictionary Validation', () => {
 
     test.each([true, false])('Dictionary cannot be boolean %p', (input) => {
         expect(() => {
+            // @ts-ignore
             encoder.dictionary = input
         }).toThrow(/boolean/)
     })
 
     test('Dictionary cannot be NaN', () => {
         expect(() => {
+            // @ts-ignore
             encoder.dictionary = NaN
         }).toThrow(/NaN/)
     })
+
+    test.each([true, false, null, undefined, '', NaN, { dictionary: 'ABC' }, ['ABC'], 'ABCDA'])(
+        'Cannot pass bad dictionary arguments in constructor: new AlphanumericEncoder({dictionary: %p}',
+        (dictionaryInput) => {
+            expect(() => {
+                // eslint-disable-next-line no-unused-vars
+                const setupEncoder = new AlphanumericEncoder({
+                    dictionary: dictionaryInput
+                })
+            }).toThrow()
+        }
+    )
 
     describe('Valid Dictionaries (no lower case)', () => {
         setupNewEncoderForTesting()
