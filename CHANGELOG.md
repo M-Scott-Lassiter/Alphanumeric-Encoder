@@ -1,3 +1,10 @@
+### [1.5.2](https://github.com/M-Scott-Lassiter/Alphanumeric-Encoder/compare/v1.5.1...v1.5.2) (2022-05-14)
+
+
+### :lady_beetle: Bug Fixes
+
+* correct bug that allowed bad dictionary values to pass through the constructor ([bc6e6c7](https://github.com/M-Scott-Lassiter/Alphanumeric-Encoder/commit/bc6e6c735e12d6eba1827c869430eee3afce65c0)), closes [#41](https://github.com/M-Scott-Lassiter/Alphanumeric-Encoder/issues/41)
+
 ### [1.5.1](https://github.com/M-Scott-Lassiter/Alphanumeric-Encoder/compare/v1.5.0...v1.5.1) (2022-05-14)
 
 ### :lady_beetle: Bug Fixes
