@@ -1,6 +1,6 @@
 {
     "name": "alphanumeric-encoder",
-    "version": "1.5.0",
+    "version": "1.5.1",
     "description": "Encodes a number to a letter representation, or decodes it back",
     "keywords": [
         "alphanumeric",
