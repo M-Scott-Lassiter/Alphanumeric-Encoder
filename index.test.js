@@ -118,6 +118,18 @@ describe('Dictionary Validation', () => {
         }).toThrow(/undefined/)
     })
 
+    test.each([true, false])('Dictionary cannot be boolean %p', (input) => {
+        expect(() => {
+            encoder.dictionary = input
+        }).toThrow(/boolean/)
+    })
+
+    test('Dictionary cannot be NaN', () => {
+        expect(() => {
+            encoder.dictionary = NaN
+        }).toThrow(/NaN/)
+    })
+
     describe('Valid Dictionaries (no lower case)', () => {
         setupNewEncoderForTesting()
 

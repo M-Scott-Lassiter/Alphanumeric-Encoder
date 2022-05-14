@@ -77,8 +77,15 @@ class AlphanumericEncoder {
      */
     set dictionary(newDictionary) {
         // Check for empty dictionaries
-        if (newDictionary === null || newDictionary === undefined || newDictionary.length === 0) {
-            throw new RangeError('The dictionary cannot be null, undefined, or an empty string.')
+        if (
+            typeof newDictionary !== 'string' ||
+            newDictionary.length === 0 ||
+            // eslint-disable-next-line no-self-compare
+            newDictionary !== newDictionary // This verifies it wasn't passed NaN
+        ) {
+            throw new RangeError(
+                'The dictionary cannot be null, undefined, boolean, NaN, or an empty string.'
+            )
         }
 
         // Check for invalid characters. Using a regular expression, make sure only letters and numbers are allowed.
