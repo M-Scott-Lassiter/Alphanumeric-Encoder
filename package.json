@@ -19,6 +19,7 @@
     "author": "M. Scott Lassiter",
     "files": [
         "index.js",
+        "index.d.ts",
         "LICENSE",
         "package.json",
         "package-lock.json"
