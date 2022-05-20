@@ -29,11 +29,11 @@ A class for encoding and decoding base 10 integers to a custom alphanumeric base
 
 ### Parameters
 
--   `configOptions` **[object][21]?** Optional object defining initial settings for the class (optional, default `{}`)
+-   `configOptions` **[object][21]?** Optional object defining initial settings for the class (optional, default `{allowLowerCaseDictionary:false,dictionary:'ABCDEFGHIJKLMNOPQRSTUVWXYZ'}`)
 
-    -   `configOptions.allowLowerCaseDictionary` **[boolean][22]?** Whether or not to allow lower case letters in the dictionary
-    -   `configOptions.dictionary` **[string][23]?** Starting dictionary to use. Must contain only letters or numbers. Characters cannot be repeated.
-        If `allowLowerCaseDictionary = true`, then lower case letters are not considered the same as upper case. (e.g. 'ABCabc' has 6 unique characters.)
+    -   `configOptions.allowLowerCaseDictionary` **[boolean][22]** Whether or not to allow lower case letters in the dictionary (optional, default `false`)
+    -   `configOptions.dictionary` **[string][23]** Starting dictionary to use. Must contain only letters or numbers. Characters cannot be repeated.
+        If `allowLowerCaseDictionary = true`, then lower case letters are not considered the same as upper case. (e.g. 'ABCabc' has 6 unique characters.) (optional, default `'ABCDEFGHIJKLMNOPQRSTUVWXYZ'`)
 
 ### Examples
 
@@ -239,6 +239,10 @@ console.log(encoder.deconstruct('')) // undefined
 
 Returns **[Array][27]<[number][25]>** An array of numbers. Characters not present in the dictionary are treated as letters and return `undefined` for that array value.
 Passing an empty string (`''`), `null`, or `undefined` will return `undefined` for the whole function.
+
+##
+
+Type: [string][23]
 
 [1]: #alphanumericencoder
 [2]: #parameters

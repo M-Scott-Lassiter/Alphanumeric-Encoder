@@ -1,10 +1,8 @@
-// @ts-check
-
 /**
  * A class for encoding and decoding base 10 integers to a custom alphanumeric base representation.
  * @param {object} [configOptions] Optional object defining initial settings for the class
- * @param {boolean} [configOptions.allowLowerCaseDictionary] Whether or not to allow lower case letters in the dictionary
- * @param {string} [configOptions.dictionary] Starting dictionary to use. Must contain only letters or numbers. Characters cannot be repeated.
+ * @param {boolean} [configOptions.allowLowerCaseDictionary=false] Whether or not to allow lower case letters in the dictionary
+ * @param {string} [configOptions.dictionary='ABCDEFGHIJKLMNOPQRSTUVWXYZ'] Starting dictionary to use. Must contain only letters or numbers. Characters cannot be repeated.
  * If `allowLowerCaseDictionary = true`, then lower case letters are not considered the same as upper case. (e.g. 'ABCabc' has 6 unique characters.)
  * @example
  * // Import into a project
@@ -26,7 +24,12 @@
  * const encoder = new AlphanumericEncoder(configOptions)
  */
 class AlphanumericEncoder {
-    constructor(configOptions = {}) {
+    constructor(
+        configOptions = {
+            allowLowerCaseDictionary: false,
+            dictionary: 'ABCDEFGHIJKLMNOPQRSTUVWXYZ'
+        }
+    ) {
         /**
          * @private
          * @type {string} Internal value used to initialize and reset the dictionary
@@ -209,8 +212,15 @@ class AlphanumericEncoder {
             )
         }
 
+        /**
+         * Takes a letter between 0 and max letter length and returns the corresponding letter
+         *
+         * @private
+         * @param {number} num The index to search for
+         * @param {string} dictionary The dictionary used to search
+         * @returns {string} The letter corresponding to this number index
+         */
         function numToLetter(num, dictionary) {
-            // Takes a letter between 0 and max letter length and returns the corresponding letter
             if (num === 0) {
                 return undefined
             }
@@ -330,12 +340,17 @@ class AlphanumericEncoder {
         }
 
         const safeString = String(stringToDeconstruct) // Force argument to string to process number arguments and prevent slice from throwing an error
+        /**
+         * @private
+         * @type {number[]} Array of numbers after splitting a string.
+         * Elements include (in order) the number or decoded number from a letter.
+         */
         const deconstructedArray = []
         let character = ''
         let componentPart = safeString.slice(0, 1) // Initialize with the first character (which has been guranteed present by above guard functions)
 
         // A helper function to push the final component into the array that gets returned. Numbers get added as is, strings get decoded.
-        const addDecodedElement = (componentString) => {
+        const addDecodedElement = (/** @type {string} */ componentString) => {
             if (componentString.match(/[0-9]/)) {
                 deconstructedArray.push(Number.parseInt(componentString, 10)) // Numbers
             } else {
