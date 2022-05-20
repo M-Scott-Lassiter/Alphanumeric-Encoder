@@ -1,3 +1,16 @@
+## [1.6.0-beta.1](https://github.com/M-Scott-Lassiter/Alphanumeric-Encoder/compare/v1.5.2...v1.6.0-beta.1) (2022-05-20)
+
+
+### :building_construction: Build Changes
+
+* change the semantic-release configuration to a shared config ([c2a19fa](https://github.com/M-Scott-Lassiter/Alphanumeric-Encoder/commit/c2a19fa455444bd07af0968b00d2988369f7680c))
+* ignore CHANGELOG.md from linting and formatting ([2e3ca94](https://github.com/M-Scott-Lassiter/Alphanumeric-Encoder/commit/2e3ca941b4343144d551f4e769f1d95b7d64a6ce))
+
+
+### :gift: Feature Changes
+
+* add typescript bindings to the encoder ([e1cd754](https://github.com/M-Scott-Lassiter/Alphanumeric-Encoder/commit/e1cd754472567e61b9f0b420bad3899c988afe0c)), closes [#43](https://github.com/M-Scott-Lassiter/Alphanumeric-Encoder/issues/43)
+
 ### [1.5.2](https://github.com/M-Scott-Lassiter/Alphanumeric-Encoder/compare/v1.5.1...v1.5.2) (2022-05-14)
 
 
