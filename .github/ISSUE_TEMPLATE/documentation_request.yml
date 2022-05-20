@@ -10,14 +10,6 @@ body:
       value: |
         Thank you taking the time to fill out this request!
   - type: input
-    id: contact
-    attributes:
-      label: Contact Details
-      description: How can I get in touch with you if needed for more info?
-      placeholder: ex. email@example.com
-    validations:
-      required: false
-  - type: input
     id: component
     attributes:
       label: Component
