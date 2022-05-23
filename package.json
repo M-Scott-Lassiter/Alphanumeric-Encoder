@@ -1,6 +1,6 @@
 {
     "name": "alphanumeric-encoder",
-    "version": "1.6.0-beta.1",
+    "version": "1.6.0-beta.2",
     "description": "Encodes a number to a letter representation, or decodes it back",
     "keywords": [
         "alphanumeric",
@@ -19,6 +19,7 @@
     "author": "M. Scott Lassiter",
     "files": [
         "index.js",
+        "index.d.ts",
         "LICENSE",
         "package.json",
         "package-lock.json"

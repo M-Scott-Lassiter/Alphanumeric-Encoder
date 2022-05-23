@@ -1,3 +1,10 @@
+## [1.6.0-beta.2](https://github.com/M-Scott-Lassiter/Alphanumeric-Encoder/compare/v1.6.0-beta.1...v1.6.0-beta.2) (2022-05-20)
+
+
+### :lady_beetle: Bug Fixes
+
+* add typescript definition file to "files" key ([009460c](https://github.com/M-Scott-Lassiter/Alphanumeric-Encoder/commit/009460cb87ebc18b5bbbc6fe90db932232afce1b)), closes [#43](https://github.com/M-Scott-Lassiter/Alphanumeric-Encoder/issues/43)
+
 ## [1.6.0-beta.1](https://github.com/M-Scott-Lassiter/Alphanumeric-Encoder/compare/v1.5.2...v1.6.0-beta.1) (2022-05-20)
 
 
