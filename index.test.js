@@ -1,3 +1,5 @@
+// @ts-check
+
 const AlphanumericEncoder = require('./index')
 
 let encoder = new AlphanumericEncoder({
@@ -68,6 +70,7 @@ describe('Allow Lower Case Dictionaries', () => {
     test.each([true, 1, [123], { value: 1 }])(
         'allowLowerCaseDictionary with truthy value %p',
         (truthyTestValue) => {
+            // @ts-ignore
             encoder.allowLowerCaseDictionary = truthyTestValue
             expect(encoder.allowLowerCaseDictionary).toBeTruthy()
         }
@@ -77,6 +80,7 @@ describe('Allow Lower Case Dictionaries', () => {
         'allowLowerCaseDictionary with truthy value in setup: new AlphanumericEncoder({ allowLowerCaseDictionary: %p })',
         (truthyTestValue) => {
             const setupEncoder = new AlphanumericEncoder({
+                // @ts-ignore
                 allowLowerCaseDictionary: truthyTestValue
             })
             expect(setupEncoder.allowLowerCaseDictionary).toBeTruthy()
@@ -86,6 +90,7 @@ describe('Allow Lower Case Dictionaries', () => {
     test.each([false, 0, null, undefined])(
         'allowLowerCaseDictionary with falsy value %p',
         (truthyTestValue) => {
+            // @ts-ignore
             encoder.allowLowerCaseDictionary = truthyTestValue
             expect(encoder.allowLowerCaseDictionary).toBeFalsy()
         }
@@ -95,6 +100,7 @@ describe('Allow Lower Case Dictionaries', () => {
         'allowLowerCaseDictionary with falsy value in setup: new AlphanumericEncoder({ allowLowerCaseDictionary: %p })',
         (truthyTestValue) => {
             const setupEncoder = new AlphanumericEncoder({
+                // @ts-ignore
                 allowLowerCaseDictionary: truthyTestValue
             })
             expect(setupEncoder.allowLowerCaseDictionary).toBeFalsy()
@@ -157,6 +163,7 @@ describe('Dictionary Validation', () => {
             expect(() => {
                 // eslint-disable-next-line no-unused-vars
                 const setupEncoder = new AlphanumericEncoder({
+                    // @ts-ignore
                     dictionary: dictionaryInput
                 })
             }).toThrow()

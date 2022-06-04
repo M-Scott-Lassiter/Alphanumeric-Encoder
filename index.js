@@ -1,3 +1,5 @@
+// @ts-check
+
 /**
  * A class for encoding and decoding base 10 integers to a custom alphanumeric base representation.
  * @param {object} [configOptions] Optional object defining initial settings for the class
@@ -171,7 +173,7 @@ class AlphanumericEncoder {
      * @param {number} integerToEncode Base 10 integer. If passed a non-integer number, decimal values are truncated.
      * Passing zero, negative numbers, or non-numbers will return `undefined`.
      * @throws {RangeError} if `integerToEncode` exceeds the maximum safe integer for Javascript (`2^53 - 1 = 9007199254740991`).
-     * @returns {string} Dictionary encoded value
+     * @returns {string|undefined} Dictionary encoded value. Returns undefined of passed negative numbers or NaN
      *
      * @example
      * const encoder = new AlphanumericEncoder()
@@ -309,9 +311,9 @@ class AlphanumericEncoder {
     /**
      * Takes any string of letters and numbers and deconstructs it into an array of base 10 integers based on the defined dictionary.
      *
-     * @param {string|number} stringToDeconstruct A string of letters and numbers (e.g. `'A7'`, `'AC22'`, `'7C10F'`)
+     * @param {string} stringToDeconstruct A string of letters and numbers (e.g. `'A7'`, `'AC22'`, `'7C10F'`)
      * @throws {Error} if the dictionary contains a number as this function would be unable to differentiate between where a number and dictionary value.
-     * @returns {number[]} An array of numbers. Characters not present in the dictionary are treated as letters and return `undefined` for that array value.
+     * @returns {(number|undefined)[]|undefined} An array of numbers. Characters not present in the dictionary are treated as letters and return `undefined` for that array value.
      * Passing an empty string (`''`), `null`, or `undefined` will return `undefined` for the whole function.
      * @example
      * const encoder = new AlphanumericEncoder()

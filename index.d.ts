@@ -1,9 +1,11 @@
+// @ts-check
+
 // Manually generated from https://www.typescriptlang.org/play
 
-export class AlphanumericEncoder {
+declare class AlphanumericEncoder {
     constructor(configOptions?: {
-        allowLowerCaseDictionary: boolean | undefined
-        dictionary: string | undefined
+        allowLowerCaseDictionary?: boolean | undefined
+        dictionary?: string | undefined
     })
     private _defaultDictionary
     private _dictionaryInUse
@@ -17,9 +19,11 @@ export class AlphanumericEncoder {
 
     resetDefaultDictionary(): void
 
-    encode(integerToEncode: number): string
+    encode(integerToEncode: number): string | undefined
 
-    decode(stringToDecode: string): number
+    decode(stringToDecode: string): number | undefined
 
-    deconstruct(stringToDeconstruct: string | number): number[]
+    deconstruct(stringToDeconstruct: string): (number | undefined)[] | undefined
 }
+
+export = AlphanumericEncoder
