@@ -1,3 +1,15 @@
+## [1.6.0-beta.3](https://github.com/M-Scott-Lassiter/Alphanumeric-Encoder/compare/v1.6.0-beta.2...v1.6.0-beta.3) (2022-06-04)
+
+
+### :building_construction: Build Changes
+
+* update commitizen configuration for API ([f40be7f](https://github.com/M-Scott-Lassiter/Alphanumeric-Encoder/commit/f40be7ff983cd7997be370d591b12b04e92e901f))
+
+
+### :lady_beetle: Bug Fixes
+
+* correct problems with Typescript definitions and JSDoc comments ([b891650](https://github.com/M-Scott-Lassiter/Alphanumeric-Encoder/commit/b891650b2a0c6891bcb7a265fbd39a06908240cc)), closes [#43](https://github.com/M-Scott-Lassiter/Alphanumeric-Encoder/issues/43)
+
 ## [1.6.0-beta.2](https://github.com/M-Scott-Lassiter/Alphanumeric-Encoder/compare/v1.6.0-beta.1...v1.6.0-beta.2) (2022-05-20)
 
 
