@@ -1,3 +1,24 @@
+## [1.6.0](https://github.com/M-Scott-Lassiter/Alphanumeric-Encoder/compare/v1.5.2...v1.6.0) (2022-06-11)
+
+
+### :gift: Feature Changes
+
+* add typescript bindings to the encoder ([e1cd754](https://github.com/M-Scott-Lassiter/Alphanumeric-Encoder/commit/e1cd754472567e61b9f0b420bad3899c988afe0c)), closes [#43](https://github.com/M-Scott-Lassiter/Alphanumeric-Encoder/issues/43)
+
+
+### :lady_beetle: Bug Fixes
+
+* add typescript definition file to "files" key ([009460c](https://github.com/M-Scott-Lassiter/Alphanumeric-Encoder/commit/009460cb87ebc18b5bbbc6fe90db932232afce1b)), closes [#43](https://github.com/M-Scott-Lassiter/Alphanumeric-Encoder/issues/43)
+* correct problems with Typescript definitions and JSDoc comments ([b891650](https://github.com/M-Scott-Lassiter/Alphanumeric-Encoder/commit/b891650b2a0c6891bcb7a265fbd39a06908240cc)), closes [#43](https://github.com/M-Scott-Lassiter/Alphanumeric-Encoder/issues/43)
+
+
+### :building_construction: Build Changes
+
+* change the semantic-release configuration to a shared config ([c2a19fa](https://github.com/M-Scott-Lassiter/Alphanumeric-Encoder/commit/c2a19fa455444bd07af0968b00d2988369f7680c))
+* ignore CHANGELOG.md from linting and formatting ([2e3ca94](https://github.com/M-Scott-Lassiter/Alphanumeric-Encoder/commit/2e3ca941b4343144d551f4e769f1d95b7d64a6ce))
+* update commitizen configuration for API ([f40be7f](https://github.com/M-Scott-Lassiter/Alphanumeric-Encoder/commit/f40be7ff983cd7997be370d591b12b04e92e901f))
+* update dev dependencies ([150c77b](https://github.com/M-Scott-Lassiter/Alphanumeric-Encoder/commit/150c77bff7baf2e414375b1e2661e23d7f3ea901))
+
 ## [1.6.0-beta.3](https://github.com/M-Scott-Lassiter/Alphanumeric-Encoder/compare/v1.6.0-beta.2...v1.6.0-beta.3) (2022-06-04)
 
 
