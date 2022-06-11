@@ -1,5 +1,26 @@
+const encoderMethods = [
+    { name: 'dictionary' },
+    { name: 'allowLowerCaseDictionary' },
+    { name: 'resetDefaultDictionary' },
+    { name: 'encode' },
+    { name: 'decode' },
+    { name: 'deconstruct' }
+]
+
+const documentation = [
+    { name: 'contributing' },
+    { name: 'code of conduct' },
+    { name: 'license' },
+    { name: 'readme' },
+    { name: 'security' }
+]
+
 module.exports = {
     types: [
+        {
+            value: 'api',
+            name: 'api:      Non-functional changes to code API documentation that help other developers understand how to use a tool or feature (i.e. intellisense)'
+        },
         {
             value: 'build',
             name: 'build:    Changes that affect the build system configuration, package scripts, or dev dependencies (i.e. adds/remove/modify/update)'
@@ -26,13 +47,7 @@ module.exports = {
         { value: 'test', name: 'test:     Add missing tests or correct existing tests' }
     ],
 
-    scopes: [
-        { name: 'api' },
-        { name: 'contributing' },
-        { name: 'license' },
-        { name: 'readme' },
-        { name: 'security' }
-    ],
+    scopes: [...encoderMethods, ...documentation],
 
     allowTicketNumber: false,
     isTicketNumberRequired: false,
@@ -40,16 +55,16 @@ module.exports = {
     ticketNumberRegExp: '\\d{1,5}',
 
     // it needs to match the value for field type. Eg.: 'fix'
-    /*
     scopeOverrides: {
-      fix: [
-        {name: 'merge'},
-        {name: 'style'},
-        {name: 'e2eTest'},
-        {name: 'unitTest'}
-      ]
+        api: encoderMethods,
+        ci: [{ name: 'publish' }, { name: 'test' }, { name: 'hooks' }],
+        docs: documentation,
+        fix: encoderMethods,
+        perf: encoderMethods,
+        refactor: encoderMethods,
+        test: encoderMethods
     },
-    */
+
     // override the messages, defaults are as follows
     messages: {
         type: "Select the type of change that you're committing:",

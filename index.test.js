@@ -2,7 +2,10 @@
 
 const AlphanumericEncoder = require('./index')
 
-let encoder = new AlphanumericEncoder()
+let encoder = new AlphanumericEncoder({
+    allowLowerCaseDictionary: false,
+    dictionary: 'ABCDEFGHIJKLMNOPQRSTUVWXYZ'
+})
 
 const numberToEncodedLetters = [
     [1, 'A'],
@@ -77,6 +80,7 @@ describe('Allow Lower Case Dictionaries', () => {
         'allowLowerCaseDictionary with truthy value in setup: new AlphanumericEncoder({ allowLowerCaseDictionary: %p })',
         (truthyTestValue) => {
             const setupEncoder = new AlphanumericEncoder({
+                // @ts-ignore
                 allowLowerCaseDictionary: truthyTestValue
             })
             expect(setupEncoder.allowLowerCaseDictionary).toBeTruthy()
@@ -96,6 +100,7 @@ describe('Allow Lower Case Dictionaries', () => {
         'allowLowerCaseDictionary with falsy value in setup: new AlphanumericEncoder({ allowLowerCaseDictionary: %p })',
         (truthyTestValue) => {
             const setupEncoder = new AlphanumericEncoder({
+                // @ts-ignore
                 allowLowerCaseDictionary: truthyTestValue
             })
             expect(setupEncoder.allowLowerCaseDictionary).toBeFalsy()
@@ -158,6 +163,7 @@ describe('Dictionary Validation', () => {
             expect(() => {
                 // eslint-disable-next-line no-unused-vars
                 const setupEncoder = new AlphanumericEncoder({
+                    // @ts-ignore
                     dictionary: dictionaryInput
                 })
             }).toThrow()
@@ -317,7 +323,7 @@ describe('Test Decoding', () => {
 
     test('Expect decoding strings to integers greater than Number.MAX_SAFE_INTEGER throws an error', () => {
         expect(() => {
-            encoder.decode('BKTXHSOGHKKF')
+            encoder.decode('BKTXHSOGHKKF') // BKTXHSOGHKKE is what max safe integer encodes to under default dictionary
         }).toThrow(/maximum safe integer/)
     })
 

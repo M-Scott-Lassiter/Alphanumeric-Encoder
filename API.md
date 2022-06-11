@@ -29,11 +29,11 @@ A class for encoding and decoding base 10 integers to a custom alphanumeric base
 
 ### Parameters
 
--   `configOptions` **[object][21]?** Optional object defining initial settings for the class (optional, default `{}`)
+-   `configOptions` **[object][21]?** Optional object defining initial settings for the class (optional, default `{allowLowerCaseDictionary:false,dictionary:'ABCDEFGHIJKLMNOPQRSTUVWXYZ'}`)
 
-    -   `configOptions.allowLowerCaseDictionary` **[boolean][22]?** Whether or not to allow lower case letters in the dictionary
-    -   `configOptions.dictionary` **[string][23]?** Starting dictionary to use. Must contain only letters or numbers. Characters cannot be repeated.
-        If `allowLowerCaseDictionary = true`, then lower case letters are not considered the same as upper case. (e.g. 'ABCabc' has 6 unique characters.)
+    -   `configOptions.allowLowerCaseDictionary` **[boolean][22]** Whether or not to allow lower case letters in the dictionary (optional, default `false`)
+    -   `configOptions.dictionary` **[string][23]** Starting dictionary to use. Must contain only letters or numbers. Characters cannot be repeated.
+        If `allowLowerCaseDictionary = true`, then lower case letters are not considered the same as upper case. (e.g. 'ABCabc' has 6 unique characters.) (optional, default `'ABCDEFGHIJKLMNOPQRSTUVWXYZ'`)
 
 ### Examples
 
@@ -175,7 +175,7 @@ console.log(encoder.encode(undefined)) // undefined
 
 -   Throws **[RangeError][24]** if `integerToEncode` exceeds the maximum safe integer for Javascript (`2^53 - 1 = 9007199254740991`).
 
-Returns **[string][23]** Dictionary encoded value
+Returns **([string][23] | [undefined][26])** Dictionary encoded value. Returns undefined of passed negative numbers or NaN
 
 ### decode
 
@@ -221,7 +221,7 @@ Takes any string of letters and numbers and deconstructs it into an array of bas
 
 #### Parameters
 
--   `stringToDeconstruct` **([string][23] | [number][25])** A string of letters and numbers (e.g. `'A7'`, `'AC22'`, `'7C10F'`)
+-   `stringToDeconstruct` **[string][23]** A string of letters and numbers (e.g. `'A7'`, `'AC22'`, `'7C10F'`)
 
 #### Examples
 
@@ -235,10 +235,14 @@ console.log(encoder.deconstruct('7AC!23A1%')) // [7, undefined, 23, 1, 1, undefi
 console.log(encoder.deconstruct('')) // undefined
 ```
 
--   Throws **[Error][26]** if the dictionary contains a number as this function would be unable to differentiate between where a number and dictionary value.
+-   Throws **[Error][27]** if the dictionary contains a number as this function would be unable to differentiate between where a number and dictionary value.
 
-Returns **[Array][27]<[number][25]>** An array of numbers. Characters not present in the dictionary are treated as letters and return `undefined` for that array value.
+Returns **([Array][28]<([number][25] | [undefined][26])> | [undefined][26])** An array of numbers. Characters not present in the dictionary are treated as letters and return `undefined` for that array value.
 Passing an empty string (`''`), `null`, or `undefined` will return `undefined` for the whole function.
+
+##
+
+Type: [string][23]
 
 [1]: #alphanumericencoder
 [2]: #parameters
@@ -265,5 +269,6 @@ Passing an empty string (`''`), `null`, or `undefined` will return `undefined` f
 [23]: https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String
 [24]: https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/RangeError
 [25]: https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Number
-[26]: https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Error
-[27]: https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Array
+[26]: https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/undefined
+[27]: https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Error
+[28]: https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Array
